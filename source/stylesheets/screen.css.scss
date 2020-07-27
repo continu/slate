@@ -31,6 +31,8 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   @extend %default-font;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.45;
   background-color: $main-bg;
   height: 100%;
   -webkit-text-size-adjust: none; /* Never autoresize text */
@@ -42,7 +44,7 @@ html, body {
 
 #toc > ul > li > a > span {
   float: right;
-  background-color: #2484FF;
+  background-color: $color-main;
   border-radius: 40px;
   width: 20px;
 }
@@ -76,6 +78,11 @@ html, body {
     display: block;
     max-width: 100%;
     margin-bottom: $logo-margin;
+    padding: 2rem 2rem 1rem;
+
+    img {
+      max-width: 100%;
+    }
   }
 
   &>.search {
@@ -92,6 +99,10 @@ html, body {
       outline: none;
       color: $nav-text;
       border-radius: 0; /* ios has a default border radius */
+
+      &::placeholder {
+        color: $nav-text;
+      }
     }
 
     &:before {
@@ -192,6 +203,16 @@ html, body {
       font-size: 0.8em;
       line-height: 1.7;
       text-decoration: none;
+    }
+  }
+}
+
+// General Anchors
+a {
+  color: $color-main;
+  .content & {
+    &:visited {
+      color: $color-main-hover;
     }
   }
 }
@@ -481,8 +502,8 @@ html, body {
 
   aside:before {
     vertical-align: middle;
-    padding-right: 0.5em;
-    font-size: 14px;
+    padding-right: 0.25em;
+    font-size: 16px;
   }
 
   aside.notice:before {

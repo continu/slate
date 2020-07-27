@@ -1,241 +1,1073 @@
 ---
-title: API Reference
-
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
-
-includes:
-  - errors
-
+title: Continu's Open API v1.0
+language_tabs:
+  - go: Go
+  - http: HTTP
+  - javascript: JavaScript
+  - javascript--node: Node.JS
+  - python: Python
+  - ruby: Ruby
+toc_footers: []
+includes: []
 search: true
+highlight_theme: darkula
+headingLevel: 2
 
-code_clipboard: true
 ---
 
-# Introduction
+<!-- Generator: Widdershins v4.0.1 -->
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+<h1 id="continu-s-open-api">Continu's Open API v1.0</h1>
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Continu's Open API is a REST service that provides access to your Training, Completion, Attendance, and other important data.
+
+<a href="https://continu.co/">Terms of service</a>
+Email: <a href="mailto:support@continu.co">API Support</a> Web: <a href="https://continu.co/help">API Support</a> 
+License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a>
 
 # Authentication
 
-> To authorize, use this code:
+* API Key (ApiKeyAuth)
+    - Parameter Name: **Authorization**, in: header. 
 
-```ruby
-require 'kittn'
+<h1 id="continu-s-open-api-assessments">Assessments</h1>
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+## get__completion_assessments
 
-```python
-import kittn
+`GET /completion/assessments`
 
-api = kittn.authorize('meowmeowmeow')
-```
+*Lists User Assessments for all the user emails in the mandatory for_users argument*
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
+Lists User Assessments for all the user emails in the mandatory for_users argument, which should be a comma separated list of email addresses for which Assessment Information is required.
+And optionally, a given date range query parameter in the form of from Unix Epoch timestamp, and until Unix Epoch timestamp, which will restrict the list of Assessments to those assigned within from and until arguments.
 
-```javascript
-const kittn = require('kittn');
+<h3 id="get__completion_assessments-parameters">Parameters</h3>
 
-let api = kittn.authorize('meowmeowmeow');
-```
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|for_users|query|string|true|Comma Separated List of users for which to return the AssessmentsList|
+|from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|Authorization|header|string|true|The Authorization Header and Token|
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Example responses
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> 200 Response
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "assessments": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "attempts": {
+              "type": "integer"
+            },
+            "completion_status": {
+              "type": "string"
+            },
+            "grading_status": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "passed_date": {
+              "type": "string"
+            },
+            "score": {
+              "type": "integer"
+            },
+            "start_date": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "email": {
+        "type": "string"
+      },
+      "first_name": {
+        "type": "string"
+      },
+      "last_name": {
+        "type": "string"
+      },
+      "user_id": {
+        "type": "string"
+      }
+    }
   }
-]
+}
 ```
 
-This endpoint retrieves all kittens.
+<h3 id="get__completion_assessments-responses">Responses</h3>
 
-### HTTP Request
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|number|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|number|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|number|
 
-`GET http://example.com/api/kittens`
+<h3 id="get__completion_assessments-responseschema">Response Schema</h3>
 
-### Query Parameters
+Status Code **200**
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[controllers.UserAssessments](#schemacontrollers.userassessments)]|false|none|none|
+|» assessments|[[controllers.Assessment](#schemacontrollers.assessment)]|false|none|none|
+|»» attempts|integer|false|none|none|
+|»» completion_status|string|false|none|none|
+|»» grading_status|string|false|none|none|
+|»» id|string|false|none|none|
+|»» passed_date|string|false|none|none|
+|»» score|integer|false|none|none|
+|»» start_date|string|false|none|none|
+|»» title|string|false|none|none|
+|»» type|string|false|none|none|
+|» email|string|false|none|none|
+|» first_name|string|false|none|none|
+|» last_name|string|false|none|none|
+|» user_id|string|false|none|none|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+<h1 id="continu-s-open-api-assignments">Assignments</h1>
+
+## get__completion_assignments
+
+`GET /completion/assignments`
+
+*Lists User Assignments for all the user emails in the mandatory for_users argument*
+
+Lists User Assignments for all the user emails in the mandatory for_users argument, which should be a comma separated list of email addresses for which Assignment Information is required.
+And optionally, a given date range query parameter in the form of from Unix Epoch timestamp, and until Unix Epoch timestamp, which will restrict the list of Assignments to those assigned within from and until arguments.
+
+<h3 id="get__completion_assignments-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|for_users|query|string|true|Comma Separated List of users for which to return the AssignmentsList|
+|from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|Authorization|header|string|true|The Authorization Header and Token|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "assignments": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "assigned_content": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "completed_date": {
+                    "type": "string"
+                  },
+                  "content_id": {
+                    "type": "string"
+                  },
+                  "content_title": {
+                    "type": "string"
+                  },
+                  "content_type": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "assigned_date": {
+              "type": "string"
+            },
+            "assignment_id": {
+              "type": "string"
+            },
+            "completed": {
+              "type": "boolean"
+            },
+            "completed_date": {
+              "type": "string"
+            },
+            "completion_status": {
+              "type": "string"
+            },
+            "due_date": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "email": {
+        "type": "string"
+      },
+      "first_name": {
+        "type": "string"
+      },
+      "last_name": {
+        "type": "string"
+      },
+      "user_id": {
+        "type": "string"
+      }
+    }
+  }
+}
+```
+
+<h3 id="get__completion_assignments-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|number|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|number|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|number|
+
+<h3 id="get__completion_assignments-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[controllers.UserAssignments](#schemacontrollers.userassignments)]|false|none|none|
+|» assignments|[[controllers.AssignmentRecord](#schemacontrollers.assignmentrecord)]|false|none|none|
+|»» assigned_content|[[controllers.ContentRecord](#schemacontrollers.contentrecord)]|false|none|none|
+|»»» completed_date|string|false|none|none|
+|»»» content_id|string|false|none|none|
+|»»» content_title|string|false|none|none|
+|»»» content_type|string|false|none|none|
+|»» assigned_date|string|false|none|none|
+|»» assignment_id|string|false|none|none|
+|»» completed|boolean|false|none|none|
+|»» completed_date|string|false|none|none|
+|»» completion_status|string|false|none|none|
+|»» due_date|string|false|none|none|
+|» email|string|false|none|none|
+|» first_name|string|false|none|none|
+|» last_name|string|false|none|none|
+|» user_id|string|false|none|none|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+<h1 id="continu-s-open-api-tracks">Tracks</h1>
+
+## get__completion_tracks
+
+`GET /completion/tracks`
+
+*Lists User Tracks for all the user emails in the mandatory for_users argument*
+
+Lists User Tracks for all the user emails in the mandatory for_users argument, which should be a comma separated list of email addresses for which Track Information is required.
+And optionally, a given date range query parameter in the form of from Unix Epoch timestamp, and until Unix Epoch timestamp, which will restrict the list of Tracks to those assigned within from and until arguments.
+
+<h3 id="get__completion_tracks-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|for_users|query|string|true|Comma Separated List of users for which to return the TracksList|
+|from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|Authorization|header|string|true|The Authorization Header and Token|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "email": {
+        "type": "string"
+      },
+      "first_name": {
+        "type": "string"
+      },
+      "last_name": {
+        "type": "string"
+      },
+      "tracks": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "completed": {
+              "type": "boolean"
+            },
+            "completed_date": {
+              "type": "string"
+            },
+            "duration": {
+              "type": "integer"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "progress": {
+              "type": "integer"
+            },
+            "start_date": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "user_id": {
+        "type": "string"
+      }
+    }
+  }
+}
+```
+
+<h3 id="get__completion_tracks-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|number|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|number|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|number|
+
+<h3 id="get__completion_tracks-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[controllers.UserTracks](#schemacontrollers.usertracks)]|false|none|none|
+|» email|string|false|none|none|
+|» first_name|string|false|none|none|
+|» last_name|string|false|none|none|
+|» tracks|[[controllers.Track](#schemacontrollers.track)]|false|none|none|
+|»» completed|boolean|false|none|none|
+|»» completed_date|string|false|none|none|
+|»» duration|integer|false|none|none|
+|»» id|string|false|none|none|
+|»» name|string|false|none|none|
+|»» progress|integer|false|none|none|
+|»» start_date|string|false|none|none|
+|» user_id|string|false|none|none|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+<h1 id="continu-s-open-api-workshops">Workshops</h1>
+
+## get__completion_workshops
+
+`GET /completion/workshops`
+
+*Lists User Workshops for all the user emails in the mandatory for_users argument*
+
+Lists User Workshops for all the user emails in the mandatory for_users argument, which should be a comma separated list of email addresses for which Workshop Information is required.
+And optionally, a given date range query parameter in the form of from Unix Epoch timestamp, and until Unix Epoch timestamp, which will restrict the list of Workshops to those assigned within from and until arguments.
+
+<h3 id="get__completion_workshops-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|for_users|query|string|true|Comma Separated List of users for which to return the WorkshopsList|
+|from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|Authorization|header|string|true|The Authorization Header and Token|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "email": {
+        "type": "string"
+      },
+      "first_name": {
+        "type": "string"
+      },
+      "last_name": {
+        "type": "string"
+      },
+      "user_id": {
+        "type": "string"
+      },
+      "workshops": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "facilitator": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+<h3 id="get__completion_workshops-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|number|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|number|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|number|
+
+<h3 id="get__completion_workshops-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[controllers.UserWorkshops](#schemacontrollers.userworkshops)]|false|none|none|
+|» email|string|false|none|none|
+|» first_name|string|false|none|none|
+|» last_name|string|false|none|none|
+|» user_id|string|false|none|none|
+|» workshops|[[controllers.Workshop](#schemacontrollers.workshop)]|false|none|none|
+|»» date|string|false|none|none|
+|»» facilitator|string|false|none|none|
+|»» id|string|false|none|none|
+|»» status|string|false|none|none|
+|»» title|string|false|none|none|
+|»» type|string|false|none|none|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+<h1 id="continu-s-open-api-status">Status</h1>
+
+## get__status_ping
+
+`GET /status/ping`
+
+*Ping methods returns a simple pong/alive signal*
+
+GET method that returns a pong/alive message to check API's responsiveness
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "type": "string"
+}
+```
+
+<h3 id="get__status_ping-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|string|
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+This operation does not require authentication
 </aside>
 
-## Get a Specific Kitten
+# Schemas
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+<h2 id="tocS_controllers.Assessment">controllers.Assessment</h2>
+<!-- backwards compatibility -->
+<a id="schemacontrollers.assessment"></a>
+<a id="schema_controllers.Assessment"></a>
+<a id="tocScontrollers.assessment"></a>
+<a id="tocscontrollers.assessment"></a>
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "type": "object",
+  "properties": {
+    "attempts": {
+      "type": "integer"
+    },
+    "completion_status": {
+      "type": "string"
+    },
+    "grading_status": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "passed_date": {
+      "type": "string"
+    },
+    "score": {
+      "type": "integer"
+    },
+    "start_date": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
 }
+
 ```
 
-This endpoint retrieves a specific kitten.
+### Properties
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|attempts|integer|false|none|none|
+|completion_status|string|false|none|none|
+|grading_status|string|false|none|none|
+|id|string|false|none|none|
+|passed_date|string|false|none|none|
+|score|integer|false|none|none|
+|start_date|string|false|none|none|
+|title|string|false|none|none|
+|type|string|false|none|none|
 
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
+<h2 id="tocS_controllers.AssignmentRecord">controllers.AssignmentRecord</h2>
+<!-- backwards compatibility -->
+<a id="schemacontrollers.assignmentrecord"></a>
+<a id="schema_controllers.AssignmentRecord"></a>
+<a id="tocScontrollers.assignmentrecord"></a>
+<a id="tocscontrollers.assignmentrecord"></a>
 
 ```json
 {
-  "id": 2,
-  "deleted" : ":("
+  "type": "object",
+  "properties": {
+    "assigned_content": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "completed_date": {
+            "type": "string"
+          },
+          "content_id": {
+            "type": "string"
+          },
+          "content_title": {
+            "type": "string"
+          },
+          "content_type": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "assigned_date": {
+      "type": "string"
+    },
+    "assignment_id": {
+      "type": "string"
+    },
+    "completed": {
+      "type": "boolean"
+    },
+    "completed_date": {
+      "type": "string"
+    },
+    "completion_status": {
+      "type": "string"
+    },
+    "due_date": {
+      "type": "string"
+    }
+  }
 }
+
 ```
 
-This endpoint deletes a specific kitten.
+### Properties
 
-### HTTP Request
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|assigned_content|[[controllers.ContentRecord](#schemacontrollers.contentrecord)]|false|none|none|
+|assigned_date|string|false|none|none|
+|assignment_id|string|false|none|none|
+|completed|boolean|false|none|none|
+|completed_date|string|false|none|none|
+|completion_status|string|false|none|none|
+|due_date|string|false|none|none|
 
-`DELETE http://example.com/kittens/<ID>`
+<h2 id="tocS_controllers.ContentRecord">controllers.ContentRecord</h2>
+<!-- backwards compatibility -->
+<a id="schemacontrollers.contentrecord"></a>
+<a id="schema_controllers.ContentRecord"></a>
+<a id="tocScontrollers.contentrecord"></a>
+<a id="tocscontrollers.contentrecord"></a>
 
-### URL Parameters
+```json
+{
+  "type": "object",
+  "properties": {
+    "completed_date": {
+      "type": "string"
+    },
+    "content_id": {
+      "type": "string"
+    },
+    "content_title": {
+      "type": "string"
+    },
+    "content_type": {
+      "type": "string"
+    }
+  }
+}
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|completed_date|string|false|none|none|
+|content_id|string|false|none|none|
+|content_title|string|false|none|none|
+|content_type|string|false|none|none|
+
+<h2 id="tocS_controllers.Track">controllers.Track</h2>
+<!-- backwards compatibility -->
+<a id="schemacontrollers.track"></a>
+<a id="schema_controllers.Track"></a>
+<a id="tocScontrollers.track"></a>
+<a id="tocscontrollers.track"></a>
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "completed": {
+      "type": "boolean"
+    },
+    "completed_date": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "progress": {
+      "type": "integer"
+    },
+    "start_date": {
+      "type": "string"
+    }
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|completed|boolean|false|none|none|
+|completed_date|string|false|none|none|
+|duration|integer|false|none|none|
+|id|string|false|none|none|
+|name|string|false|none|none|
+|progress|integer|false|none|none|
+|start_date|string|false|none|none|
+
+<h2 id="tocS_controllers.UserAssessments">controllers.UserAssessments</h2>
+<!-- backwards compatibility -->
+<a id="schemacontrollers.userassessments"></a>
+<a id="schema_controllers.UserAssessments"></a>
+<a id="tocScontrollers.userassessments"></a>
+<a id="tocscontrollers.userassessments"></a>
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "attempts": {
+            "type": "integer"
+          },
+          "completion_status": {
+            "type": "string"
+          },
+          "grading_status": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "passed_date": {
+            "type": "string"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "start_date": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "email": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    }
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|assessments|[[controllers.Assessment](#schemacontrollers.assessment)]|false|none|none|
+|email|string|false|none|none|
+|first_name|string|false|none|none|
+|last_name|string|false|none|none|
+|user_id|string|false|none|none|
+
+<h2 id="tocS_controllers.UserAssignments">controllers.UserAssignments</h2>
+<!-- backwards compatibility -->
+<a id="schemacontrollers.userassignments"></a>
+<a id="schema_controllers.UserAssignments"></a>
+<a id="tocScontrollers.userassignments"></a>
+<a id="tocscontrollers.userassignments"></a>
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "assignments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "assigned_content": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "completed_date": {
+                  "type": "string"
+                },
+                "content_id": {
+                  "type": "string"
+                },
+                "content_title": {
+                  "type": "string"
+                },
+                "content_type": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "assigned_date": {
+            "type": "string"
+          },
+          "assignment_id": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "completed_date": {
+            "type": "string"
+          },
+          "completion_status": {
+            "type": "string"
+          },
+          "due_date": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "email": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    }
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|assignments|[[controllers.AssignmentRecord](#schemacontrollers.assignmentrecord)]|false|none|none|
+|email|string|false|none|none|
+|first_name|string|false|none|none|
+|last_name|string|false|none|none|
+|user_id|string|false|none|none|
+
+<h2 id="tocS_controllers.UserTracks">controllers.UserTracks</h2>
+<!-- backwards compatibility -->
+<a id="schemacontrollers.usertracks"></a>
+<a id="schema_controllers.UserTracks"></a>
+<a id="tocScontrollers.usertracks"></a>
+<a id="tocscontrollers.usertracks"></a>
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "tracks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "completed": {
+            "type": "boolean"
+          },
+          "completed_date": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "integer"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "progress": {
+            "type": "integer"
+          },
+          "start_date": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "user_id": {
+      "type": "string"
+    }
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|email|string|false|none|none|
+|first_name|string|false|none|none|
+|last_name|string|false|none|none|
+|tracks|[[controllers.Track](#schemacontrollers.track)]|false|none|none|
+|user_id|string|false|none|none|
+
+<h2 id="tocS_controllers.UserWorkshops">controllers.UserWorkshops</h2>
+<!-- backwards compatibility -->
+<a id="schemacontrollers.userworkshops"></a>
+<a id="schema_controllers.UserWorkshops"></a>
+<a id="tocScontrollers.userworkshops"></a>
+<a id="tocscontrollers.userworkshops"></a>
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    },
+    "workshops": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "facilitator": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|email|string|false|none|none|
+|first_name|string|false|none|none|
+|last_name|string|false|none|none|
+|user_id|string|false|none|none|
+|workshops|[[controllers.Workshop](#schemacontrollers.workshop)]|false|none|none|
+
+<h2 id="tocS_controllers.Workshop">controllers.Workshop</h2>
+<!-- backwards compatibility -->
+<a id="schemacontrollers.workshop"></a>
+<a id="schema_controllers.Workshop"></a>
+<a id="tocScontrollers.workshop"></a>
+<a id="tocscontrollers.workshop"></a>
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string"
+    },
+    "facilitator": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|date|string|false|none|none|
+|facilitator|string|false|none|none|
+|id|string|false|none|none|
+|status|string|false|none|none|
+|title|string|false|none|none|
+|type|string|false|none|none|
 
