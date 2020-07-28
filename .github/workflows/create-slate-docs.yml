@@ -8,5 +8,6 @@ jobs:
     - name: Build documentation
       uses: docker://decathlon/slate-builder-action:2.0.0
       env:
-        DOC_BASE_FOLDER = .
-        ZIP_BUILD = 'false'
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DOC_BASE_FOLDER: "."
+        TEMPLATE_REPO: "decathlon/custom-slate"
