@@ -286,7 +286,7 @@
      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   </head>
 
-  <body class="index" data-languages="[&quot;go&quot;,&quot;http&quot;,&quot;javascript&quot;,&quot;javascript--node&quot;,&quot;python&quot;,&quot;ruby&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -298,12 +298,7 @@
         <img src="images/logo-9e895f9a.png" class="" alt="" />
       </div>
         <div class="lang-selector">
-              <a href="#" data-language-name="go">Go</a>
-              <a href="#" data-language-name="http">HTTP</a>
-              <a href="#" data-language-name="javascript">JavaScript</a>
-              <a href="#" data-language-name="javascript--node">Node.JS</a>
-              <a href="#" data-language-name="python">Python</a>
-              <a href="#" data-language-name="ruby">Ruby</a>
+              <a href="#" data-language-name="shell">curl</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -311,10 +306,13 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#continu-s-open-api" class="toc-h1 toc-link" data-title="Continu's Open API v1.0">Continu's Open API v1.0</a>
+            <a href="#home" class="toc-h1 toc-link" data-title="Continu API">Continu API</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#authenticationMain" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#rateLimit" class="toc-h1 toc-link" data-title="Rate Limit">Rate Limit</a>
           </li>
           <li>
             <a href="#continu-s-open-api-assessments" class="toc-h1 toc-link" data-title="Assessments">Assessments</a>
@@ -397,34 +395,72 @@
       <div class="content">
         <!-- Generator: Widdershins v4.0.1 -->
 
-<h1 id="continu-s-open-api">Continu's Open API v1.0</h1>
+<h1 id="home">Continu API</h1>
 
-<blockquote>
-<p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
-</blockquote>
+<p>Welcome to the Continu API. You can use our API to get access to learner completion information contained within Continu.</p>
 
-<p>Continu&#39;s Open API is a REST service that provides access to your Training, Completion, Attendance, and other important data.</p>
+<h1 id="authenticationMain">Authentication</h1>
 
-<p><a href="https://continu.co/">Terms of service</a>
-Email: <a href="mailto:support@continu.co">API Support</a> Web: <a href="https://continu.co/help">API Support</a> 
-License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a></p>
-<h1 id='authentication'>Authentication</h1>
-<ul>
-<li>API Key (ApiKeyAuth)
+<p>Continu uses the OAuth 2.0 protocol&#39;s Client Credentials Flow for authentication and authorization.
+With these credentials, the client requests a bearer access token. This token is retrieved by POST&#39;ing the following information:</p>
 
-<ul>
-<li>Parameter Name: <strong>Authorization</strong>, in: header. </li>
-</ul></li>
-</ul>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>client_id</em></td>
+<td>The ID of the client supplied by us</td>
+</tr>
+<tr>
+<td><em>client_secret</em></td>
+<td>The secret of the client supplied by us</td>
+</tr>
+</tbody></table>
+
+<p><code>
+https://usw2-api.continu.co/v3/oauth2/access-token
+</code></p>
+
+<p>The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format Bearer . Access tokens are valid only for the set of operations and resources described in the scope of the token request.</p>
+
+<p><code>
+curl -X POST -H "Content-Type: application/json" -d '{"client_id": "<id>", "client_secret": "<secret>"}' https://usw2-api.continu.co/v3/oauth2/access-token
+</code></p>
+
+<p>Which will return:
+<p><code>
+{&quot;access_token&quot;:&quot;&lt;token&gt;&quot;,&quot;token_type&quot;:&quot;bearer&quot;,&quot;expires_in&quot;:&lt;epoch&gt;}
+</code></p></p>
+
+<h1 id="rateLimit">Rate Limit</h1>
+
+<p>We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.</p>
+
+<p>Every response from our API contains the following headers:</p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Example</td>
+<td>Example</td>
+</tr>
+</tbody></table>
 
 <h1 id="continu-s-open-api-assessments">Assessments</h1>
 <h2 id='get__completion_assessments'>get__completion_assessments</h2>
 <p><code>GET /completion/assessments</code></p>
 
-<p><em>Lists User Assessments for all the user emails in the mandatory for_users argument</em></p>
+<p><em>Lists User Assessments Completion Information for all the user emails in the mandatory for_users argument</em></p>
 
-<p>Lists User Assessments for all the user emails in the mandatory for_users argument, which should be a comma separated list of email addresses for which Assessment Information is required.
-And optionally, a given date range query parameter in the form of from Unix Epoch timestamp, and until Unix Epoch timestamp, which will restrict the list of Assessments to those assigned within from and until arguments.</p>
+<p>This endpoints lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.
+You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
 
 <h3 id="get__completion_assessments-parameters">Parameters</h3>
 
@@ -684,19 +720,18 @@ And optionally, a given date range query parameter in the form of from Unix Epoc
 </tr>
 </tbody></table>
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-ApiKeyAuth
+<aside class="success">
+This operation does not require authentication
 </aside>
 
 <h1 id="continu-s-open-api-assignments">Assignments</h1>
 <h2 id='get__completion_assignments'>get__completion_assignments</h2>
 <p><code>GET /completion/assignments</code></p>
 
-<p><em>Lists User Assignments for all the user emails in the mandatory for_users argument</em></p>
+<p><em>Lists User Assignments Completion Information for all the user emails in the mandatory for_users argument</em></p>
 
-<p>Lists User Assignments for all the user emails in the mandatory for_users argument, which should be a comma separated list of email addresses for which Assignment Information is required.
-And optionally, a given date range query parameter in the form of from Unix Epoch timestamp, and until Unix Epoch timestamp, which will restrict the list of Assignments to those assigned within from and until arguments.</p>
+<p>This endpoints lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.
+You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
 
 <h3 id="get__completion_assignments-parameters">Parameters</h3>
 
@@ -981,19 +1016,18 @@ And optionally, a given date range query parameter in the form of from Unix Epoc
 </tr>
 </tbody></table>
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-ApiKeyAuth
+<aside class="success">
+This operation does not require authentication
 </aside>
 
 <h1 id="continu-s-open-api-tracks">Tracks</h1>
 <h2 id='get__completion_tracks'>get__completion_tracks</h2>
 <p><code>GET /completion/tracks</code></p>
 
-<p><em>Lists User Tracks for all the user emails in the mandatory for_users argument</em></p>
+<p><em>Lists User Tracks Completion Information for all the user emails in the mandatory for_users argument</em></p>
 
-<p>Lists User Tracks for all the user emails in the mandatory for_users argument, which should be a comma separated list of email addresses for which Track Information is required.
-And optionally, a given date range query parameter in the form of from Unix Epoch timestamp, and until Unix Epoch timestamp, which will restrict the list of Tracks to those assigned within from and until arguments.</p>
+<p>This endpoints lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.
+You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
 
 <h3 id="get__completion_tracks-parameters">Parameters</h3>
 
@@ -1233,19 +1267,18 @@ And optionally, a given date range query parameter in the form of from Unix Epoc
 </tr>
 </tbody></table>
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-ApiKeyAuth
+<aside class="success">
+This operation does not require authentication
 </aside>
 
 <h1 id="continu-s-open-api-workshops">Workshops</h1>
 <h2 id='get__completion_workshops'>get__completion_workshops</h2>
 <p><code>GET /completion/workshops</code></p>
 
-<p><em>Lists User Workshops for all the user emails in the mandatory for_users argument</em></p>
+<p><em>Lists User Workshops Completion Information for all the user emails in the mandatory for_users argument</em></p>
 
-<p>Lists User Workshops for all the user emails in the mandatory for_users argument, which should be a comma separated list of email addresses for which Workshop Information is required.
-And optionally, a given date range query parameter in the form of from Unix Epoch timestamp, and until Unix Epoch timestamp, which will restrict the list of Workshops to those assigned within from and until arguments.</p>
+<p>This endpoints lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.
+You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
 
 <h3 id="get__completion_workshops-parameters">Parameters</h3>
 
@@ -1328,9 +1361,6 @@ And optionally, a given date range query parameter in the form of from Unix Epoc
               </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">}</span><span class="w">
@@ -1466,18 +1496,10 @@ And optionally, a given date range query parameter in the form of from Unix Epoc
 <td>none</td>
 <td>none</td>
 </tr>
-<tr>
-<td>»» type</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
 </tbody></table>
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-ApiKeyAuth
+<aside class="success">
+This operation does not require authentication
 </aside>
 
 <h1 id="continu-s-open-api-status">Status</h1>
@@ -2281,9 +2303,6 @@ This operation does not require authentication
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -2363,9 +2382,6 @@ This operation does not require authentication
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2415,24 +2431,12 @@ This operation does not require authentication
 <td>none</td>
 <td>none</td>
 </tr>
-<tr>
-<td>type</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>none</td>
-</tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="go">Go</a>
-                <a href="#" data-language-name="http">HTTP</a>
-                <a href="#" data-language-name="javascript">JavaScript</a>
-                <a href="#" data-language-name="javascript--node">Node.JS</a>
-                <a href="#" data-language-name="python">Python</a>
-                <a href="#" data-language-name="ruby">Ruby</a>
+                <a href="#" data-language-name="shell">curl</a>
           </div>
       </div>
     </div>
