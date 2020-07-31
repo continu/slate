@@ -1,15 +1,9 @@
 ---
 title: Continu's Open API v1.0
 language_tabs:
-  - go: Go
-  - http: HTTP
-  - javascript: JavaScript
-  - javascript--node: Node.JS
-  - python: Python
-  - ruby: Ruby
+  - shell: curl
 toc_footers: []
-includes:
-  - testing.erb
+includes: []
 search: true
 highlight_theme: darkula
 headingLevel: 2
@@ -18,81 +12,42 @@ headingLevel: 2
 
 <!-- Generator: Widdershins v4.0.1 -->
 
-<h1 id="heyoo">This is a title</h1>
-THIS IS THE REAL FILE
+<h1 id="home">Continu API</h1>
+Welcome to the Continu API. You can use our API to get access to learner completion information contained within Continu.
 
-_from
+<h1 id="authenticationMain">Authentication</h1>
 
-_id
+Continu uses the OAuth 2.0 protocol's Client Credentials Flow for authentication and authorization.
+With these credentials, the client requests a bearer access token. This token is retrieved by POST'ing the following information:
 
-_inBundle
+|Parameter|Description|
+|---------|---------|
+|_client_id_|The ID of the client supplied by us|
+|_client_secret_|The secret of the client supplied by us|
 
-_integrity
+<p><code>
+https://usw2-api.continu.co/v3/oauth2/access-token
+</code></p>
 
-_location
+The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format Bearer . Access tokens are valid only for the set of operations and resources described in the scope of the token request.
 
-_phantomChildren
+<p><code>
+curl -X POST -H "Content-Type: application/json" -d '{"client_id": "<id>", "client_secret": "<secret>"}' https://usw2-api.continu.co/v3/oauth2/access-token
+</code></p>
 
-_requested
+Which will return:
+<p><code>
+{"access_token":"&lt;token&gt;","token_type":"bearer","expires_in":&lt;epoch&gt;}
+</code></p>
 
-_requiredBy
+<h1 id="rateLimit">Rate Limit</h1>
+We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.
 
-_resolved
+Every response from our API contains the following headers:
 
-_shasum
-
-_spec
-
-_where
-
-author
-
-bin
-
-bugs
-
-bundleDependencies
-
-config
-
-dependencies
-
-deprecated
-
-description
-
-devDependencies
-
-directories
-
-homepage
-
-keywords
-
-license
-
-main
-
-name
-
-repository
-
-scripts
-
-version
-
-[object Object]
-
-<h1 id="continu-s-open-api">Continu's Open API v1.0</h1>
-
-> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
-
-You can use our API to get access to learner completion information contained within Continu.
-
-Email: <a href="mailto:support@continu.co">API Support</a> Web: <a href="https://continu.co/help">API Support</a> 
- License: undefined
-
-This is a test too
+|Header|Description|
+|-----|-----|
+|Example|Example|
 
 <h1 id="continu-s-open-api-assessments">Assessments</h1>
 

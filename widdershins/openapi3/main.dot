@@ -1,48 +1,49 @@
 <!-- Generator: Widdershins v{{=data.widdershins.version}} -->
 
 {{= data.tags.section }}
-<h1 id="heyoo">This is a title</h1>
-THIS IS THE REAL FILE
-{{ for (var d in data.widdershins) { }}
-{{=d}}
-{{ } }}
+<h1 id="home">Continu API</h1>
+Welcome to the Continu API. You can use our API to get access to learner completion information contained within Continu.
+{{= data.tags.endSection }}
 
-{{= data.widdershins }}
+{{= data.tags.section }}
+<h1 id="authenticationMain">Authentication</h1>
+
+Continu uses the OAuth 2.0 protocol's Client Credentials Flow for authentication and authorization.
+With these credentials, the client requests a bearer access token. This token is retrieved by POST'ing the following information:
+
+|Parameter|Description|
+|---------|---------|
+|_client_id_|The ID of the client supplied by us|
+|_client_secret_|The secret of the client supplied by us|
+
+<p><code>
+https://usw2-api.continu.co/v3/oauth2/access-token
+</code></p>
+
+The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format Bearer . Access tokens are valid only for the set of operations and resources described in the scope of the token request.
+
+<p><code>
+curl -X POST -H "Content-Type: application/json" -d '{"client_id": "<id>", "client_secret": "<secret>"}' https://usw2-api.continu.co/v3/oauth2/access-token
+</code></p>
+
+Which will return:
+<p><code>
+{"access_token":"&lt;token&gt;","token_type":"bearer","expires_in":&lt;epoch&gt;}
+</code></p>
 
 {{= data.tags.endSection }}
 
 {{= data.tags.section }}
-<h1 id="{{=data.title_prefix}}">{{=data.api.info && data.api.info.title}} {{=data.version}}</h1>
+<h1 id="rateLimit">Rate Limit</h1>
+We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.
 
-> Scroll down for {{? data.header.language_tabs.length}}code samples, {{?}}example requests and responses.{{? data.header.language_tabs.length}} Select a language for code samples from the tabs above or the mobile navigation menu.{{?}}
+Every response from our API contains the following headers:
 
-{{? data.api.info && data.api.info.description}}{{=data.api.info.description}}{{?}}
+|Header|Description|
+|-----|-----|
+|Example|Example|
 
-{{? data.api.servers }}
-Base URLs:
-{{~data.api.servers :s}}
-* <a href="{{=s.url}}">{{=s.url}}</a>
-{{ for(var v in s.variables) { }}
-    * **{{=v}}** - {{=s.variables[v].description||''}} Default: {{=s.variables[v].default}}
-{{? s.variables[v].enum}}
-{{~ s.variables[v].enum :e}}
-        * {{= e}}
-{{~}}
-{{?}}
-{{ } }}
-{{~}}
-{{?}}
-
-{{? data.api.info && data.api.info.termsOfService}}<a href="{{=data.api.info.termsOfService}}">Terms of service</a>{{?}}
-{{? data.api.info && data.api.info.contact}}{{? data.api.info.contact.email}}Email: <a href="mailto:{{=data.api.info.contact.email}}">{{=data.api.info.contact.name || 'Support'}}</a> {{?}}{{? data.api.info.contact.url}}Web: <a href="{{=data.api.info.contact.url}}">{{= data.api.info.contact.name || 'Support'}}</a> {{?}}{{?}}
-{{? data.api.info && data.api.info.license}}{{? data.api.info.license.url}}License: <a href="{{=data.api.info.license.url}}">{{=data.api.info.license.name}}</a>{{??}} License: {{=data.api.info.license.name}}{{?}}{{?}}
 {{= data.tags.endSection }}
-
-{{? data.api.components && data.api.components.securitySchemes }}
-{{#def.security}}
-{{?}}
-
-This is a test too
 
 {{ for (var r in data.resources) { }}
 {{ data.resource = data.resources[r]; }}
