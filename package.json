@@ -1,0 +1,25 @@
+{
+  "name": "slate",
+  "version": "1.0.0",
+  "description": "![Deploy](https://github.com/continu/slate/workflows/Deploy/badge.svg)",
+  "main": "convertMD.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/continu/slate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/continu/slate/issues"
+  },
+  "homepage": "https://github.com/continu/slate#readme",
+  "dependencies": {
+    "widdershins": "^4.0.1"
+  }
+}
