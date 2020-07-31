@@ -33,8 +33,6 @@ Which will return:
 
 {{= data.tags.endSection }}
 
-{{=data.api.components}}
-{{=data.api.components.securitySchemes}}
 {{? data.api.components && data.api.components.securitySchemes }}
 {{#def.security}}
 {{?}}
