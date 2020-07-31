@@ -1,12 +1,7 @@
 ---
 title: Continu's Open API v1.0
 language_tabs:
-  - go: Go
-  - http: HTTP
-  - javascript: JavaScript
-  - javascript--node: Node.JS
-  - python: Python
-  - ruby: Ruby
+  - shell: curl
 toc_footers: []
 includes: []
 search: true
@@ -17,20 +12,42 @@ headingLevel: 2
 
 <!-- Generator: Widdershins v4.0.1 -->
 
-<h1 id="continu-s-open-api">Continu's Open API v1.0</h1>
+<h1 id="home">Continu API</h1>
+Welcome to the Continu API. You can use our API to get access to learner completion information contained within Continu.
 
-> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
+<h1 id="authenticationMain">Authentication</h1>
 
-Continu's Open API is a REST service that provides access to your Training, Completion, Attendance, and other important data.
+Continu uses the OAuth 2.0 protocol's Client Credentials Flow for authentication and authorization.
+With these credentials, the client requests a bearer access token. This token is retrieved by POST'ing the following information:
 
-<a href="https://continu.co/">Terms of service</a>
-Email: <a href="mailto:support@continu.co">API Support</a> Web: <a href="https://continu.co/help">API Support</a> 
-License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a>
+|Parameter|Description|
+|---------|---------|
+|_client_id_|The ID of the client supplied by us|
+|_client_secret_|The secret of the client supplied by us|
 
-# Authentication
+<p><code>
+https://usw2-api.continu.co/v3/oauth2/access-token
+</code></p>
 
-* API Key (ApiKeyAuth)
-    - Parameter Name: **Authorization**, in: header. 
+The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format Bearer . Access tokens are valid only for the set of operations and resources described in the scope of the token request.
+
+<p><code>
+curl -X POST -H "Content-Type: application/json" -d '{"client_id": "<id>", "client_secret": "<secret>"}' https://usw2-api.continu.co/v3/oauth2/access-token
+</code></p>
+
+Which will return:
+<p><code>
+{"access_token":"&lt;token&gt;","token_type":"bearer","expires_in":&lt;epoch&gt;}
+</code></p>
+
+<h1 id="rateLimit">Rate Limit</h1>
+We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.
+
+Every response from our API contains the following headers:
+
+|Header|Description|
+|-----|-----|
+|Example|Example|
 
 <h1 id="continu-s-open-api-assessments">Assessments</h1>
 
@@ -38,10 +55,10 @@ License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a
 
 `GET /completion/assessments`
 
-*Lists User Assessments for all the user emails in the mandatory for_users argument*
+*Lists User Assessments Completion Information for all the user emails in the mandatory for_users argument*
 
-Lists User Assessments for all the user emails in the mandatory for_users argument, which should be a comma separated list of email addresses for which Assessment Information is required.
-And optionally, a given date range query parameter in the form of from Unix Epoch timestamp, and until Unix Epoch timestamp, which will restrict the list of Assessments to those assigned within from and until arguments.
+This endpoints lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.
+You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 <h3 id="get__completion_assessments-parameters">Parameters</h3>
 
@@ -145,9 +162,8 @@ Status Code **200**
 |» last_name|string|false|none|none|
 |» user_id|string|false|none|none|
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-ApiKeyAuth
+<aside class="success">
+This operation does not require authentication
 </aside>
 
 <h1 id="continu-s-open-api-assignments">Assignments</h1>
@@ -156,10 +172,10 @@ ApiKeyAuth
 
 `GET /completion/assignments`
 
-*Lists User Assignments for all the user emails in the mandatory for_users argument*
+*Lists User Assignments Completion Information for all the user emails in the mandatory for_users argument*
 
-Lists User Assignments for all the user emails in the mandatory for_users argument, which should be a comma separated list of email addresses for which Assignment Information is required.
-And optionally, a given date range query parameter in the form of from Unix Epoch timestamp, and until Unix Epoch timestamp, which will restrict the list of Assignments to those assigned within from and until arguments.
+This endpoints lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.
+You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 <h3 id="get__completion_assignments-parameters">Parameters</h3>
 
@@ -276,9 +292,8 @@ Status Code **200**
 |» last_name|string|false|none|none|
 |» user_id|string|false|none|none|
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-ApiKeyAuth
+<aside class="success">
+This operation does not require authentication
 </aside>
 
 <h1 id="continu-s-open-api-tracks">Tracks</h1>
@@ -287,10 +302,10 @@ ApiKeyAuth
 
 `GET /completion/tracks`
 
-*Lists User Tracks for all the user emails in the mandatory for_users argument*
+*Lists User Tracks Completion Information for all the user emails in the mandatory for_users argument*
 
-Lists User Tracks for all the user emails in the mandatory for_users argument, which should be a comma separated list of email addresses for which Track Information is required.
-And optionally, a given date range query parameter in the form of from Unix Epoch timestamp, and until Unix Epoch timestamp, which will restrict the list of Tracks to those assigned within from and until arguments.
+This endpoints lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.
+You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 <h3 id="get__completion_tracks-parameters">Parameters</h3>
 
@@ -386,9 +401,8 @@ Status Code **200**
 |»» start_date|string|false|none|none|
 |» user_id|string|false|none|none|
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-ApiKeyAuth
+<aside class="success">
+This operation does not require authentication
 </aside>
 
 <h1 id="continu-s-open-api-workshops">Workshops</h1>
@@ -397,10 +411,10 @@ ApiKeyAuth
 
 `GET /completion/workshops`
 
-*Lists User Workshops for all the user emails in the mandatory for_users argument*
+*Lists User Workshops Completion Information for all the user emails in the mandatory for_users argument*
 
-Lists User Workshops for all the user emails in the mandatory for_users argument, which should be a comma separated list of email addresses for which Workshop Information is required.
-And optionally, a given date range query parameter in the form of from Unix Epoch timestamp, and until Unix Epoch timestamp, which will restrict the list of Workshops to those assigned within from and until arguments.
+This endpoints lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.
+You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 <h3 id="get__completion_workshops-parameters">Parameters</h3>
 
@@ -452,9 +466,6 @@ And optionally, a given date range query parameter in the form of from Unix Epoc
             },
             "title": {
               "type": "string"
-            },
-            "type": {
-              "type": "string"
             }
           }
         }
@@ -490,11 +501,9 @@ Status Code **200**
 |»» id|string|false|none|none|
 |»» status|string|false|none|none|
 |»» title|string|false|none|none|
-|»» type|string|false|none|none|
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-ApiKeyAuth
+<aside class="success">
+This operation does not require authentication
 </aside>
 
 <h1 id="continu-s-open-api-status">Status</h1>
@@ -1004,9 +1013,6 @@ This operation does not require authentication
           },
           "title": {
             "type": "string"
-          },
-          "type": {
-            "type": "string"
           }
         }
       }
@@ -1051,9 +1057,6 @@ This operation does not require authentication
     },
     "title": {
       "type": "string"
-    },
-    "type": {
-      "type": "string"
     }
   }
 }
@@ -1069,5 +1072,4 @@ This operation does not require authentication
 |id|string|false|none|none|
 |status|string|false|none|none|
 |title|string|false|none|none|
-|type|string|false|none|none|
 
