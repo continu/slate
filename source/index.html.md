@@ -40,6 +40,9 @@ Which will return:
 {"access_token":"&lt;token&gt;","token_type":"bearer","expires_in":&lt;epoch&gt;}
 </code></p>
 
+[object Object]
+undefined
+
 <h1 id="rateLimit">Rate Limit</h1>
 We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.
 
@@ -159,10 +162,6 @@ Status Code **200**
 |» first_name|string|false|none|none|
 |» last_name|string|false|none|none|
 |» user_id|string|false|none|none|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
 
 <h1 id="continu-s-open-api-assignments">Assignments</h1>
 
@@ -288,10 +287,6 @@ Status Code **200**
 |» last_name|string|false|none|none|
 |» user_id|string|false|none|none|
 
-<aside class="success">
-This operation does not require authentication
-</aside>
-
 <h1 id="continu-s-open-api-tracks">Tracks</h1>
 
 ## Lists User Tracks Completion Information for all the user emails in the mandatory for_users argument
@@ -395,10 +390,6 @@ Status Code **200**
 |»» start_date|string|false|none|none|
 |» user_id|string|false|none|none|
 
-<aside class="success">
-This operation does not require authentication
-</aside>
-
 <h1 id="continu-s-open-api-workshops">Workshops</h1>
 
 ## Lists User Workshops Completion Information for all the user emails in the mandatory for_users argument
@@ -494,10 +485,6 @@ Status Code **200**
 |»» status|string|false|none|none|
 |»» title|string|false|none|none|
 
-<aside class="success">
-This operation does not require authentication
-</aside>
-
 <h1 id="continu-s-open-api-status">Status</h1>
 
 ## Ping methods returns a simple pong/alive signal
@@ -521,8 +508,4 @@ GET method that returns a pong/alive message to check API's responsiveness
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|string|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
 

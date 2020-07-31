@@ -33,6 +33,12 @@ Which will return:
 
 {{= data.tags.endSection }}
 
+{{=data.api.components}}
+{{=data.api.components.securitySchemes}}
+{{? data.api.components && data.api.components.securitySchemes }}
+{{#def.security}}
+{{?}}
+
 {{= data.tags.section }}
 <h1 id="rateLimit">Rate Limit</h1>
 We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.
