@@ -19,8 +19,6 @@
 {{= data.utils.getCodeSamples(data) }}
 {{?}}
 
-`{{= data.methodUpper}} {{=data.method.path}}`
-
 {{? data.operation.summary && !data.options.tocSummary}}*{{= data.operation.summary }}*{{?}}
 
 {{? data.operation.description}}{{= data.operation.description }}{{?}}
@@ -35,8 +33,10 @@
 {{= data.utils.getBodyParameterExamples(data) }}
 {{?}}
 
+`{{= data.methodUpper}} {{=data.method.path}}`
+
 {{? data.parameters && data.parameters.length }}
-{{#def.parameters}}
+{{#def.parameters }}
 {{?}}
 
 {{#def.responses}}

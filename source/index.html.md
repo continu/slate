@@ -52,10 +52,10 @@ Every response from our API contains the following headers:
 
 <h1 id="continu-s-open-api-assessments">Assessments</h1>
 
-`GET /completion/assessments`
-
 This endpoints lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
+
+`GET /completion/assessments`
 
 <h3 id="lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
 
@@ -77,10 +77,10 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-s-open-api-assignments">Assignments</h1>
 
-`GET /completion/assignments`
-
 This endpoints lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
+
+`GET /completion/assignments`
 
 <h3 id="lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
 
@@ -102,10 +102,10 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-s-open-api-tracks">Tracks</h1>
 
-`GET /completion/tracks`
-
 This endpoints lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
+
+`GET /completion/tracks`
 
 <h3 id="lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
 
@@ -127,10 +127,10 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-s-open-api-workshops">Workshops</h1>
 
-`GET /completion/workshops`
-
 This endpoints lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
+
+`GET /completion/workshops`
 
 <h3 id="lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
 
@@ -152,9 +152,9 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-s-open-api-status">Status</h1>
 
-`GET /status/ping`
-
 GET method that returns a pong/alive message to check API's responsiveness
+
+`GET /status/ping`
 
 <h3 id="ping-methods-returns-a-simple-pong/alive-signal-responses">Responses</h3>
 
