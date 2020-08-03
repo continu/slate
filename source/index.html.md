@@ -41,9 +41,6 @@ Which will return:
 {"access_token":"&lt;token&gt;","token_type":"bearer","expires_in":&lt;epoch&gt;}
 </code></p>
 
-[object Object]
-undefined
-
 <h1 id="rateLimit">Rate Limit</h1>
 We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.
 
@@ -54,8 +51,6 @@ Every response from our API contains the following headers:
 |Example|Example|
 
 <h1 id="continu-s-open-api-assessments">Assessments</h1>
-
-## Lists User Assessments Completion Information for all the user emails in the mandatory for_users argument
 
 `GET /completion/assessments`
 
@@ -165,8 +160,6 @@ Status Code **200**
 |» user_id|string|false|none|none|
 
 <h1 id="continu-s-open-api-assignments">Assignments</h1>
-
-## Lists User Assignments Completion Information for all the user emails in the mandatory for_users argument
 
 `GET /completion/assignments`
 
@@ -290,8 +283,6 @@ Status Code **200**
 
 <h1 id="continu-s-open-api-tracks">Tracks</h1>
 
-## Lists User Tracks Completion Information for all the user emails in the mandatory for_users argument
-
 `GET /completion/tracks`
 
 This endpoints lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.
@@ -393,8 +384,6 @@ Status Code **200**
 
 <h1 id="continu-s-open-api-workshops">Workshops</h1>
 
-## Lists User Workshops Completion Information for all the user emails in the mandatory for_users argument
-
 `GET /completion/workshops`
 
 This endpoints lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.
@@ -487,8 +476,6 @@ Status Code **200**
 |»» title|string|false|none|none|
 
 <h1 id="continu-s-open-api-status">Status</h1>
-
-## Ping methods returns a simple pong/alive signal
 
 `GET /status/ping`
 
