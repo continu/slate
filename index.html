@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Continu's Open API v1.0</title>
+    <title>Continu API Reference</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -279,7 +279,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-6b36ab5c.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-28e22e4a.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-e9bde216.js"></script>
 
@@ -328,7 +328,13 @@
             <a href="#continu-s-open-api-assessments" class="toc-h1 toc-link" data-title="Assessments">Assessments</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument" class="toc-h2 toc-link" data-title="Lists User Assessments Completion Information for all the user emails in the mandatory for_users argument">Lists User Assessments Completion Information for all the user emails in the mandatory for_users argument</a>
+                    <a href="#lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                  </li>
+                  <li>
+                    <a href="#lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responseschema" class="toc-h2 toc-link" data-title="Response Schema">Response Schema</a>
                   </li>
               </ul>
           </li>
@@ -336,7 +342,13 @@
             <a href="#continu-s-open-api-assignments" class="toc-h1 toc-link" data-title="Assignments">Assignments</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument" class="toc-h2 toc-link" data-title="Lists User Assignments Completion Information for all the user emails in the mandatory for_users argument">Lists User Assignments Completion Information for all the user emails in the mandatory for_users argument</a>
+                    <a href="#lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                  </li>
+                  <li>
+                    <a href="#lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responseschema" class="toc-h2 toc-link" data-title="Response Schema">Response Schema</a>
                   </li>
               </ul>
           </li>
@@ -344,7 +356,13 @@
             <a href="#continu-s-open-api-tracks" class="toc-h1 toc-link" data-title="Tracks">Tracks</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument" class="toc-h2 toc-link" data-title="Lists User Tracks Completion Information for all the user emails in the mandatory for_users argument">Lists User Tracks Completion Information for all the user emails in the mandatory for_users argument</a>
+                    <a href="#lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                  </li>
+                  <li>
+                    <a href="#lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responseschema" class="toc-h2 toc-link" data-title="Response Schema">Response Schema</a>
                   </li>
               </ul>
           </li>
@@ -352,7 +370,13 @@
             <a href="#continu-s-open-api-workshops" class="toc-h1 toc-link" data-title="Workshops">Workshops</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument" class="toc-h2 toc-link" data-title="Lists User Workshops Completion Information for all the user emails in the mandatory for_users argument">Lists User Workshops Completion Information for all the user emails in the mandatory for_users argument</a>
+                    <a href="#lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                  </li>
+                  <li>
+                    <a href="#lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responseschema" class="toc-h2 toc-link" data-title="Response Schema">Response Schema</a>
                   </li>
               </ul>
           </li>
@@ -360,11 +384,12 @@
             <a href="#continu-s-open-api-status" class="toc-h1 toc-link" data-title="Status">Status</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#ping-methods-returns-a-simple-pong-alive-signal" class="toc-h2 toc-link" data-title="Ping methods returns a simple pong/alive signal">Ping methods returns a simple pong/alive signal</a>
+                    <a href="#ping-methods-returns-a-simple-pong/alive-signal-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
                   </li>
               </ul>
           </li>
       </ul>
+
         <ul class="toc-footer">
             <li><a href='mailto:api@continu.co'>Contact Us</a></li>
         </ul>
@@ -416,9 +441,6 @@ curl -X POST -H "Content-Type: application/json" -d '{"client_id": "<id>", "clie
 {&quot;access_token&quot;:&quot;&lt;token&gt;&quot;,&quot;token_type&quot;:&quot;bearer&quot;,&quot;expires_in&quot;:&lt;epoch&gt;}
 </code></p></p>
 
-<p>[object Object]
-undefined</p>
-
 <h1 id="rateLimit">Rate Limit</h1>
 
 <p>We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.</p>
@@ -438,7 +460,7 @@ undefined</p>
 </tbody></table>
 
 <h1 id="continu-s-open-api-assessments">Assessments</h1>
-<h2 id='lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument'>Lists User Assessments Completion Information for all the user emails in the mandatory for_users argument</h2>
+
 <p><code>GET /completion/assessments</code></p>
 
 <p>This endpoints lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.
@@ -703,7 +725,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 </tbody></table>
 
 <h1 id="continu-s-open-api-assignments">Assignments</h1>
-<h2 id='lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument'>Lists User Assignments Completion Information for all the user emails in the mandatory for_users argument</h2>
+
 <p><code>GET /completion/assignments</code></p>
 
 <p>This endpoints lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.
@@ -993,7 +1015,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 </tbody></table>
 
 <h1 id="continu-s-open-api-tracks">Tracks</h1>
-<h2 id='lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument'>Lists User Tracks Completion Information for all the user emails in the mandatory for_users argument</h2>
+
 <p><code>GET /completion/tracks</code></p>
 
 <p>This endpoints lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.
@@ -1238,7 +1260,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 </tbody></table>
 
 <h1 id="continu-s-open-api-workshops">Workshops</h1>
-<h2 id='lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument'>Lists User Workshops Completion Information for all the user emails in the mandatory for_users argument</h2>
+
 <p><code>GET /completion/workshops</code></p>
 
 <p>This endpoints lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.
@@ -1463,7 +1485,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 </tbody></table>
 
 <h1 id="continu-s-open-api-status">Status</h1>
-<h2 id='ping-methods-returns-a-simple-pong-alive-signal'>Ping methods returns a simple pong/alive signal</h2>
+
 <p><code>GET /status/ping</code></p>
 
 <p>GET method that returns a pong/alive message to check API&#39;s responsiveness</p>
