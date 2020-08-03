@@ -2,7 +2,8 @@
 title: Continu's Open API v1.0
 language_tabs:
   - shell: curl
-toc_footers: []
+toc_footers:
+  - <a href='mailto:api@continu.co'>Contact Us</a>
 includes: []
 search: true
 highlight_theme: darkula
