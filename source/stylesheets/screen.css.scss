@@ -4,6 +4,8 @@
 @import 'icon-font';
 // @import 'rtl'; // uncomment to switch to RTL format
 
+$darkblue: #004071;
+
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
 
@@ -82,6 +84,10 @@ html, body {
 
     img {
       max-width: 100%;
+      max-width: 100%;
+      width: 50px;
+      margin: 2rem auto;
+      display: block;
     }
   }
 
@@ -188,7 +194,7 @@ html, body {
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;
-    border-top: 1px dashed $nav-footer-border-color;
+    //border-top: 1px dashed $nav-footer-border-color;
 
     li,a {
       color: $nav-text;
@@ -205,6 +211,18 @@ html, body {
       text-decoration: none;
     }
   }
+}
+
+.toc-version {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  color: white;
+  font-weight: 300;
+  user-select: none;
+  pointer-events: none;
+  text-align: center;
+  width: 100%;
 }
 
 // General Anchors
