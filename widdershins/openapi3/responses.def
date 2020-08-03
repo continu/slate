@@ -4,7 +4,8 @@
 {{ if (response.content) data.responseSchemas = true; }}
 {{~}}
 
-{{? data.responseSchemas }}
+{{? false }}
+{{=data.responseSchemas }}
 > Example responses
 
 {{= data.utils.getResponseExamples(data) }}
@@ -13,9 +14,9 @@
 {{= data.tags.section }}
 <h3 id="{{=data.operationUniqueSlug}}-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
+|Status|Meaning|Description|
 |---|---|---|---|
-{{~ data.responses :r}}|{{=r.status}}|{{=r.meaning}}|{{=r.description || 'none'}}|{{=r.schema}}|
+{{~ data.responses :r}}|{{=r.status}}|{{=r.meaning}}|{{=r.description || 'none'}}|
 {{~}}
 
 {{ data.responseSchemas = false; }}
@@ -23,7 +24,6 @@
 {{ if (response.content && !response.$ref && !data.utils.isPrimitive(response.type)) data.responseSchemas = true; }}
 {{~}}
 {{? data.responseSchemas }}
-<h3 id="{{=data.operationUniqueSlug}}-responseschema">Response Schema</h3>
 {{~ data.responses :response}}
 {{? response.content && !response.$ref && !data.utils.isPrimitive(response.type)}}
 {{? Object.keys(response.content).length }}
@@ -31,29 +31,6 @@
 {{ var responseSchema = response.content[responseKey].schema; }}
 {{ var enums = []; }}
 {{ var blocks = data.utils.schemaToArray(responseSchema,0,{trim:true,join:true},data); }}
-{{ for (var block of blocks) {
-     for (var p of block.rows) {
-       if (p.schema && p.schema.enum) {
-         for (var e of p.schema.enum) {
-           enums.push({name:p.name,value:e});
-         }
-       }
-     }
-   }
-}}
-
-{{? blocks[0].rows.length || blocks[0].title }}
-Status Code **{{=response.status}}**
-
-{{~ blocks :block}}
-{{? block.title }}*{{=block.title}}*
-{{?}}
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-{{~block.rows :p}}|{{=p.displayName}}|{{=p.safeType}}|{{=p.required}}|{{=p.restrictions||'none'}}|{{=p.description||'none'}}|
-{{~}}
-{{~}}
-{{?}}
 
 {{? enums.length > 0 }}
 #### Enumerated Values

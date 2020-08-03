@@ -66,98 +66,14 @@ You also have the option to specify a date range using the from or until Unix Ep
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
 
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "type": "array",
-  "items": {
-    "type": "object",
-    "properties": {
-      "assessments": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "attempts": {
-              "type": "integer"
-            },
-            "completion_status": {
-              "type": "string"
-            },
-            "grading_status": {
-              "type": "string"
-            },
-            "id": {
-              "type": "string"
-            },
-            "passed_date": {
-              "type": "string"
-            },
-            "score": {
-              "type": "integer"
-            },
-            "start_date": {
-              "type": "string"
-            },
-            "title": {
-              "type": "string"
-            },
-            "type": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "email": {
-        "type": "string"
-      },
-      "first_name": {
-        "type": "string"
-      },
-      "last_name": {
-        "type": "string"
-      },
-      "user_id": {
-        "type": "string"
-      }
-    }
-  }
-}
-```
-
 <h3 id="lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
+|Status|Meaning|Description|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|number|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|number|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|number|
-
-<h3 id="lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|*anonymous*|[[controllers.UserAssessments](#schemacontrollers.userassessments)]|false|none|none|
-|» assessments|[[controllers.Assessment](#schemacontrollers.assessment)]|false|none|none|
-|»» attempts|integer|false|none|none|
-|»» completion_status|string|false|none|none|
-|»» grading_status|string|false|none|none|
-|»» id|string|false|none|none|
-|»» passed_date|string|false|none|none|
-|»» score|integer|false|none|none|
-|»» start_date|string|false|none|none|
-|»» title|string|false|none|none|
-|»» type|string|false|none|none|
-|» email|string|false|none|none|
-|» first_name|string|false|none|none|
-|» last_name|string|false|none|none|
-|» user_id|string|false|none|none|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
 <h1 id="continu-s-open-api-assignments">Assignments</h1>
 
@@ -175,111 +91,14 @@ You also have the option to specify a date range using the from or until Unix Ep
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
 
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "type": "array",
-  "items": {
-    "type": "object",
-    "properties": {
-      "assignments": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "assigned_content": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "completed_date": {
-                    "type": "string"
-                  },
-                  "content_id": {
-                    "type": "string"
-                  },
-                  "content_title": {
-                    "type": "string"
-                  },
-                  "content_type": {
-                    "type": "string"
-                  }
-                }
-              }
-            },
-            "assigned_date": {
-              "type": "string"
-            },
-            "assignment_id": {
-              "type": "string"
-            },
-            "completed": {
-              "type": "boolean"
-            },
-            "completed_date": {
-              "type": "string"
-            },
-            "completion_status": {
-              "type": "string"
-            },
-            "due_date": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "email": {
-        "type": "string"
-      },
-      "first_name": {
-        "type": "string"
-      },
-      "last_name": {
-        "type": "string"
-      },
-      "user_id": {
-        "type": "string"
-      }
-    }
-  }
-}
-```
-
 <h3 id="lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
+|Status|Meaning|Description|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|number|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|number|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|number|
-
-<h3 id="lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|*anonymous*|[[controllers.UserAssignments](#schemacontrollers.userassignments)]|false|none|none|
-|» assignments|[[controllers.AssignmentRecord](#schemacontrollers.assignmentrecord)]|false|none|none|
-|»» assigned_content|[[controllers.ContentRecord](#schemacontrollers.contentrecord)]|false|none|none|
-|»»» completed_date|string|false|none|none|
-|»»» content_id|string|false|none|none|
-|»»» content_title|string|false|none|none|
-|»»» content_type|string|false|none|none|
-|»» assigned_date|string|false|none|none|
-|»» assignment_id|string|false|none|none|
-|»» completed|boolean|false|none|none|
-|»» completed_date|string|false|none|none|
-|»» completion_status|string|false|none|none|
-|»» due_date|string|false|none|none|
-|» email|string|false|none|none|
-|» first_name|string|false|none|none|
-|» last_name|string|false|none|none|
-|» user_id|string|false|none|none|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
 <h1 id="continu-s-open-api-tracks">Tracks</h1>
 
@@ -297,90 +116,14 @@ You also have the option to specify a date range using the from or until Unix Ep
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
 
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "type": "array",
-  "items": {
-    "type": "object",
-    "properties": {
-      "email": {
-        "type": "string"
-      },
-      "first_name": {
-        "type": "string"
-      },
-      "last_name": {
-        "type": "string"
-      },
-      "tracks": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "completed": {
-              "type": "boolean"
-            },
-            "completed_date": {
-              "type": "string"
-            },
-            "duration": {
-              "type": "integer"
-            },
-            "id": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "progress": {
-              "type": "integer"
-            },
-            "start_date": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "user_id": {
-        "type": "string"
-      }
-    }
-  }
-}
-```
-
 <h3 id="lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
+|Status|Meaning|Description|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|number|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|number|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|number|
-
-<h3 id="lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|*anonymous*|[[controllers.UserTracks](#schemacontrollers.usertracks)]|false|none|none|
-|» email|string|false|none|none|
-|» first_name|string|false|none|none|
-|» last_name|string|false|none|none|
-|» tracks|[[controllers.Track](#schemacontrollers.track)]|false|none|none|
-|»» completed|boolean|false|none|none|
-|»» completed_date|string|false|none|none|
-|»» duration|integer|false|none|none|
-|»» id|string|false|none|none|
-|»» name|string|false|none|none|
-|»» progress|integer|false|none|none|
-|»» start_date|string|false|none|none|
-|» user_id|string|false|none|none|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
 <h1 id="continu-s-open-api-workshops">Workshops</h1>
 
@@ -398,82 +141,14 @@ You also have the option to specify a date range using the from or until Unix Ep
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
 
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "type": "array",
-  "items": {
-    "type": "object",
-    "properties": {
-      "email": {
-        "type": "string"
-      },
-      "first_name": {
-        "type": "string"
-      },
-      "last_name": {
-        "type": "string"
-      },
-      "user_id": {
-        "type": "string"
-      },
-      "workshops": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "date": {
-              "type": "string"
-            },
-            "facilitator": {
-              "type": "string"
-            },
-            "id": {
-              "type": "string"
-            },
-            "status": {
-              "type": "string"
-            },
-            "title": {
-              "type": "string"
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
-
 <h3 id="lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
+|Status|Meaning|Description|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|number|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|number|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|number|
-
-<h3 id="lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|*anonymous*|[[controllers.UserWorkshops](#schemacontrollers.userworkshops)]|false|none|none|
-|» email|string|false|none|none|
-|» first_name|string|false|none|none|
-|» last_name|string|false|none|none|
-|» user_id|string|false|none|none|
-|» workshops|[[controllers.Workshop](#schemacontrollers.workshop)]|false|none|none|
-|»» date|string|false|none|none|
-|»» facilitator|string|false|none|none|
-|»» id|string|false|none|none|
-|»» status|string|false|none|none|
-|»» title|string|false|none|none|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
 <h1 id="continu-s-open-api-status">Status</h1>
 
@@ -481,19 +156,9 @@ Status Code **200**
 
 GET method that returns a pong/alive message to check API's responsiveness
 
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "type": "string"
-}
-```
-
 <h3 id="ping-methods-returns-a-simple-pong/alive-signal-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
+|Status|Meaning|Description|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|string|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
 
