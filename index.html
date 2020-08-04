@@ -296,7 +296,7 @@
 
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -307,9 +307,6 @@
       <div class="logo">
         <img src="images/logo-4c713fa5.png" class="" alt="" />
       </div>
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">curl</a>
-        </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -328,6 +325,9 @@
             <a href="#continu-s-open-api-assessments" class="toc-h1 toc-link" data-title="Assessments">Assessments</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
                     <a href="#lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
                   <li>
@@ -338,6 +338,9 @@
           <li>
             <a href="#continu-s-open-api-assignments" class="toc-h1 toc-link" data-title="Assignments">Assignments</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
                   <li>
                     <a href="#lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
@@ -350,6 +353,9 @@
             <a href="#continu-s-open-api-tracks" class="toc-h1 toc-link" data-title="Tracks">Tracks</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
                     <a href="#lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
                   <li>
@@ -360,6 +366,9 @@
           <li>
             <a href="#continu-s-open-api-workshops" class="toc-h1 toc-link" data-title="Workshops">Workshops</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-4" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
                   <li>
                     <a href="#lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
@@ -386,7 +395,10 @@
 <p>Welcome to the Continu API. You can use our API to get access to learner completion information contained within Continu.</p>
 
 <h1 id="authenticationMain">Authentication</h1>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-d</span> <span class="s1">'{"client_id": "&lt;client_id&gt;", "client_secret": "&lt;client_secret&gt;"}'</span> https://usw2-api.continu.co/v3/oauth2/access-token
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>// Which will <span class="k">return</span>:
+<span class="o">{</span><span class="s2">"access_token"</span>:<span class="s2">"&lt;token&gt;"</span>,<span class="s2">"token_type"</span>:<span class="s2">"bearer"</span>,<span class="s2">"expires_in"</span>:&lt;epoch&gt;<span class="o">}</span>
+</code></pre></div>
 <p>Continu uses the OAuth 2.0 protocol&#39;s Client Credentials Flow for authentication and authorization.
 With these credentials, the client requests a bearer access token. This token is retrieved by POST&#39;ing the following information:</p>
 
@@ -412,15 +424,6 @@ https://usw2-api.continu.co/v3/oauth2/access-token
 
 <p>The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format Bearer . Access tokens are valid only for the set of operations and resources described in the scope of the token request.</p>
 
-<p><code>
-curl -X POST -H "Content-Type: application/json" -d '{"client_id": "<id>", "client_secret": "<secret>"}' https://usw2-api.continu.co/v3/oauth2/access-token
-</code></p>
-
-<p>Which will return:
-<p><code>
-{&quot;access_token&quot;:&quot;&lt;token&gt;&quot;,&quot;token_type&quot;:&quot;bearer&quot;,&quot;expires_in&quot;:&lt;epoch&gt;}
-</code></p></p>
-
 <h1 id="rateLimit">Rate Limit</h1>
 
 <p>We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.</p>
@@ -445,9 +448,17 @@ curl -X POST -H "Content-Type: application/json" -d '{"client_id": "<id>", "clie
 
 <h1 id="continu-s-open-api-assessments">Assessments</h1>
 
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
+  <span class="nt">--url</span> <span class="s1">'https://example.com/completion/assessments?for_users=type%2Cstring'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'authorization: [object Object]'</span>
+</code></pre></div>
 <p>This endpoints lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
-
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /completion/assessments</code></p>
 
 <h3 id="lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
@@ -524,9 +535,17 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-s-open-api-assignments">Assignments</h1>
 
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
+  <span class="nt">--url</span> <span class="s1">'https://example.com/completion/assignments?for_users=type%2Cstring'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'authorization: [object Object]'</span>
+</code></pre></div>
 <p>This endpoints lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
-
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /completion/assignments</code></p>
 
 <h3 id="lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
@@ -603,9 +622,17 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-s-open-api-tracks">Tracks</h1>
 
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
+  <span class="nt">--url</span> <span class="s1">'https://example.com/completion/tracks?for_users=type%2Cstring'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'authorization: [object Object]'</span>
+</code></pre></div>
 <p>This endpoints lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
-
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /completion/tracks</code></p>
 
 <h3 id="lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
@@ -682,9 +709,17 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-s-open-api-workshops">Workshops</h1>
 
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
+  <span class="nt">--url</span> <span class="s1">'https://example.com/completion/workshops?for_users=type%2Cstring'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'authorization: [object Object]'</span>
+</code></pre></div>
 <p>This endpoints lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
-
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /completion/workshops</code></p>
 
 <h3 id="lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
@@ -761,9 +796,6 @@ You also have the option to specify a date range using the from or until Unix Ep
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">curl</a>
-          </div>
       </div>
     </div>
   </body>
