@@ -302,26 +302,6 @@
           }
         }
       }
-    },
-    "/status/ping": {
-      "get": {
-        "description": "GET method that returns a pong/alive message to check API's responsiveness",
-        "produces": [
-          "application/json"
-        ],
-        "tags": [
-          "Status"
-        ],
-        "summary": "Ping methods returns a simple pong/alive signal",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "string"
-            }
-          }
-        }
-      }
     }
   },
   "definitions": {
