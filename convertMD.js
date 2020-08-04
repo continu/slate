@@ -31,7 +31,8 @@ const convertFile = ()=>{
     httpsnippet: true,
     expandBody: true,
     user_templates: './widdershins/openapi3',
-    tocSummary: true
+    tocSummary: true,
+    codeSamples: true
   };
   const fileData = fs.readFileSync(paths.source, 'utf8');
   const swaggerFile = JSON.parse(fileData);

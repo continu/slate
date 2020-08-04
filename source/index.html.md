@@ -1,7 +1,5 @@
 ---
 title: Continu's Open API v1.0
-language_tabs:
-  - shell: curl
 toc_footers:
   - <a href='mailto:api@continu.co'>Contact Us</a>
 includes: []
@@ -18,6 +16,15 @@ Welcome to the Continu API. You can use our API to get access to learner complet
 
 <h1 id="authenticationMain">Authentication</h1>
 
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{"client_id": "<client_id>", "client_secret": "<client_secret>"}' https://usw2-api.continu.co/v3/oauth2/access-token
+```
+
+```shell
+// Which will return:
+{"access_token":"<token>","token_type":"bearer","expires_in":<epoch>}
+```
+
 Continu uses the OAuth 2.0 protocol's Client Credentials Flow for authentication and authorization.
 With these credentials, the client requests a bearer access token. This token is retrieved by POST'ing the following information:
 
@@ -32,15 +39,6 @@ https://usw2-api.continu.co/v3/oauth2/access-token
 
 The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format Bearer . Access tokens are valid only for the set of operations and resources described in the scope of the token request.
 
-<p><code>
-curl -X POST -H "Content-Type: application/json" -d '{"client_id": "<id>", "client_secret": "<secret>"}' https://usw2-api.continu.co/v3/oauth2/access-token
-</code></p>
-
-Which will return:
-<p><code>
-{"access_token":"&lt;token&gt;","token_type":"bearer","expires_in":&lt;epoch&gt;}
-</code></p>
-
 <h1 id="rateLimit">Rate Limit</h1>
 We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.
 
@@ -53,9 +51,19 @@ Every response from our API contains the following headers:
 
 <h1 id="continu-s-open-api-assessments">Assessments</h1>
 
+> Code samples
+
+```shell
+curl --request GET \
+  --url 'https://example.com/completion/assessments?for_users=type%2Cstring' \
+  --header 'accept: application/json' \
+  --header 'authorization: [object Object]'
+```
+
 This endpoints lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
+### HTTP Request
 `GET /completion/assessments`
 
 <h3 id="lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
@@ -78,9 +86,19 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-s-open-api-assignments">Assignments</h1>
 
+> Code samples
+
+```shell
+curl --request GET \
+  --url 'https://example.com/completion/assignments?for_users=type%2Cstring' \
+  --header 'accept: application/json' \
+  --header 'authorization: [object Object]'
+```
+
 This endpoints lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
+### HTTP Request
 `GET /completion/assignments`
 
 <h3 id="lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
@@ -103,9 +121,19 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-s-open-api-tracks">Tracks</h1>
 
+> Code samples
+
+```shell
+curl --request GET \
+  --url 'https://example.com/completion/tracks?for_users=type%2Cstring' \
+  --header 'accept: application/json' \
+  --header 'authorization: [object Object]'
+```
+
 This endpoints lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
+### HTTP Request
 `GET /completion/tracks`
 
 <h3 id="lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
@@ -128,9 +156,19 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-s-open-api-workshops">Workshops</h1>
 
+> Code samples
+
+```shell
+curl --request GET \
+  --url 'https://example.com/completion/workshops?for_users=type%2Cstring' \
+  --header 'accept: application/json' \
+  --header 'authorization: [object Object]'
+```
+
 This endpoints lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
+### HTTP Request
 `GET /completion/workshops`
 
 <h3 id="lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>

@@ -88,6 +88,7 @@
       }
     },
     "/completion/assignments": {
+
       "get": {
         "description": "This endpoints lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.\nYou also have the option to specify a date range using the from or until Unix Epoch timestamp.",
         "consumes": [
