@@ -48,7 +48,8 @@ Every response from our API contains the following headers:
 
 |Header|Description|
 |-----|-----|
-|Example|Example|
+|X-REQUESTS-PER-MINUTE|The number of requests counted last minute|
+|X-REQUESTS-PER-DAY|The number of requests today|
 
 <h1 id="continu-s-open-api-assessments">Assessments</h1>
 
@@ -149,16 +150,4 @@ You also have the option to specify a date range using the from or until Unix Ep
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
-
-<h1 id="continu-s-open-api-status">Status</h1>
-
-GET method that returns a pong/alive message to check API's responsiveness
-
-`GET /status/ping`
-
-<h3 id="ping-methods-returns-a-simple-pong/alive-signal-responses">Responses</h3>
-
-|Status|Meaning|Description|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
 

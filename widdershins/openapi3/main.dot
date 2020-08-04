@@ -45,7 +45,8 @@ Every response from our API contains the following headers:
 
 |Header|Description|
 |-----|-----|
-|Example|Example|
+|X-REQUESTS-PER-MINUTE|The number of requests counted last minute|
+|X-REQUESTS-PER-DAY|The number of requests today|
 
 {{= data.tags.endSection }}
 
