@@ -368,14 +368,6 @@
                   </li>
               </ul>
           </li>
-          <li>
-            <a href="#continu-s-open-api-status" class="toc-h1 toc-link" data-title="Status">Status</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#ping-methods-returns-a-simple-pong/alive-signal-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
-                  </li>
-              </ul>
-          </li>
       </ul>
 
         <ul class="toc-footer">
@@ -442,8 +434,12 @@ curl -X POST -H "Content-Type: application/json" -d '{"client_id": "<id>", "clie
 </tr>
 </thead><tbody>
 <tr>
-<td>Example</td>
-<td>Example</td>
+<td>X-REQUESTS-PER-MINUTE</td>
+<td>The number of requests counted last minute</td>
+</tr>
+<tr>
+<td>X-REQUESTS-PER-DAY</td>
+<td>The number of requests today</td>
 </tr>
 </tbody></table>
 
@@ -760,28 +756,6 @@ You also have the option to specify a date range using the from or until Unix Ep
 <td>500</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.6.1">Internal Server Error</a></td>
 <td>Internal Server Error</td>
-</tr>
-</tbody></table>
-
-<h1 id="continu-s-open-api-status">Status</h1>
-
-<p>GET method that returns a pong/alive message to check API&#39;s responsiveness</p>
-
-<p><code>GET /status/ping</code></p>
-
-<h3 id="ping-methods-returns-a-simple-pong/alive-signal-responses">Responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>OK</td>
 </tr>
 </tbody></table>
 
