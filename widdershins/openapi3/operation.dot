@@ -33,6 +33,7 @@
 {{= data.utils.getBodyParameterExamples(data) }}
 {{?}}
 
+### HTTP Request
 `{{= data.methodUpper}} {{=data.method.path}}`
 
 {{? data.parameters && data.parameters.length }}
