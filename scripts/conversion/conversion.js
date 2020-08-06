@@ -4,8 +4,8 @@
 const widdershins = require('widdershins');
 const fs = require('fs');
 const paths = {
-  source: 'testConvert.json',
-  dest: 'source/index.html.md',
+  source: './scripts/conversion/swagger.json',
+  dest: './source/index.html.md',
   url: 'https://oapi-latest.continu.co/docs/v1/doc.json'
 };
 // data
@@ -33,10 +33,20 @@ const convertFile = ()=>{
     language_tabs: [{'shell': 'curl'}],
     httpSnippet: true,
     expandBody: true,
-    user_templates: './widdershins/openapi3',
+    user_templates: './scripts/conversion/templates',
     tocSummary: true,
     codeSamples: true,
-    sample: true
+    sample: true,
+    toc_footers: [
+      {
+        url: "mailto:api@continu.co",
+        description: "Contact Us"
+      },
+      {
+        url: "https://continu.co/terms",
+        description: "Terms of Service"
+      }
+    ]
   };
   const fileData = fs.readFileSync(paths.source, 'utf8');
   const swaggerFile = JSON.parse(fileData);

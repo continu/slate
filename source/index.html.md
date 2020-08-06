@@ -1,7 +1,10 @@
 ---
 title: Continu's Open API v1.0
+language_tabs:
+  - shell: curl
 toc_footers:
-  - <a href='mailto:api@continu.co'>Contact Us</a>
+  - <a href="mailto:api@continu.co">Contact Us</a>
+  - <a href="https://continu.co/terms">Terms of Service</a>
 includes: []
 search: true
 highlight_theme: darkula
@@ -40,7 +43,7 @@ https://usw2-api.continu.co/v3/oauth2/access-token
 The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format `Bearer`. Access tokens are valid only for the set of operations and resources described in the scope of the token request.
 
 <h1 id="rateLimit">Rate Limit</h1>
-We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.
+We currently limit the number of calls a single client can make to 50 requests per minute. If you exceed the limit, we return a `429 Too Many Requests` response.
 
 Every response from our API contains the following headers:
 
@@ -55,9 +58,9 @@ Every response from our API contains the following headers:
 
 ```shell
 # You can also use wget
-curl -X GET /api/v1/completion/assessments?for_users=Terri%20James \
+curl -X GET /completion/assessments?for_users=string \
   -H 'Accept: application/json' \
-  -H 'Authorization: Bearer <token>'
+  -H 'Authorization: string'
 
 ```
 
@@ -119,7 +122,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET /api/v1/completion/assignments?for_users=string \
+curl -X GET /completion/assignments?for_users=string \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -151,24 +154,24 @@ You also have the option to specify a date range using the from or until Unix Ep
       {
         "assigned_content": [
           {
-            "completed_date": "string",
-            "content_id": "string",
-            "content_title": "string",
-            "content_type": "string"
+            "completed_date": "2019-09-04T14:24:16.393-06:00",
+            "content_id": "54e6411129b6698c270000d6",
+            "content_title": "Sales Enablement Track",
+            "content_type": "Track"
           }
         ],
-        "assigned_date": "string",
-        "assignment_id": "string",
+        "assigned_date": "2019-09-01T14:24:16.393-06:00",
+        "assignment_id": "57bdd6624487471000e2bf3a",
         "completed": true,
-        "completed_date": "string",
-        "completion_status": "string",
-        "due_date": "string"
+        "completed_date": "2019-09-04T14:24:16.393-06:00",
+        "completion_status": "Completed - On Time",
+        "due_date": "2019-09-05T14:24:16.393-06:00"
       }
     ],
-    "email": "string",
-    "first_name": "string",
-    "last_name": "string",
-    "user_id": "string"
+    "email": "stanleybond@continu.co",
+    "first_name": "Stanly",
+    "last_name": "Bond",
+    "user_id": "551b3553932def2b1e000019"
   }
 ]
 ```
@@ -188,7 +191,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET /api/v1/completion/tracks?for_users=string \
+curl -X GET /completion/tracks?for_users=string \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -216,21 +219,21 @@ You also have the option to specify a date range using the from or until Unix Ep
 ```json
 [
   {
-    "email": "string",
-    "first_name": "string",
-    "last_name": "string",
+    "email": "ferdinand@continu.co",
+    "first_name": "Ferdinand",
+    "last_name": "Danton",
     "tracks": [
       {
         "completed": true,
-        "completed_date": "string",
-        "duration": 0,
-        "id": "string",
-        "name": "string",
-        "progress": 0,
-        "start_date": "string"
+        "completed_date": "2019-07-19T15:32:53.744-06:00",
+        "duration": 5,
+        "id": "5d6fea50ca2bc5000fdf7dd6",
+        "name": "Sales Tools for Teams",
+        "progress": 100,
+        "start_date": "2019-07-19T15:16:54.744-06:00"
       }
     ],
-    "user_id": "string"
+    "user_id": "5aa15c20f070380bcd59214c"
   }
 ]
 ```
@@ -250,7 +253,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET /api/v1/completion/workshops?for_users=string \
+curl -X GET /completion/workshops?for_users=string \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -278,17 +281,17 @@ You also have the option to specify a date range using the from or until Unix Ep
 ```json
 [
   {
-    "email": "string",
-    "first_name": "string",
-    "last_name": "string",
-    "user_id": "string",
+    "email": "mark@continu.co",
+    "first_name": "Mark",
+    "last_name": "Schumacher",
+    "user_id": "5aa15c20f070380bcd59214c",
     "workshops": [
       {
-        "date": "string",
-        "facilitator": "string",
-        "id": "string",
-        "status": "string",
-        "title": "string"
+        "date": "2020-04-28T09:13:30.466-06:00",
+        "facilitator": "Ferdinand Danton",
+        "id": "5aa15c20f070380bcd59214c",
+        "status": "attended",
+        "title": "Full Zoom Workshop"
       }
     ]
   }
