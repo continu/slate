@@ -4,8 +4,8 @@
 {{ if (response.content) data.responseSchemas = true; }}
 {{~}}
 
-{{? false }}
-{{=data.responseSchemas }}
+{{? data.responseSchemas}}
+
 > Example responses
 
 {{= data.utils.getResponseExamples(data) }}

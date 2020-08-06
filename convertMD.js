@@ -1,3 +1,6 @@
+//bundle exec middleman server
+//bundle exec middleman build
+
 const widdershins = require('widdershins');
 const fs = require('fs');
 const paths = {
@@ -28,11 +31,12 @@ const paths = {
 const convertFile = ()=>{
   const options = {
     language_tabs: [{'shell': 'curl'}],
-    httpsnippet: true,
+    httpSnippet: true,
     expandBody: true,
     user_templates: './widdershins/openapi3',
     tocSummary: true,
-    codeSamples: true
+    codeSamples: true,
+    sample: true
   };
   const fileData = fs.readFileSync(paths.source, 'utf8');
   const swaggerFile = JSON.parse(fileData);

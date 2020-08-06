@@ -29,7 +29,7 @@ With these credentials, the client requests a bearer access token. This token is
 https://usw2-api.continu.co/v3/oauth2/access-token
 </code></p>
 
-The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format Bearer . Access tokens are valid only for the set of operations and resources described in the scope of the token request.
+The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format `Bearer`. Access tokens are valid only for the set of operations and resources described in the scope of the token request.
 
 
 {{= data.tags.endSection }}
@@ -40,7 +40,7 @@ The calling application extracts the access token from the response (see the exa
 
 {{= data.tags.section }}
 <h1 id="rateLimit">Rate Limit</h1>
-We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.
+We currently limit the number of calls a single client can make to 50 requests per minute. If you exceed the limit, we return a `429 Too Many Requests` response.
 
 Every response from our API contains the following headers:
 

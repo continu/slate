@@ -37,7 +37,7 @@ With these credentials, the client requests a bearer access token. This token is
 https://usw2-api.continu.co/v3/oauth2/access-token
 </code></p>
 
-The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format Bearer . Access tokens are valid only for the set of operations and resources described in the scope of the token request.
+The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format `Bearer`. Access tokens are valid only for the set of operations and resources described in the scope of the token request.
 
 <h1 id="rateLimit">Rate Limit</h1>
 We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.
@@ -54,19 +54,20 @@ Every response from our API contains the following headers:
 > Code samples
 
 ```shell
-curl --request GET \
-  --url 'https://example.com/completion/assessments?for_users=type%2Cstring' \
-  --header 'accept: application/json' \
-  --header 'authorization: [object Object]'
+# You can also use wget
+curl -X GET /api/v1/completion/assessments?for_users=Terri%20James \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer <token>'
+
 ```
 
-This endpoints lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.
+This endpoint lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 ### HTTP Request
 `GET /completion/assessments`
 
-<h3 id="lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
+<h3 id="get-assessments-completion-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -75,7 +76,35 @@ You also have the option to specify a date range using the from or until Unix Ep
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
 
-<h3 id="lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "assessments": [
+      {
+        "attempts": 1,
+        "completion_status": "Passed",
+        "grading_status": "Completed",
+        "id": "5b72efb05e8e1534c818ec81",
+        "passed_date": "2018-09-11T17:23:06.667-06:00",
+        "score": 100,
+        "start_date": "2018-09-06T17:07:20.942-06:00",
+        "title": "Designing for the Modern Workplace",
+        "type": "Video Coaching"
+      }
+    ],
+    "email": "theresa@continu.co",
+    "first_name": "Theresa",
+    "last_name": "Jenkins",
+    "user_id": "56b1258a9f176c1100e7e993"
+  }
+]
+```
+
+<h3 id="get-assessments-completion-responses">Responses</h3>
 
 |Status|Meaning|Description|
 |---|---|---|---|
@@ -89,19 +118,20 @@ You also have the option to specify a date range using the from or until Unix Ep
 > Code samples
 
 ```shell
-curl --request GET \
-  --url 'https://example.com/completion/assignments?for_users=type%2Cstring' \
-  --header 'accept: application/json' \
-  --header 'authorization: [object Object]'
+# You can also use wget
+curl -X GET /api/v1/completion/assignments?for_users=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
 ```
 
-This endpoints lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.
+This endpoint lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 ### HTTP Request
 `GET /completion/assignments`
 
-<h3 id="lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
+<h3 id="get-assignments-completion-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -110,7 +140,40 @@ You also have the option to specify a date range using the from or until Unix Ep
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
 
-<h3 id="lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "assignments": [
+      {
+        "assigned_content": [
+          {
+            "completed_date": "string",
+            "content_id": "string",
+            "content_title": "string",
+            "content_type": "string"
+          }
+        ],
+        "assigned_date": "string",
+        "assignment_id": "string",
+        "completed": true,
+        "completed_date": "string",
+        "completion_status": "string",
+        "due_date": "string"
+      }
+    ],
+    "email": "string",
+    "first_name": "string",
+    "last_name": "string",
+    "user_id": "string"
+  }
+]
+```
+
+<h3 id="get-assignments-completion-responses">Responses</h3>
 
 |Status|Meaning|Description|
 |---|---|---|---|
@@ -124,19 +187,20 @@ You also have the option to specify a date range using the from or until Unix Ep
 > Code samples
 
 ```shell
-curl --request GET \
-  --url 'https://example.com/completion/tracks?for_users=type%2Cstring' \
-  --header 'accept: application/json' \
-  --header 'authorization: [object Object]'
+# You can also use wget
+curl -X GET /api/v1/completion/tracks?for_users=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
 ```
 
-This endpoints lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.
+This endpoint lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 ### HTTP Request
 `GET /completion/tracks`
 
-<h3 id="lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
+<h3 id="lists-learning-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -145,7 +209,33 @@ You also have the option to specify a date range using the from or until Unix Ep
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
 
-<h3 id="lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "email": "string",
+    "first_name": "string",
+    "last_name": "string",
+    "tracks": [
+      {
+        "completed": true,
+        "completed_date": "string",
+        "duration": 0,
+        "id": "string",
+        "name": "string",
+        "progress": 0,
+        "start_date": "string"
+      }
+    ],
+    "user_id": "string"
+  }
+]
+```
+
+<h3 id="lists-learning-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
 
 |Status|Meaning|Description|
 |---|---|---|---|
@@ -159,19 +249,20 @@ You also have the option to specify a date range using the from or until Unix Ep
 > Code samples
 
 ```shell
-curl --request GET \
-  --url 'https://example.com/completion/workshops?for_users=type%2Cstring' \
-  --header 'accept: application/json' \
-  --header 'authorization: [object Object]'
+# You can also use wget
+curl -X GET /api/v1/completion/workshops?for_users=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
 ```
 
-This endpoints lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.
+This endpoint lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 ### HTTP Request
 `GET /completion/workshops`
 
-<h3 id="lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
+<h3 id="get-workshops-completion-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -180,7 +271,31 @@ You also have the option to specify a date range using the from or until Unix Ep
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
 
-<h3 id="lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "email": "string",
+    "first_name": "string",
+    "last_name": "string",
+    "user_id": "string",
+    "workshops": [
+      {
+        "date": "string",
+        "facilitator": "string",
+        "id": "string",
+        "status": "string",
+        "title": "string"
+      }
+    ]
+  }
+]
+```
+
+<h3 id="get-workshops-completion-responses">Responses</h3>
 
 |Status|Meaning|Description|
 |---|---|---|---|

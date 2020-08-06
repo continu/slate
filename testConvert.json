@@ -12,12 +12,12 @@
     "license": {},
     "version": "1.0"
   },
-  "host": "https://usw2-oapi.continu.co",
+  "host": "",
   "basePath": "/api/v1",
   "paths": {
     "/completion/assessments": {
       "get": {
-        "description": "This endpoints lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.\nYou also have the option to specify a date range using the from or until Unix Epoch timestamp.",
+        "description": "This endpoint lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.\nYou also have the option to specify a date range using the from or until Unix Epoch timestamp.",
         "consumes": [
           "application/json"
         ],
@@ -27,33 +27,36 @@
         "tags": [
           "Assessments"
         ],
-        "summary": "Lists User Assessments Completion Information for all the user emails in the mandatory for_users argument",
         "parameters": [
           {
             "type": "string",
             "description": "Comma Separated List of users for which to return the AssessmentsList",
             "name": "for_users",
             "in": "query",
-            "required": true
+            "required": true,
+            "example": "Terri James"
           },
           {
             "type": "integer",
             "description": "From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)",
             "name": "from",
-            "in": "query"
+            "in": "query",
+            "example": 1596658730
           },
           {
             "type": "integer",
             "description": "Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)",
             "name": "until",
-            "in": "query"
+            "in": "query",
+            "example": 1596658780
           },
           {
             "type": "string",
             "description": "The Authorization Header and Token",
             "name": "Authorization",
             "in": "header",
-            "required": true
+            "required": true,
+            "example": "Bearer <token>"
           }
         ],
         "responses": {
@@ -88,9 +91,8 @@
       }
     },
     "/completion/assignments": {
-
       "get": {
-        "description": "This endpoints lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.\nYou also have the option to specify a date range using the from or until Unix Epoch timestamp.",
+        "description": "This endpoint lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.\nYou also have the option to specify a date range using the from or until Unix Epoch timestamp.",
         "consumes": [
           "application/json"
         ],
@@ -100,7 +102,7 @@
         "tags": [
           "Assignments"
         ],
-        "summary": "Lists User Assignments Completion Information for all the user emails in the mandatory for_users argument",
+        "summary": "Get Assignments completion",
         "parameters": [
           {
             "type": "string",
@@ -162,7 +164,7 @@
     },
     "/completion/tracks": {
       "get": {
-        "description": "This endpoints lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.\nYou also have the option to specify a date range using the from or until Unix Epoch timestamp.",
+        "description": "This endpoint lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.\nYou also have the option to specify a date range using the from or until Unix Epoch timestamp.",
         "consumes": [
           "application/json"
         ],
@@ -172,7 +174,7 @@
         "tags": [
           "Tracks"
         ],
-        "summary": "Lists User Tracks Completion Information for all the user emails in the mandatory for_users argument",
+        "summary": "Lists Learning Tracks Completion Information for all the user emails in the mandatory for_users argument",
         "parameters": [
           {
             "type": "string",
@@ -234,7 +236,7 @@
     },
     "/completion/workshops": {
       "get": {
-        "description": "This endpoints lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.\nYou also have the option to specify a date range using the from or until Unix Epoch timestamp.",
+        "description": "This endpoint lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.\nYou also have the option to specify a date range using the from or until Unix Epoch timestamp.",
         "consumes": [
           "application/json"
         ],
@@ -244,7 +246,7 @@
         "tags": [
           "Workshops"
         ],
-        "summary": "Lists User Workshops Completion Information for all the user emails in the mandatory for_users argument",
+        "summary": "Get Workshops completion",
         "parameters": [
           {
             "type": "string",
@@ -310,31 +312,40 @@
       "type": "object",
       "properties": {
         "attempts": {
-          "type": "integer"
+          "type": "integer",
+          "example": 1
         },
         "completion_status": {
-          "type": "string"
+          "type": "string",
+          "example": "Passed"
         },
         "grading_status": {
-          "type": "string"
+          "type": "string",
+          "example": "Completed"
         },
         "id": {
-          "type": "string"
+          "type": "string",
+          "example": "5b72efb05e8e1534c818ec81"
         },
         "passed_date": {
-          "type": "string"
+          "type": "string",
+          "example": "2018-09-11T17:23:06.667-06:00"
         },
         "score": {
-          "type": "integer"
+          "type": "integer",
+          "example": 100
         },
         "start_date": {
-          "type": "string"
+          "type": "string",
+          "example": "2018-09-06T17:07:20.942-06:00"
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "example": "Designing for the Modern Workplace"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "example": "Video Coaching"
         }
       }
     },
@@ -420,16 +431,20 @@
           }
         },
         "email": {
-          "type": "string"
+          "type": "string",
+          "example": "theresa@continu.co"
         },
         "first_name": {
-          "type": "string"
+          "type": "string",
+          "example": "Theresa"
         },
         "last_name": {
-          "type": "string"
+          "type": "string",
+          "example": "Jenkins"
         },
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "example": "56b1258a9f176c1100e7e993"
         }
       }
     },
