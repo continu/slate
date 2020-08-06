@@ -328,10 +328,10 @@
                     <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    <a href="#get-assessments-completion-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
                   <li>
-                    <a href="#lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                    <a href="#get-assessments-completion-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
                   </li>
               </ul>
           </li>
@@ -342,10 +342,10 @@
                     <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    <a href="#get-assignments-completion-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
                   <li>
-                    <a href="#lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                    <a href="#get-assignments-completion-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
                   </li>
               </ul>
           </li>
@@ -356,10 +356,10 @@
                     <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    <a href="#lists-learning-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
                   <li>
-                    <a href="#lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                    <a href="#lists-learning-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
                   </li>
               </ul>
           </li>
@@ -370,10 +370,10 @@
                     <a href="#http-request-4" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    <a href="#get-workshops-completion-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
                   <li>
-                    <a href="#lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
+                    <a href="#get-workshops-completion-responses" class="toc-h2 toc-link" data-title="Responses">Responses</a>
                   </li>
               </ul>
           </li>
@@ -422,7 +422,7 @@ With these credentials, the client requests a bearer access token. This token is
 https://usw2-api.continu.co/v3/oauth2/access-token
 </code></p>
 
-<p>The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format Bearer . Access tokens are valid only for the set of operations and resources described in the scope of the token request.</p>
+<p>The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format <code>Bearer</code>. Access tokens are valid only for the set of operations and resources described in the scope of the token request.</p>
 
 <h1 id="rateLimit">Rate Limit</h1>
 
@@ -451,17 +451,18 @@ https://usw2-api.continu.co/v3/oauth2/access-token
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
-  <span class="nt">--url</span> <span class="s1">'https://example.com/completion/assessments?for_users=type%2Cstring'</span> <span class="se">\</span>
-  <span class="nt">--header</span> <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-  <span class="nt">--header</span> <span class="s1">'authorization: [object Object]'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl <span class="nt">-X</span> GET /api/v1/completion/assessments?for_users<span class="o">=</span>Terri%20James <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer &lt;token&gt;'</span>
+
 </code></pre></div>
-<p>This endpoints lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.
+<p>This endpoint lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /completion/assessments</code></p>
 
-<h3 id="lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
+<h3 id="get-assessments-completion-parameters">Parameters</h3>
 
 <table><thead>
 <tr>
@@ -502,7 +503,34 @@ You also have the option to specify a date range using the from or until Unix Ep
 </tr>
 </tbody></table>
 
-<h3 id="lists-user-assessments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"assessments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"attempts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"completion_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"grading_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b72efb05e8e1534c818ec81"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"passed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-11T17:23:06.667-06:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-06T17:07:20.942-06:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Designing for the Modern Workplace"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Video Coaching"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"theresa@continu.co"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theresa"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jenkins"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<h3 id="get-assessments-completion-responses">Responses</h3>
 
 <table><thead>
 <tr>
@@ -538,17 +566,18 @@ You also have the option to specify a date range using the from or until Unix Ep
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
-  <span class="nt">--url</span> <span class="s1">'https://example.com/completion/assignments?for_users=type%2Cstring'</span> <span class="se">\</span>
-  <span class="nt">--header</span> <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-  <span class="nt">--header</span> <span class="s1">'authorization: [object Object]'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl <span class="nt">-X</span> GET /api/v1/completion/assignments?for_users<span class="o">=</span>string <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
+
 </code></pre></div>
-<p>This endpoints lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.
+<p>This endpoint lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /completion/assignments</code></p>
 
-<h3 id="lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
+<h3 id="get-assignments-completion-parameters">Parameters</h3>
 
 <table><thead>
 <tr>
@@ -589,7 +618,39 @@ You also have the option to specify a date range using the from or until Unix Ep
 </tr>
 </tbody></table>
 
-<h3 id="lists-user-assignments-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"assignments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"assigned_content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"completed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"content_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"content_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"assigned_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"assignment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"completed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"completion_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<h3 id="get-assignments-completion-responses">Responses</h3>
 
 <table><thead>
 <tr>
@@ -625,17 +686,18 @@ You also have the option to specify a date range using the from or until Unix Ep
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
-  <span class="nt">--url</span> <span class="s1">'https://example.com/completion/tracks?for_users=type%2Cstring'</span> <span class="se">\</span>
-  <span class="nt">--header</span> <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-  <span class="nt">--header</span> <span class="s1">'authorization: [object Object]'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl <span class="nt">-X</span> GET /api/v1/completion/tracks?for_users<span class="o">=</span>string <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
+
 </code></pre></div>
-<p>This endpoints lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.
+<p>This endpoint lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /completion/tracks</code></p>
 
-<h3 id="lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
+<h3 id="lists-learning-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
 
 <table><thead>
 <tr>
@@ -676,7 +738,32 @@ You also have the option to specify a date range using the from or until Unix Ep
 </tr>
 </tbody></table>
 
-<h3 id="lists-user-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tracks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"completed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"progress"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<h3 id="lists-learning-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
 
 <table><thead>
 <tr>
@@ -712,17 +799,18 @@ You also have the option to specify a date range using the from or until Unix Ep
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
-  <span class="nt">--url</span> <span class="s1">'https://example.com/completion/workshops?for_users=type%2Cstring'</span> <span class="se">\</span>
-  <span class="nt">--header</span> <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-  <span class="nt">--header</span> <span class="s1">'authorization: [object Object]'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl <span class="nt">-X</span> GET /api/v1/completion/workshops?for_users<span class="o">=</span>string <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
+
 </code></pre></div>
-<p>This endpoints lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.
+<p>This endpoint lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /completion/workshops</code></p>
 
-<h3 id="lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
+<h3 id="get-workshops-completion-parameters">Parameters</h3>
 
 <table><thead>
 <tr>
@@ -763,7 +851,30 @@ You also have the option to specify a date range using the from or until Unix Ep
 </tr>
 </tbody></table>
 
-<h3 id="lists-user-workshops-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-responses">Responses</h3>
+<blockquote>
+<p>Example responses</p>
+
+<p>200 Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"workshops"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"facilitator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<h3 id="get-workshops-completion-responses">Responses</h3>
 
 <table><thead>
 <tr>
