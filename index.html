@@ -279,7 +279,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-28e22e4a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-8875be6c.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-e9bde216.js"></script>
 
@@ -296,7 +296,7 @@
 
   </head>
 
-  <body class="index" data-languages="[]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -307,6 +307,9 @@
       <div class="logo">
         <img src="images/logo-4c713fa5.png" class="" alt="" />
       </div>
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">curl</a>
+        </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -380,8 +383,8 @@
       </ul>
 
         <ul class="toc-footer">
-            <li><a href='mailto:api@continu.co'>Contact Us</a></li>
-          <li><a href="https://continu.co/terms">Term of Service</a></li>
+            <li><a href="mailto:api@continu.co">Contact Us</a></li>
+            <li><a href="https://continu.co/terms">Terms of Service</a></li>
         </ul>
 
       <div class="toc-version">v 1.0</div>
@@ -427,7 +430,7 @@ https://usw2-api.continu.co/v3/oauth2/access-token
 
 <h1 id="rateLimit">Rate Limit</h1>
 
-<p>We currently limit the number of calls a single client can make to X requests per minute. If you exceed the limit, we return a 429 Too Many Requests response.</p>
+<p>We currently limit the number of calls a single client can make to 50 requests per minute. If you exceed the limit, we return a <code>429 Too Many Requests</code> response.</p>
 
 <p>Every response from our API contains the following headers:</p>
 
@@ -453,9 +456,9 @@ https://usw2-api.continu.co/v3/oauth2/access-token
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET /api/v1/completion/assessments?for_users<span class="o">=</span>Terri%20James <span class="se">\</span>
+curl <span class="nt">-X</span> GET /completion/assessments?for_users<span class="o">=</span>string <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer &lt;token&gt;'</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
 </code></pre></div>
 <p>This endpoint lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.
@@ -568,7 +571,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET /api/v1/completion/assignments?for_users<span class="o">=</span>string <span class="se">\</span>
+curl <span class="nt">-X</span> GET /completion/assignments?for_users<span class="o">=</span>string <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -630,24 +633,24 @@ You also have the option to specify a date range using the from or until Unix Ep
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"assigned_content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"completed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"content_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"content_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="nl">"completed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-04T14:24:16.393-06:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"content_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54e6411129b6698c270000d6"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"content_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Enablement Track"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Track"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"assigned_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"assignment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"assigned_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-01T14:24:16.393-06:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"assignment_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57bdd6624487471000e2bf3a"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"completed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"completion_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="nl">"completed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-04T14:24:16.393-06:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"completion_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed - On Time"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-05T14:24:16.393-06:00"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stanleybond@continu.co"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stanly"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bond"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"551b3553932def2b1e000019"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
@@ -688,7 +691,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET /api/v1/completion/tracks?for_users<span class="o">=</span>string <span class="se">\</span>
+curl <span class="nt">-X</span> GET /completion/tracks?for_users<span class="o">=</span>string <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -746,21 +749,21 @@ You also have the option to specify a date range using the from or until Unix Ep
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ferdinand@continu.co"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ferdinand"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Danton"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"tracks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"completed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"progress"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="nl">"completed_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-19T15:32:53.744-06:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5d6fea50ca2bc5000fdf7dd6"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Tools for Teams"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"progress"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-19T15:16:54.744-06:00"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5aa15c20f070380bcd59214c"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
@@ -801,7 +804,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET /api/v1/completion/workshops?for_users<span class="o">=</span>string <span class="se">\</span>
+curl <span class="nt">-X</span> GET /completion/workshops?for_users<span class="o">=</span>string <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -859,17 +862,17 @@ You also have the option to specify a date range using the from or until Unix Ep
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mark@continu.co"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mark"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Schumacher"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5aa15c20f070380bcd59214c"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"workshops"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"facilitator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466-06:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"facilitator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ferdinand Danton"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5aa15c20f070380bcd59214c"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attended"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Full Zoom Workshop"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -908,6 +911,9 @@ You also have the option to specify a date range using the from or until Unix Ep
 
       </div>
       <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">curl</a>
+          </div>
       </div>
     </div>
   </body>
