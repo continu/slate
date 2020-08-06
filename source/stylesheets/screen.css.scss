@@ -168,6 +168,12 @@ html, body {
     transition-duration: 200ms;
   }
 
+  .toc-link {
+   &:hover {
+      background-color: $nav-subitem-bg;
+    }
+  }
+
   // This is the currently selected ToC entry
   .toc-link.active {
     background-color: $nav-active-bg;
@@ -180,15 +186,25 @@ html, body {
     color: $nav-active-parent-text;
   }
 
+  .toc-link.active + ul {
+    background:darken($nav-subitem-bg,5%);
+  }
+
   .toc-list-h2 {
     display: none;
     background-color: $nav-subitem-bg;
     font-weight: 500;
+    &.active {
+      background-color: darken($nav-subitem-bg,5%);
+    }
   }
 
   .toc-h2 {
     padding-left: $nav-padding + $nav-indent;
     font-size: 12px;
+    &.active, &:hover {
+      background-color: $nav-subitem-bg;
+    }
   }
 
   .toc-footer {

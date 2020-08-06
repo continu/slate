@@ -12,7 +12,7 @@
     "license": {},
     "version": "1.0"
   },
-  "host": "",
+  "host": "oapi-latest.continu.co",
   "basePath": "/api/v1",
   "paths": {
     "/completion/assessments": {
@@ -27,36 +27,33 @@
         "tags": [
           "Assessments"
         ],
+        "summary": "Get Assessments completion",
         "parameters": [
           {
             "type": "string",
             "description": "Comma Separated List of users for which to return the AssessmentsList",
             "name": "for_users",
             "in": "query",
-            "required": true,
-            "example": "Terri James"
+            "required": true
           },
           {
             "type": "integer",
             "description": "From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)",
             "name": "from",
-            "in": "query",
-            "example": 1596658730
+            "in": "query"
           },
           {
             "type": "integer",
             "description": "Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)",
             "name": "until",
-            "in": "query",
-            "example": 1596658780
+            "in": "query"
           },
           {
             "type": "string",
             "description": "The Authorization Header and Token",
             "name": "Authorization",
             "in": "header",
-            "required": true,
-            "example": "Bearer <token>"
+            "required": true
           }
         ],
         "responses": {
@@ -349,49 +346,59 @@
         }
       }
     },
-    "controllers.AssignmentRecord": {
+    "controllers.Assignment": {
       "type": "object",
       "properties": {
         "assigned_content": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/controllers.ContentRecord"
+            "$ref": "#/definitions/controllers.Content"
           }
         },
         "assigned_date": {
-          "type": "string"
+          "type": "string",
+          "example": "2019-09-01T14:24:16.393-06:00"
         },
         "assignment_id": {
-          "type": "string"
+          "type": "string",
+          "example": "57bdd6624487471000e2bf3a"
         },
         "completed": {
-          "type": "boolean"
+          "type": "boolean",
+          "example": true
         },
         "completed_date": {
-          "type": "string"
+          "type": "string",
+          "example": "2019-09-04T14:24:16.393-06:00"
         },
         "completion_status": {
-          "type": "string"
+          "type": "string",
+          "example": "Completed - On Time"
         },
         "due_date": {
-          "type": "string"
+          "type": "string",
+          "example": "2019-09-05T14:24:16.393-06:00"
         }
       }
     },
-    "controllers.ContentRecord": {
+    "controllers.Content": {
       "type": "object",
       "properties": {
         "completed_date": {
-          "type": "string"
+          "type": "string",
+          "example": "2019-09-04T14:24:16.393-06:00"
         },
         "content_id": {
-          "type": "string"
+          "type": "string",
+          "example": "54e6411129b6698c270000d6"
         },
         "content_title": {
-          "type": "string"
+          "type": "string",
+          "example": "Sales Enablement Track"
         },
         "content_type": {
-          "type": "string"
+          "type": "string",
+          "example": "Track"
         }
       }
     },
@@ -399,25 +406,32 @@
       "type": "object",
       "properties": {
         "completed": {
-          "type": "boolean"
+          "type": "boolean",
+          "example": true
         },
         "completed_date": {
-          "type": "string"
+          "type": "string",
+          "example": "2019-07-19T15:32:53.744-06:00"
         },
         "duration": {
-          "type": "integer"
+          "type": "integer",
+          "example": 5
         },
         "id": {
-          "type": "string"
+          "type": "string",
+          "example": "5d6fea50ca2bc5000fdf7dd6"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "example": "Sales Tools for Teams"
         },
         "progress": {
-          "type": "integer"
+          "type": "integer",
+          "example": 100
         },
         "start_date": {
-          "type": "string"
+          "type": "string",
+          "example": "2019-07-19T15:16:54.744-06:00"
         }
       }
     },
@@ -454,20 +468,24 @@
         "assignments": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/controllers.AssignmentRecord"
+            "$ref": "#/definitions/controllers.Assignment"
           }
         },
         "email": {
-          "type": "string"
+          "type": "string",
+          "example": "stanleybond@continu.co"
         },
         "first_name": {
-          "type": "string"
+          "type": "string",
+          "example": "Stanly"
         },
         "last_name": {
-          "type": "string"
+          "type": "string",
+          "example": "Bond"
         },
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "example": "551b3553932def2b1e000019"
         }
       }
     },
@@ -475,13 +493,16 @@
       "type": "object",
       "properties": {
         "email": {
-          "type": "string"
+          "type": "string",
+          "example": "ferdinand@continu.co"
         },
         "first_name": {
-          "type": "string"
+          "type": "string",
+          "example": "Ferdinand"
         },
         "last_name": {
-          "type": "string"
+          "type": "string",
+          "example": "Danton"
         },
         "tracks": {
           "type": "array",
@@ -490,7 +511,8 @@
           }
         },
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "example": "5aa15c20f070380bcd59214c"
         }
       }
     },
@@ -498,16 +520,20 @@
       "type": "object",
       "properties": {
         "email": {
-          "type": "string"
+          "type": "string",
+          "example": "mark@continu.co"
         },
         "first_name": {
-          "type": "string"
+          "type": "string",
+          "example": "Mark"
         },
         "last_name": {
-          "type": "string"
+          "type": "string",
+          "example": "Schumacher"
         },
         "user_id": {
-          "type": "string"
+          "type": "string",
+          "example": "5aa15c20f070380bcd59214c"
         },
         "workshops": {
           "type": "array",
@@ -521,19 +547,24 @@
       "type": "object",
       "properties": {
         "date": {
-          "type": "string"
+          "type": "string",
+          "example": "2020-04-28T09:13:30.466-06:00"
         },
         "facilitator": {
-          "type": "string"
+          "type": "string",
+          "example": "Ferdinand Danton"
         },
         "id": {
-          "type": "string"
+          "type": "string",
+          "example": "5aa15c20f070380bcd59214c"
         },
         "status": {
-          "type": "string"
+          "type": "string",
+          "example": "attended"
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "example": "Full Zoom Workshop"
         }
       }
     }
