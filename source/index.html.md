@@ -54,7 +54,7 @@ Every response from our API contains the following headers:
 
 <h1 id="continu-s-open-api-assessments">Assessments</h1>
 
-> Code Samples
+> Code Sample
 
 ```shell
 # You can also use wget
@@ -79,7 +79,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
 
-> Example Responses
+> Example Response
 
 > 200 Response
 
@@ -118,7 +118,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-s-open-api-assignments">Assignments</h1>
 
-> Code Samples
+> Code Sample
 
 ```shell
 # You can also use wget
@@ -143,7 +143,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
 
-> Example Responses
+> Example Response
 
 > 200 Response
 
@@ -187,7 +187,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-s-open-api-learning-tracks">Learning Tracks</h1>
 
-> Code Samples
+> Code Sample
 
 ```shell
 # You can also use wget
@@ -212,7 +212,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
 
-> Example Responses
+> Example Response
 
 > 200 Response
 
@@ -249,7 +249,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-s-open-api-workshops">Workshops</h1>
 
-> Code Samples
+> Code Sample
 
 ```shell
 # You can also use wget
@@ -274,7 +274,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
 
-> Example Responses
+> Example Response
 
 > 200 Response
 
