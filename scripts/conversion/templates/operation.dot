@@ -14,7 +14,7 @@
 {{ data.utils.getParameters(data); }}
 
 {{? data.options.codeSamples || data.operation["x-code-samples"] }}
-> Code Samples
+> Code Sample
 
 {{= data.utils.getCodeSamples(data) }}
 {{?}}
