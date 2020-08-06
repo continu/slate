@@ -279,7 +279,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-8875be6c.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-f738cdc4.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-e9bde216.js"></script>
 
@@ -353,7 +353,7 @@
               </ul>
           </li>
           <li>
-            <a href="#continu-s-open-api-tracks" class="toc-h1 toc-link" data-title="Tracks">Tracks</a>
+            <a href="#continu-s-open-api-learning-tracks" class="toc-h1 toc-link" data-title="Learning Tracks">Learning Tracks</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
@@ -456,7 +456,7 @@ https://usw2-api.continu.co/v3/oauth2/access-token
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET /completion/assessments?for_users<span class="o">=</span>string <span class="se">\</span>
+curl <span class="nt">-X</span> GET /api/v1/completion/assessments?for_users<span class="o">=</span>string <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -571,7 +571,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET /completion/assignments?for_users<span class="o">=</span>string <span class="se">\</span>
+curl <span class="nt">-X</span> GET /api/v1/completion/assignments?for_users<span class="o">=</span>string <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -685,13 +685,13 @@ You also have the option to specify a date range using the from or until Unix Ep
 </tr>
 </tbody></table>
 
-<h1 id="continu-s-open-api-tracks">Tracks</h1>
+<h1 id="continu-s-open-api-learning-tracks">Learning Tracks</h1>
 
 <blockquote>
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET /completion/tracks?for_users<span class="o">=</span>string <span class="se">\</span>
+curl <span class="nt">-X</span> GET /api/v1/completion/tracks?for_users<span class="o">=</span>string <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -804,7 +804,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 <p>Code samples</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET /completion/workshops?for_users<span class="o">=</span>string <span class="se">\</span>
+curl <span class="nt">-X</span> GET /api/v1/completion/workshops?for_users<span class="o">=</span>string <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
