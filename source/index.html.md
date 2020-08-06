@@ -58,7 +58,7 @@ Every response from our API contains the following headers:
 
 ```shell
 # You can also use wget
-curl -X GET /completion/assessments?for_users=string \
+curl -X GET /api/v1/completion/assessments?for_users=string \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -122,7 +122,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET /completion/assignments?for_users=string \
+curl -X GET /api/v1/completion/assignments?for_users=string \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -185,13 +185,13 @@ You also have the option to specify a date range using the from or until Unix Ep
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
-<h1 id="continu-s-open-api-tracks">Tracks</h1>
+<h1 id="continu-s-open-api-learning-tracks">Learning Tracks</h1>
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET /completion/tracks?for_users=string \
+curl -X GET /api/v1/completion/tracks?for_users=string \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -253,7 +253,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET /completion/workshops?for_users=string \
+curl -X GET /api/v1/completion/workshops?for_users=string \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 

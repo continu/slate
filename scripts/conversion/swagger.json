@@ -12,7 +12,7 @@
     "license": {},
     "version": "1.0"
   },
-  "host": "oapi-latest.continu.co",
+  "host": "",
   "basePath": "/api/v1",
   "paths": {
     "/completion/assessments": {
@@ -169,7 +169,7 @@
           "application/json"
         ],
         "tags": [
-          "Tracks"
+          "Learning Tracks"
         ],
         "summary": "Lists Learning Tracks Completion Information for all the user emails in the mandatory for_users argument",
         "parameters": [
