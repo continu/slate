@@ -9,24 +9,24 @@ const paths = {
   url: 'https://oapi-latest.continu.co/docs/v1/doc.json'
 };
 // data
-// const fetch = require('node-fetch');
-// let url = paths.url;
-// let settings = { method: "Get" };
-// const getData = ()=>{
-//   fetch(url, settings)
-//     .then(res => res.json())
-//     .then((json) => {
-//       // do something with JSON
-//       console.log(json);
-//       //create file
-//       fs.writeFile(paths.source, JSON.stringify(json), function (err) {
-//         if (err) return console.log(err);
-//         console.log('Written ');
-//         convertFile();
-//       });
-//     });
-// };
-// getData();
+const fetch = require('node-fetch');
+let url = paths.url;
+let settings = { method: "Get" };
+const getData = ()=>{
+  fetch(url, settings)
+    .then(res => res.json())
+    .then((json) => {
+      // do something with JSON
+      console.log(json);
+      //create file
+      fs.writeFile(paths.source, JSON.stringify(json), function (err) {
+        if (err) return console.log(err);
+        console.log('Written ');
+        convertFile();
+      });
+    });
+};
+getData();
 // conversion
 const convertFile = ()=>{
   const options = {
@@ -60,4 +60,4 @@ const convertFile = ()=>{
       // handle errors
     });
 };
-convertFile();
+// convertFile();
