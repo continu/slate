@@ -17,6 +17,7 @@ const getData = ()=>{
     .then(res => res.json())
     .then((json) => {
       // do something with JSON
+      console.log('gotten data:');
       console.log(json);
       //create file
       fs.writeFile(paths.source, JSON.stringify(json), function (err) {
@@ -60,4 +61,4 @@ const convertFile = ()=>{
       // handle errors
     });
 };
-// convertFile();
+
