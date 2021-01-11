@@ -51,6 +51,32 @@ Every response from our API contains the following headers:
 
 {{= data.tags.endSection }}
 
+{{= data.tags.section }}
+<h1 id="callingapi">API Locations</h1>
+
+```shell
+# US
+
+https://usw2-oapi.continu.co
+
+# AU
+
+https://apse2-oapi.continu.co
+```
+
+Our APIs has locations both in the US and Australia.
+
+When making calls to the api you will need to specify the subdomain between these two options:
+
+<p><code>
+# US <br/>
+https://usw2-oapi.continu.co <br/>
+# AU <br/>
+https://apse2-oapi.continu.co
+</code></p>
+
+{{= data.tags.endSection }}
+
 {{ for (var r in data.resources) { }}
 {{ data.resource = data.resources[r]; }}
 
