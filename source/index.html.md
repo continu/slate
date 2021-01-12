@@ -52,29 +52,6 @@ Every response from our API contains the following headers:
 |X-REQUESTS-PER-MINUTE|The number of requests counted last minute|
 |X-REQUESTS-PER-DAY|The number of requests today|
 
-<h1 id="callingapi">API Locations</h1>
-
-```shell
-# US
-
-https://usw2-oapi.continu.co
-
-# AU
-
-https://apse2-oapi.continu.co
-```
-
-Our APIs has locations both in the US and Australia.
-
-When making calls to the api you will need to specify the subdomain between these two options:
-
-<p><code>
-# US <br/>
-https://usw2-oapi.continu.co <br/>
-# AU <br/>
-https://apse2-oapi.continu.co
-</code></p>
-
 <h1 id="continu-api-assessments">Assessments</h1>
 
 > Code Sample
@@ -145,7 +122,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/completion/assignments?for_users=string \
+curl -X GET https://usw2-oapi.continu.co/completion/assignments \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -161,7 +138,16 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|for_users|query|string|true|Comma Separated List of users for which to return the AssignmentsList|
+|id_from|query|string|false|Optional Id from the last record previously returned. This will be the Id from which data is returned|
+|list_size|query|string|false|Size of the returned list. This value can be 50, 100, 500, 1000, or 5000|
+|email|query|string|false|Comma Separated List of users for which to return the AssignmentsList|
+|userid|query|string|false|UserId value expected (employee id, phone number, client defined id for users)|
+|locations|query|string|false|Location value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|departments|query|string|false|Department value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|teams|query|string|false|Team value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|levels|query|string|false|Level value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|grades|query|string|false|Grade value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|content|query|string|false|Comma Separated List of Content IDs for which to return the AssignmentsList|
 |from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
@@ -338,223 +324,6 @@ You also have the option to specify a date range using the from or until Unix Ep
 ```
 
 <h3 id="get-workshops-completion-responses">Responses</h3>
-
-|Status|Meaning|Description|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
-
-<h1 id="continu-api-skills">Skills</h1>
-
-> Code Sample
-
-```shell
-# You can also use wget
-curl -X PUT https://usw2-oapi.continu.co/data/Skills/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'Authorization: string'
-
-```
-
-This endpoint replaces/updates a whole Skill instance
-
-> Body parameter
-
-```json
-{
-  "blocked": false,
-  "blocked_date": "2020-04-28T09:13:30.466-06:00",
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
-  "id": "56b1258a9f176c1100e7e993",
-  "name": "JavaScript",
-  "updated_at": "2020-04-28T09:13:30.466-06:00",
-  "user": "56b1258a9f176c1100e7e993",
-  "user_blocked": "56b1258a9f176c1100e7e993"
-}
-```
-
-### HTTP Request
-`PUT https://usw2-oapi.continu.co/data/Skills/{id}`
-
-<h3 id="replace-a-skill-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|string|true|Id for the Skill requested to be replaced.|
-|Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Skill](#schemacontrollers.skill)|true|The Skill to replace|
-|» blocked|body|boolean|false|none|
-|» blocked_date|body|string|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
-|» name|body|string|false|none|
-|» updated_at|body|string|false|none|
-|» user|body|string|false|none|
-|» user_blocked|body|string|false|none|
-
-> Example Response
-
-> 400 Response
-
-<h3 id="replace-a-skill-responses">Responses</h3>
-
-|Status|Meaning|Description|
-|---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
-
-> Code Sample
-
-```shell
-# You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/skills \
-  -H 'Accept: application/json' \
-  -H 'Authorization: string'
-
-```
-
-This endpoint lists all Skill briefs, you may return them as a list size of 50 records, 100, or 500, and in a "compact", "summary", or "full" list type.
-If omitted, the default values for the list are "compact" and 50 records.
-If you want to return the next batch of 50, 100, or 500 records
-The list To get the next group of records send id_from argument with the last id you received.
-
-### HTTP Request
-`GET https://usw2-oapi.continu.co/data/skills`
-
-<h3 id="get-skill-list-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id_from|query|string|false|Optional Id from the last record previously returned. This will be the Id from which data is returned|
-|list_size|query|string|false|Size of the returned list. This value can be 50, 100, or 500|
-|list_type|query|string|false|Type of List to return. This value can be compact, summary, or full indicating the number of fields included in each element returned|
-|name|query|string|false|Name value expected or comma separated list of values (JavaScript, Speaks German, PowerPoint)|
-|created_at_from|query|integer|false|CreatedAt From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
-|created_at_until|query|integer|false|CreatedAt Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
-|Authorization|header|string|true|The Authorization Header and Token|
-
-> Example Response
-
-> 200 Response
-
-```json
-[
-  {
-    "blocked": false,
-    "blocked_date": "2020-04-28T09:13:30.466-06:00",
-    "company": "56b1258a9f176c1100e7e993",
-    "created_at": "2020-01-28T09:13:30.466-06:00",
-    "id": "56b1258a9f176c1100e7e993",
-    "name": "JavaScript",
-    "user": "56b1258a9f176c1100e7e993",
-    "user_blocked": "56b1258a9f176c1100e7e993"
-  }
-]
-```
-
-<h3 id="get-skill-list-responses">Responses</h3>
-
-|Status|Meaning|Description|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
-
-> Code Sample
-
-```shell
-# You can also use wget
-curl -X POST https://usw2-oapi.continu.co/data/skills \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'Authorization: string'
-
-```
-
-This endpoint creates a Skill instance
-
-> Body parameter
-
-```json
-{
-  "blocked": false,
-  "blocked_date": "2020-04-28T09:13:30.466-06:00",
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
-  "id": "56b1258a9f176c1100e7e993",
-  "name": "JavaScript",
-  "updated_at": "2020-04-28T09:13:30.466-06:00",
-  "user": "56b1258a9f176c1100e7e993",
-  "user_blocked": "56b1258a9f176c1100e7e993"
-}
-```
-
-### HTTP Request
-`POST https://usw2-oapi.continu.co/data/skills`
-
-<h3 id="creates-a-skill-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Skill](#schemacontrollers.skill)|true|The Skill to create|
-|» blocked|body|boolean|false|none|
-|» blocked_date|body|string|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
-|» name|body|string|false|none|
-|» updated_at|body|string|false|none|
-|» user|body|string|false|none|
-|» user_blocked|body|string|false|none|
-
-> Example Response
-
-> 201 Response
-
-<h3 id="creates-a-skill-responses">Responses</h3>
-
-|Status|Meaning|Description|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
-|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
-
-> Code Sample
-
-```shell
-# You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/skills/{id} \
-  -H 'Accept: */*' \
-  -H 'Authorization: string'
-
-```
-
-This endpoint gets the skill corresponding to the given id.
-
-### HTTP Request
-`GET https://usw2-oapi.continu.co/data/skills/{id}`
-
-<h3 id="get-skill-by-id-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|string|true|Id for the skill requested.|
-|Authorization|header|string|true|The Authorization Header and Token|
-
-> Example Response
-
-> 200 Response
-
-<h3 id="get-skill-by-id-responses">Responses</h3>
 
 |Status|Meaning|Description|
 |---|---|---|---|
@@ -1627,6 +1396,223 @@ This endpoint replaces/updates a whole Location instance
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
+<h1 id="continu-api-skills">Skills</h1>
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X GET https://usw2-oapi.continu.co/data/skills \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint lists all Skill briefs, you may return them as a list size of 50 records, 100, or 500, and in a "compact", "summary", or "full" list type.
+If omitted, the default values for the list are "compact" and 50 records.
+If you want to return the next batch of 50, 100, or 500 records
+The list To get the next group of records send id_from argument with the last id you received.
+
+### HTTP Request
+`GET https://usw2-oapi.continu.co/data/skills`
+
+<h3 id="get-skill-list-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id_from|query|string|false|Optional Id from the last record previously returned. This will be the Id from which data is returned|
+|list_size|query|string|false|Size of the returned list. This value can be 50, 100, or 500|
+|list_type|query|string|false|Type of List to return. This value can be compact, summary, or full indicating the number of fields included in each element returned|
+|name|query|string|false|Name value expected or comma separated list of values (JavaScript, Speaks German, PowerPoint)|
+|created_at_from|query|integer|false|CreatedAt From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|created_at_until|query|integer|false|CreatedAt Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|Authorization|header|string|true|The Authorization Header and Token|
+
+> Example Response
+
+> 200 Response
+
+```json
+[
+  {
+    "blocked": false,
+    "blocked_date": "2020-04-28T09:13:30.466-06:00",
+    "company": "56b1258a9f176c1100e7e993",
+    "created_at": "2020-01-28T09:13:30.466-06:00",
+    "id": "56b1258a9f176c1100e7e993",
+    "name": "JavaScript",
+    "user": "56b1258a9f176c1100e7e993",
+    "user_blocked": "56b1258a9f176c1100e7e993"
+  }
+]
+```
+
+<h3 id="get-skill-list-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X POST https://usw2-oapi.continu.co/data/skills \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint creates a Skill instance
+
+> Body parameter
+
+```json
+{
+  "blocked": false,
+  "blocked_date": "2020-04-28T09:13:30.466-06:00",
+  "company": "56b1258a9f176c1100e7e993",
+  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "id": "56b1258a9f176c1100e7e993",
+  "name": "JavaScript",
+  "updated_at": "2020-04-28T09:13:30.466-06:00",
+  "user": "56b1258a9f176c1100e7e993",
+  "user_blocked": "56b1258a9f176c1100e7e993"
+}
+```
+
+### HTTP Request
+`POST https://usw2-oapi.continu.co/data/skills`
+
+<h3 id="creates-a-skill-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|The Authorization Header and Token|
+|body|body|[controllers.Skill](#schemacontrollers.skill)|true|The Skill to create|
+|» blocked|body|boolean|false|none|
+|» blocked_date|body|string|false|none|
+|» company|body|string|false|none|
+|» created_at|body|string|false|none|
+|» id|body|string|false|none|
+|» name|body|string|false|none|
+|» updated_at|body|string|false|none|
+|» user|body|string|false|none|
+|» user_blocked|body|string|false|none|
+
+> Example Response
+
+> 201 Response
+
+<h3 id="creates-a-skill-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X GET https://usw2-oapi.continu.co/data/skills/{id} \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint gets the skill corresponding to the given id.
+
+### HTTP Request
+`GET https://usw2-oapi.continu.co/data/skills/{id}`
+
+<h3 id="get-skill-by-id-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|string|true|Id for the skill requested.|
+|Authorization|header|string|true|The Authorization Header and Token|
+
+> Example Response
+
+> 200 Response
+
+<h3 id="get-skill-by-id-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X PUT https://usw2-oapi.continu.co/data/skills/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint replaces/updates a whole Skill instance
+
+> Body parameter
+
+```json
+{
+  "blocked": false,
+  "blocked_date": "2020-04-28T09:13:30.466-06:00",
+  "company": "56b1258a9f176c1100e7e993",
+  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "id": "56b1258a9f176c1100e7e993",
+  "name": "JavaScript",
+  "updated_at": "2020-04-28T09:13:30.466-06:00",
+  "user": "56b1258a9f176c1100e7e993",
+  "user_blocked": "56b1258a9f176c1100e7e993"
+}
+```
+
+### HTTP Request
+`PUT https://usw2-oapi.continu.co/data/skills/{id}`
+
+<h3 id="replace-a-skill-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|string|true|Id for the Skill requested to be replaced.|
+|Authorization|header|string|true|The Authorization Header and Token|
+|body|body|[controllers.Skill](#schemacontrollers.skill)|true|The Skill to replace|
+|» blocked|body|boolean|false|none|
+|» blocked_date|body|string|false|none|
+|» company|body|string|false|none|
+|» created_at|body|string|false|none|
+|» id|body|string|false|none|
+|» name|body|string|false|none|
+|» updated_at|body|string|false|none|
+|» user|body|string|false|none|
+|» user_blocked|body|string|false|none|
+
+> Example Response
+
+> 400 Response
+
+<h3 id="replace-a-skill-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
 <h1 id="continu-api-teams">Teams</h1>
 
 > Code Sample
@@ -1905,7 +1891,7 @@ curl -X GET https://usw2-oapi.continu.co/data/users \
 
 ```
 
-This endpoint lists all user's briefs, you may return them as a list size of 50 records, 100, or 500, and in a "compact", "summary", or "full" list type.
+This endpoint lists all user's briefs, you may return them as a list size of 50 records, 100, 1000, etc, and in a "compact", "summary", or "full" list type.
 If omitted, the default values for the list are "compact" and 50 records. You have the option to specify values for any of the fields returned regardless of the list type.
 This can be a single value, or lists for string fields like emails, roles, and even from/until ranges for date fields like create_at, or first_login.
 If you want to return the next batch of 50, 100, or 500 records
@@ -1919,14 +1905,18 @@ The list To get the next group of records send id_from argument with the last id
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |id_from|query|string|false|Optional Id from the last record previously returned. This will be the Id from which data is returned|
-|list_size|query|string|false|Size of the returned list. This value can be 50, 100, or 500|
+|list_size|query|string|false|Size of the returned list. This value can be 50, 100, 500, 1000, or 5000|
 |list_type|query|string|false|Type of List to return. This value can be compact, summary, or full indicating the number of fields included in each element returned|
 |first_name|query|string|false|First Name value expected or comma separated list of values (George, Becky, Michael)|
 |last_name|query|string|false|Last Name value expected or comma separated list of values (Smith, Senna, Carlson)|
 |email|query|string|false|Email value or comma separated list of emails for which to return values|
 |role|query|string|false|Role value expected or comma separated list of values (admin, user, external)|
 |userid|query|string|false|UserId value expected (employee id, phone number, client defined id for users)|
-|locations|query|string|false|LinkedLocations value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|locations|query|string|false|Location value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|departments|query|string|false|Department value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|teams|query|string|false|Team value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|levels|query|string|false|Level value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|grades|query|string|false|Grade value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
 |is_manager|query|string|false|IsManager value expected (true/false, t/f, 1/0)|
 |is_collaborator|query|string|false|IsCollaborator value expected (true/false, t/f, 1/0)|
 |is_suspended|query|string|false|IsSuspended value expected (true/false, t/f, 1/0)|
