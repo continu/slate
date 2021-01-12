@@ -58,7 +58,7 @@ Every response from our API contains the following headers:
 
 ```shell
 # You can also use wget
-curl -X GET /completion/assessments?for_users=string \
+curl -X GET https://usw2-oapi.continu.co/completion/assessments?for_users=string \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -68,7 +68,7 @@ This endpoint lists all Assessments for specific users. Users should be specifie
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 ### HTTP Request
-`GET /completion/assessments`
+`GET https://usw2-oapi.continu.co/completion/assessments`
 
 <h3 id="get-assessments-completion-parameters">Parameters</h3>
 
@@ -122,7 +122,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET /completion/assignments?for_users=string \
+curl -X GET https://usw2-oapi.continu.co/completion/assignments \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -132,13 +132,22 @@ This endpoint lists all Assignments for specific users. Users should be specifie
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 ### HTTP Request
-`GET /completion/assignments`
+`GET https://usw2-oapi.continu.co/completion/assignments`
 
 <h3 id="get-assignments-completion-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|for_users|query|string|true|Comma Separated List of users for which to return the AssignmentsList|
+|id_from|query|string|false|Optional Id from the last record previously returned. This will be the Id from which data is returned|
+|list_size|query|string|false|Size of the returned list. This value can be 50, 100, 500, 1000, or 5000|
+|email|query|string|false|Comma Separated List of users for which to return the AssignmentsList|
+|userid|query|string|false|UserId value expected (employee id, phone number, client defined id for users)|
+|locations|query|string|false|Location value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|departments|query|string|false|Department value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|teams|query|string|false|Team value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|levels|query|string|false|Level value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|grades|query|string|false|Grade value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|content|query|string|false|Comma Separated List of Content IDs for which to return the AssignmentsList|
 |from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
@@ -191,7 +200,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET /completion/tracks?for_users=string \
+curl -X GET https://usw2-oapi.continu.co/completion/tracks?for_users=string \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -201,7 +210,7 @@ This endpoint lists all Learning Tracks for specific users. Users should be spec
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 ### HTTP Request
-`GET /completion/tracks`
+`GET https://usw2-oapi.continu.co/completion/tracks`
 
 <h3 id="lists-learning-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
 
@@ -253,7 +262,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET /completion/workshops?for_users=string \
+curl -X GET https://usw2-oapi.continu.co/completion/workshops?for_users=string \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -263,7 +272,7 @@ This endpoint lists all Workshops for specific users. Users should be specified 
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 ### HTTP Request
-`GET /completion/workshops`
+`GET https://usw2-oapi.continu.co/completion/workshops`
 
 <h3 id="get-workshops-completion-parameters">Parameters</h3>
 
@@ -323,230 +332,13 @@ You also have the option to specify a date range using the from or until Unix Ep
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
-<h1 id="continu-api-skills">Skills</h1>
-
-> Code Sample
-
-```shell
-# You can also use wget
-curl -X PUT /data/Skills/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'Authorization: string'
-
-```
-
-This endpoint replaces/updates a whole Skill instance
-
-> Body parameter
-
-```json
-{
-  "blocked": false,
-  "blocked_date": "2020-04-28T09:13:30.466-06:00",
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
-  "id": "56b1258a9f176c1100e7e993",
-  "name": "JavaScript",
-  "updated_at": "2020-04-28T09:13:30.466-06:00",
-  "user": "56b1258a9f176c1100e7e993",
-  "user_blocked": "56b1258a9f176c1100e7e993"
-}
-```
-
-### HTTP Request
-`PUT /data/Skills/{id}`
-
-<h3 id="replace-a-skill-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|string|true|Id for the Skill requested to be replaced.|
-|Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Skill](#schemacontrollers.skill)|true|The Skill to replace|
-|» blocked|body|boolean|false|none|
-|» blocked_date|body|string|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
-|» name|body|string|false|none|
-|» updated_at|body|string|false|none|
-|» user|body|string|false|none|
-|» user_blocked|body|string|false|none|
-
-> Example Response
-
-> 400 Response
-
-<h3 id="replace-a-skill-responses">Responses</h3>
-
-|Status|Meaning|Description|
-|---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
-
-> Code Sample
-
-```shell
-# You can also use wget
-curl -X GET /data/skills \
-  -H 'Accept: application/json' \
-  -H 'Authorization: string'
-
-```
-
-This endpoint lists all Skill briefs, you may return them as a list size of 50 records, 100, or 500, and in a "compact", "summary", or "full" list type.
-If omitted, the default values for the list are "compact" and 50 records.
-If you want to return the next batch of 50, 100, or 500 records
-The list To get the next group of records send id_from argument with the last id you received.
-
-### HTTP Request
-`GET /data/skills`
-
-<h3 id="get-skill-list-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id_from|query|string|false|Optional Id from the last record previously returned. This will be the Id from which data is returned|
-|list_size|query|string|false|Size of the returned list. This value can be 50, 100, or 500|
-|list_type|query|string|false|Type of List to return. This value can be compact, summary, or full indicating the number of fields included in each element returned|
-|name|query|string|false|Name value expected or comma separated list of values (JavaScript, Speaks German, PowerPoint)|
-|created_at_from|query|integer|false|CreatedAt From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
-|created_at_until|query|integer|false|CreatedAt Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
-|Authorization|header|string|true|The Authorization Header and Token|
-
-> Example Response
-
-> 200 Response
-
-```json
-[
-  {
-    "blocked": false,
-    "blocked_date": "2020-04-28T09:13:30.466-06:00",
-    "company": "56b1258a9f176c1100e7e993",
-    "created_at": "2020-01-28T09:13:30.466-06:00",
-    "id": "56b1258a9f176c1100e7e993",
-    "name": "JavaScript",
-    "user": "56b1258a9f176c1100e7e993",
-    "user_blocked": "56b1258a9f176c1100e7e993"
-  }
-]
-```
-
-<h3 id="get-skill-list-responses">Responses</h3>
-
-|Status|Meaning|Description|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
-
-> Code Sample
-
-```shell
-# You can also use wget
-curl -X POST /data/skills \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'Authorization: string'
-
-```
-
-This endpoint creates a Skill instance
-
-> Body parameter
-
-```json
-{
-  "blocked": false,
-  "blocked_date": "2020-04-28T09:13:30.466-06:00",
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
-  "id": "56b1258a9f176c1100e7e993",
-  "name": "JavaScript",
-  "updated_at": "2020-04-28T09:13:30.466-06:00",
-  "user": "56b1258a9f176c1100e7e993",
-  "user_blocked": "56b1258a9f176c1100e7e993"
-}
-```
-
-### HTTP Request
-`POST /data/skills`
-
-<h3 id="creates-a-skill-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Skill](#schemacontrollers.skill)|true|The Skill to create|
-|» blocked|body|boolean|false|none|
-|» blocked_date|body|string|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
-|» name|body|string|false|none|
-|» updated_at|body|string|false|none|
-|» user|body|string|false|none|
-|» user_blocked|body|string|false|none|
-
-> Example Response
-
-> 201 Response
-
-<h3 id="creates-a-skill-responses">Responses</h3>
-
-|Status|Meaning|Description|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
-|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
-
-> Code Sample
-
-```shell
-# You can also use wget
-curl -X GET /data/skills/{id} \
-  -H 'Accept: */*' \
-  -H 'Authorization: string'
-
-```
-
-This endpoint gets the skill corresponding to the given id.
-
-### HTTP Request
-`GET /data/skills/{id}`
-
-<h3 id="get-skill-by-id-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|string|true|Id for the skill requested.|
-|Authorization|header|string|true|The Authorization Header and Token|
-
-> Example Response
-
-> 200 Response
-
-<h3 id="get-skill-by-id-responses">Responses</h3>
-
-|Status|Meaning|Description|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
-
 <h1 id="continu-api-departments">Departments</h1>
 
 > Code Sample
 
 ```shell
 # You can also use wget
-curl -X GET /data/departments \
+curl -X GET https://usw2-oapi.continu.co/data/departments \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -558,7 +350,7 @@ If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.
 
 ### HTTP Request
-`GET /data/departments`
+`GET https://usw2-oapi.continu.co/data/departments`
 
 <h3 id="get-department-list-parameters">Parameters</h3>
 
@@ -609,7 +401,7 @@ The list To get the next group of records send id_from argument with the last id
 
 ```shell
 # You can also use wget
-curl -X POST /data/departments \
+curl -X POST https://usw2-oapi.continu.co/data/departments \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -648,7 +440,7 @@ This endpoint creates a Department instance
 ```
 
 ### HTTP Request
-`POST /data/departments`
+`POST https://usw2-oapi.continu.co/data/departments`
 
 <h3 id="creates-a-department-parameters">Parameters</h3>
 
@@ -692,7 +484,7 @@ This endpoint creates a Department instance
 
 ```shell
 # You can also use wget
-curl -X GET /data/departments/{id} \
+curl -X GET https://usw2-oapi.continu.co/data/departments/{id} \
   -H 'Accept: */*' \
   -H 'Authorization: string'
 
@@ -701,7 +493,7 @@ curl -X GET /data/departments/{id} \
 This endpoint gets the department corresponding to the given id.
 
 ### HTTP Request
-`GET /data/departments/{id}`
+`GET https://usw2-oapi.continu.co/data/departments/{id}`
 
 <h3 id="get-department-by-id-parameters">Parameters</h3>
 
@@ -727,7 +519,7 @@ This endpoint gets the department corresponding to the given id.
 
 ```shell
 # You can also use wget
-curl -X PUT /data/departments/{id} \
+curl -X PUT https://usw2-oapi.continu.co/data/departments/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -766,7 +558,7 @@ This endpoint replaces/updates a whole Department instance
 ```
 
 ### HTTP Request
-`PUT /data/departments/{id}`
+`PUT https://usw2-oapi.continu.co/data/departments/{id}`
 
 <h3 id="replace-a-department-parameters">Parameters</h3>
 
@@ -812,7 +604,7 @@ This endpoint replaces/updates a whole Department instance
 
 ```shell
 # You can also use wget
-curl -X GET /data/grades \
+curl -X GET https://usw2-oapi.continu.co/data/grades \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -824,7 +616,7 @@ If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.
 
 ### HTTP Request
-`GET /data/grades`
+`GET https://usw2-oapi.continu.co/data/grades`
 
 <h3 id="get-grade-list-parameters">Parameters</h3>
 
@@ -875,7 +667,7 @@ The list To get the next group of records send id_from argument with the last id
 
 ```shell
 # You can also use wget
-curl -X POST /data/grades \
+curl -X POST https://usw2-oapi.continu.co/data/grades \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -914,7 +706,7 @@ This endpoint creates a Grade instance
 ```
 
 ### HTTP Request
-`POST /data/grades`
+`POST https://usw2-oapi.continu.co/data/grades`
 
 <h3 id="creates-a-grade-parameters">Parameters</h3>
 
@@ -958,7 +750,7 @@ This endpoint creates a Grade instance
 
 ```shell
 # You can also use wget
-curl -X GET /data/grades/{id} \
+curl -X GET https://usw2-oapi.continu.co/data/grades/{id} \
   -H 'Accept: */*' \
   -H 'Authorization: string'
 
@@ -967,7 +759,7 @@ curl -X GET /data/grades/{id} \
 This endpoint gets the grade corresponding to the given id.
 
 ### HTTP Request
-`GET /data/grades/{id}`
+`GET https://usw2-oapi.continu.co/data/grades/{id}`
 
 <h3 id="get-grade-by-id-parameters">Parameters</h3>
 
@@ -993,7 +785,7 @@ This endpoint gets the grade corresponding to the given id.
 
 ```shell
 # You can also use wget
-curl -X PUT /data/grades/{id} \
+curl -X PUT https://usw2-oapi.continu.co/data/grades/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1032,7 +824,7 @@ This endpoint replaces/updates a whole Grade instance
 ```
 
 ### HTTP Request
-`PUT /data/grades/{id}`
+`PUT https://usw2-oapi.continu.co/data/grades/{id}`
 
 <h3 id="replace-a-grade-parameters">Parameters</h3>
 
@@ -1078,7 +870,7 @@ This endpoint replaces/updates a whole Grade instance
 
 ```shell
 # You can also use wget
-curl -X GET /data/levels \
+curl -X GET https://usw2-oapi.continu.co/data/levels \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -1090,7 +882,7 @@ If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.
 
 ### HTTP Request
-`GET /data/levels`
+`GET https://usw2-oapi.continu.co/data/levels`
 
 <h3 id="get-level-list-parameters">Parameters</h3>
 
@@ -1141,7 +933,7 @@ The list To get the next group of records send id_from argument with the last id
 
 ```shell
 # You can also use wget
-curl -X POST /data/levels \
+curl -X POST https://usw2-oapi.continu.co/data/levels \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1180,7 +972,7 @@ This endpoint creates a Level
 ```
 
 ### HTTP Request
-`POST /data/levels`
+`POST https://usw2-oapi.continu.co/data/levels`
 
 <h3 id="creates-a-level-(an-organization-level)-parameters">Parameters</h3>
 
@@ -1224,7 +1016,7 @@ This endpoint creates a Level
 
 ```shell
 # You can also use wget
-curl -X GET /data/levels/{id} \
+curl -X GET https://usw2-oapi.continu.co/data/levels/{id} \
   -H 'Accept: */*' \
   -H 'Authorization: string'
 
@@ -1233,7 +1025,7 @@ curl -X GET /data/levels/{id} \
 This endpoint gets the level corresponding to the given id.
 
 ### HTTP Request
-`GET /data/levels/{id}`
+`GET https://usw2-oapi.continu.co/data/levels/{id}`
 
 <h3 id="get-level-by-id-parameters">Parameters</h3>
 
@@ -1259,7 +1051,7 @@ This endpoint gets the level corresponding to the given id.
 
 ```shell
 # You can also use wget
-curl -X PUT /data/levels/{id} \
+curl -X PUT https://usw2-oapi.continu.co/data/levels/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1298,7 +1090,7 @@ This endpoint replaces/updates a whole Level instance
 ```
 
 ### HTTP Request
-`PUT /data/levels/{id}`
+`PUT https://usw2-oapi.continu.co/data/levels/{id}`
 
 <h3 id="replace-a-level-parameters">Parameters</h3>
 
@@ -1344,7 +1136,7 @@ This endpoint replaces/updates a whole Level instance
 
 ```shell
 # You can also use wget
-curl -X GET /data/locations \
+curl -X GET https://usw2-oapi.continu.co/data/locations \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -1356,7 +1148,7 @@ If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.
 
 ### HTTP Request
-`GET /data/locations`
+`GET https://usw2-oapi.continu.co/data/locations`
 
 <h3 id="get-location-list-parameters">Parameters</h3>
 
@@ -1407,7 +1199,7 @@ The list To get the next group of records send id_from argument with the last id
 
 ```shell
 # You can also use wget
-curl -X POST /data/locations \
+curl -X POST https://usw2-oapi.continu.co/data/locations \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1446,7 +1238,7 @@ This endpoint creates a Location instance
 ```
 
 ### HTTP Request
-`POST /data/locations`
+`POST https://usw2-oapi.continu.co/data/locations`
 
 <h3 id="creates-a-location-parameters">Parameters</h3>
 
@@ -1490,7 +1282,7 @@ This endpoint creates a Location instance
 
 ```shell
 # You can also use wget
-curl -X GET /data/locations/{id} \
+curl -X GET https://usw2-oapi.continu.co/data/locations/{id} \
   -H 'Accept: */*' \
   -H 'Authorization: string'
 
@@ -1499,7 +1291,7 @@ curl -X GET /data/locations/{id} \
 This endpoint gets the location corresponding to the given id.
 
 ### HTTP Request
-`GET /data/locations/{id}`
+`GET https://usw2-oapi.continu.co/data/locations/{id}`
 
 <h3 id="get-location-by-id-parameters">Parameters</h3>
 
@@ -1525,7 +1317,7 @@ This endpoint gets the location corresponding to the given id.
 
 ```shell
 # You can also use wget
-curl -X PUT /data/locations/{id} \
+curl -X PUT https://usw2-oapi.continu.co/data/locations/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1564,7 +1356,7 @@ This endpoint replaces/updates a whole Location instance
 ```
 
 ### HTTP Request
-`PUT /data/locations/{id}`
+`PUT https://usw2-oapi.continu.co/data/locations/{id}`
 
 <h3 id="replace-a-location-parameters">Parameters</h3>
 
@@ -1604,13 +1396,230 @@ This endpoint replaces/updates a whole Location instance
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
+<h1 id="continu-api-skills">Skills</h1>
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X GET https://usw2-oapi.continu.co/data/skills \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint lists all Skill briefs, you may return them as a list size of 50 records, 100, or 500, and in a "compact", "summary", or "full" list type.
+If omitted, the default values for the list are "compact" and 50 records.
+If you want to return the next batch of 50, 100, or 500 records
+The list To get the next group of records send id_from argument with the last id you received.
+
+### HTTP Request
+`GET https://usw2-oapi.continu.co/data/skills`
+
+<h3 id="get-skill-list-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id_from|query|string|false|Optional Id from the last record previously returned. This will be the Id from which data is returned|
+|list_size|query|string|false|Size of the returned list. This value can be 50, 100, or 500|
+|list_type|query|string|false|Type of List to return. This value can be compact, summary, or full indicating the number of fields included in each element returned|
+|name|query|string|false|Name value expected or comma separated list of values (JavaScript, Speaks German, PowerPoint)|
+|created_at_from|query|integer|false|CreatedAt From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|created_at_until|query|integer|false|CreatedAt Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|Authorization|header|string|true|The Authorization Header and Token|
+
+> Example Response
+
+> 200 Response
+
+```json
+[
+  {
+    "blocked": false,
+    "blocked_date": "2020-04-28T09:13:30.466-06:00",
+    "company": "56b1258a9f176c1100e7e993",
+    "created_at": "2020-01-28T09:13:30.466-06:00",
+    "id": "56b1258a9f176c1100e7e993",
+    "name": "JavaScript",
+    "user": "56b1258a9f176c1100e7e993",
+    "user_blocked": "56b1258a9f176c1100e7e993"
+  }
+]
+```
+
+<h3 id="get-skill-list-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X POST https://usw2-oapi.continu.co/data/skills \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint creates a Skill instance
+
+> Body parameter
+
+```json
+{
+  "blocked": false,
+  "blocked_date": "2020-04-28T09:13:30.466-06:00",
+  "company": "56b1258a9f176c1100e7e993",
+  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "id": "56b1258a9f176c1100e7e993",
+  "name": "JavaScript",
+  "updated_at": "2020-04-28T09:13:30.466-06:00",
+  "user": "56b1258a9f176c1100e7e993",
+  "user_blocked": "56b1258a9f176c1100e7e993"
+}
+```
+
+### HTTP Request
+`POST https://usw2-oapi.continu.co/data/skills`
+
+<h3 id="creates-a-skill-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|The Authorization Header and Token|
+|body|body|[controllers.Skill](#schemacontrollers.skill)|true|The Skill to create|
+|» blocked|body|boolean|false|none|
+|» blocked_date|body|string|false|none|
+|» company|body|string|false|none|
+|» created_at|body|string|false|none|
+|» id|body|string|false|none|
+|» name|body|string|false|none|
+|» updated_at|body|string|false|none|
+|» user|body|string|false|none|
+|» user_blocked|body|string|false|none|
+
+> Example Response
+
+> 201 Response
+
+<h3 id="creates-a-skill-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X GET https://usw2-oapi.continu.co/data/skills/{id} \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint gets the skill corresponding to the given id.
+
+### HTTP Request
+`GET https://usw2-oapi.continu.co/data/skills/{id}`
+
+<h3 id="get-skill-by-id-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|string|true|Id for the skill requested.|
+|Authorization|header|string|true|The Authorization Header and Token|
+
+> Example Response
+
+> 200 Response
+
+<h3 id="get-skill-by-id-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X PUT https://usw2-oapi.continu.co/data/skills/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint replaces/updates a whole Skill instance
+
+> Body parameter
+
+```json
+{
+  "blocked": false,
+  "blocked_date": "2020-04-28T09:13:30.466-06:00",
+  "company": "56b1258a9f176c1100e7e993",
+  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "id": "56b1258a9f176c1100e7e993",
+  "name": "JavaScript",
+  "updated_at": "2020-04-28T09:13:30.466-06:00",
+  "user": "56b1258a9f176c1100e7e993",
+  "user_blocked": "56b1258a9f176c1100e7e993"
+}
+```
+
+### HTTP Request
+`PUT https://usw2-oapi.continu.co/data/skills/{id}`
+
+<h3 id="replace-a-skill-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|string|true|Id for the Skill requested to be replaced.|
+|Authorization|header|string|true|The Authorization Header and Token|
+|body|body|[controllers.Skill](#schemacontrollers.skill)|true|The Skill to replace|
+|» blocked|body|boolean|false|none|
+|» blocked_date|body|string|false|none|
+|» company|body|string|false|none|
+|» created_at|body|string|false|none|
+|» id|body|string|false|none|
+|» name|body|string|false|none|
+|» updated_at|body|string|false|none|
+|» user|body|string|false|none|
+|» user_blocked|body|string|false|none|
+
+> Example Response
+
+> 400 Response
+
+<h3 id="replace-a-skill-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
 <h1 id="continu-api-teams">Teams</h1>
 
 > Code Sample
 
 ```shell
 # You can also use wget
-curl -X GET /data/teams \
+curl -X GET https://usw2-oapi.continu.co/data/teams \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -1622,7 +1631,7 @@ If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.
 
 ### HTTP Request
-`GET /data/teams`
+`GET https://usw2-oapi.continu.co/data/teams`
 
 <h3 id="get-team-list-parameters">Parameters</h3>
 
@@ -1673,7 +1682,7 @@ The list To get the next group of records send id_from argument with the last id
 
 ```shell
 # You can also use wget
-curl -X POST /data/teams \
+curl -X POST https://usw2-oapi.continu.co/data/teams \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1712,7 +1721,7 @@ This endpoint creates a Team instance
 ```
 
 ### HTTP Request
-`POST /data/teams`
+`POST https://usw2-oapi.continu.co/data/teams`
 
 <h3 id="creates-a-team-parameters">Parameters</h3>
 
@@ -1756,7 +1765,7 @@ This endpoint creates a Team instance
 
 ```shell
 # You can also use wget
-curl -X GET /data/teams/{id} \
+curl -X GET https://usw2-oapi.continu.co/data/teams/{id} \
   -H 'Accept: */*' \
   -H 'Authorization: string'
 
@@ -1765,7 +1774,7 @@ curl -X GET /data/teams/{id} \
 This endpoint gets the team corresponding to the given id.
 
 ### HTTP Request
-`GET /data/teams/{id}`
+`GET https://usw2-oapi.continu.co/data/teams/{id}`
 
 <h3 id="get-team-by-id-parameters">Parameters</h3>
 
@@ -1791,7 +1800,7 @@ This endpoint gets the team corresponding to the given id.
 
 ```shell
 # You can also use wget
-curl -X PUT /data/teams/{id} \
+curl -X PUT https://usw2-oapi.continu.co/data/teams/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1830,7 +1839,7 @@ This endpoint replaces/updates a whole Team instance
 ```
 
 ### HTTP Request
-`PUT /data/teams/{id}`
+`PUT https://usw2-oapi.continu.co/data/teams/{id}`
 
 <h3 id="replace-a-team-parameters">Parameters</h3>
 
@@ -1876,34 +1885,38 @@ This endpoint replaces/updates a whole Team instance
 
 ```shell
 # You can also use wget
-curl -X GET /data/users \
+curl -X GET https://usw2-oapi.continu.co/data/users \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
 ```
 
-This endpoint lists all user's briefs, you may return them as a list size of 50 records, 100, or 500, and in a "compact", "summary", or "full" list type.
+This endpoint lists all user's briefs, you may return them as a list size of 50 records, 100, 1000, etc, and in a "compact", "summary", or "full" list type.
 If omitted, the default values for the list are "compact" and 50 records. You have the option to specify values for any of the fields returned regardless of the list type.
 This can be a single value, or lists for string fields like emails, roles, and even from/until ranges for date fields like create_at, or first_login.
 If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.
 
 ### HTTP Request
-`GET /data/users`
+`GET https://usw2-oapi.continu.co/data/users`
 
 <h3 id="get-user-list-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |id_from|query|string|false|Optional Id from the last record previously returned. This will be the Id from which data is returned|
-|list_size|query|string|false|Size of the returned list. This value can be 50, 100, or 500|
+|list_size|query|string|false|Size of the returned list. This value can be 50, 100, 500, 1000, or 5000|
 |list_type|query|string|false|Type of List to return. This value can be compact, summary, or full indicating the number of fields included in each element returned|
 |first_name|query|string|false|First Name value expected or comma separated list of values (George, Becky, Michael)|
 |last_name|query|string|false|Last Name value expected or comma separated list of values (Smith, Senna, Carlson)|
 |email|query|string|false|Email value or comma separated list of emails for which to return values|
 |role|query|string|false|Role value expected or comma separated list of values (admin, user, external)|
 |userid|query|string|false|UserId value expected (employee id, phone number, client defined id for users)|
-|locations|query|string|false|Locations value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|locations|query|string|false|Location value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|departments|query|string|false|Department value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|teams|query|string|false|Team value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|levels|query|string|false|Level value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|grades|query|string|false|Grade value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
 |is_manager|query|string|false|IsManager value expected (true/false, t/f, 1/0)|
 |is_collaborator|query|string|false|IsCollaborator value expected (true/false, t/f, 1/0)|
 |is_suspended|query|string|false|IsSuspended value expected (true/false, t/f, 1/0)|
@@ -1972,7 +1985,7 @@ The list To get the next group of records send id_from argument with the last id
 
 ```shell
 # You can also use wget
-curl -X POST /data/users \
+curl -X POST https://usw2-oapi.continu.co/data/users \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1985,17 +1998,17 @@ This endpoint creates a User instance
 
 ```json
 {
+  "address": "21 Jump St",
   "buddy_email": "buddy@continu.co",
   "company": "56b1258a9f176c1100e7e993",
+  "country": "USA",
   "created_at": "2020-01-28T09:13:30.466-06:00",
-  "departments": [
-    "56b9938a9f176c1100e7e156"
-  ],
+  "distributor": "Distributor A",
   "email": "theresa@continu.co",
   "first_login": "2020-01-28T09:13:30.466-06:00",
   "first_name": "Theresa",
   "full_name": "Theresa Jenkins",
-  "grade": "56b9938a9f176c1100e7e156",
+  "group": "Group A",
   "hired_on": "2020-04-28T09:13:30.466-06:00",
   "id": "56b1258a9f176c1100e7e993",
   "image": "https://d2277n3gvptnup.cloudfront.net/images/afcaf0c3-b0db-4313-b42e-bcabdfae35cb.jpg",
@@ -2008,21 +2021,29 @@ This endpoint creates a User instance
   "last_name": "Jenkins",
   "last_onboarding_email": "2020-01-28T09:13:30.466-06:00",
   "last_reminded_email": "2020-01-28T09:13:30.466-06:00",
+  "linked_departments": [
+    "56b9938a9f176c1100e7e156"
+  ],
+  "linked_grade": "56b9938a9f176c1100e7e156",
+  "linked_locations": [
+    "56b9938a9f176c1100e7e125"
+  ],
+  "linked_org_level": "56b9938a9f176c1100e7e156",
   "linked_teams": [
     "56b9938a9f176c1100e7e156"
   ],
-  "locations": [
-    "56b9938a9f176c1100e7e125"
-  ],
   "manager_email": "manager@continu.co",
-  "org_level": "56b9938a9f176c1100e7e156",
   "password": "my password",
   "provisioning_key": "string",
   "provisioning_status": "inviting",
+  "region": "Central USA",
   "role": "user",
   "skills": [
     "56b9938a9f176c1100e7e156"
   ],
+  "slack_dc": "A3Q47DZPB",
+  "slack_id": "U0CSVAS3Z",
+  "slack_last_attempt": "2020-01-28T09:13:30.466-06:00",
   "social_links": [
     {
       "name": "linkedin",
@@ -2036,7 +2057,7 @@ This endpoint creates a User instance
 ```
 
 ### HTTP Request
-`POST /data/users`
+`POST https://usw2-oapi.continu.co/data/users`
 
 <h3 id="creates-a-user-parameters">Parameters</h3>
 
@@ -2045,15 +2066,17 @@ This endpoint creates a User instance
 |Authorization|header|string|true|The Authorization Header and Token|
 |mute|query|string|false|Optionally, set to true if you don't want any emails to be sent. Default is false. Allowed values true/false, t/f, 1/0.|
 |body|body|[controllers.User](#schemacontrollers.user)|true|The User to create|
+|» address|body|string|false|none|
 |» buddy_email|body|string|false|none|
 |» company|body|string|false|none|
+|» country|body|string|false|none|
 |» created_at|body|string|false|none|
-|» departments|body|[string]|false|none|
+|» distributor|body|string|false|none|
 |» email|body|string|false|none|
 |» first_login|body|string|false|none|
 |» first_name|body|string|false|none|
 |» full_name|body|string|false|none|
-|» grade|body|string|false|none|
+|» group|body|string|false|none|
 |» hired_on|body|string|false|none|
 |» id|body|string|false|none|
 |» image|body|string|false|none|
@@ -2066,15 +2089,21 @@ This endpoint creates a User instance
 |» last_name|body|string|false|none|
 |» last_onboarding_email|body|string|false|none|
 |» last_reminded_email|body|string|false|none|
+|» linked_departments|body|[string]|false|none|
+|» linked_grade|body|string|false|none|
+|» linked_locations|body|[string]|false|none|
+|» linked_org_level|body|string|false|none|
 |» linked_teams|body|[string]|false|none|
-|» locations|body|[string]|false|none|
 |» manager_email|body|string|false|none|
-|» org_level|body|string|false|none|
 |» password|body|string|false|none|
 |» provisioning_key|body|string|false|none|
 |» provisioning_status|body|string|false|none|
+|» region|body|string|false|none|
 |» role|body|string|false|none|
 |» skills|body|[string]|false|none|
+|» slack_dc|body|string|false|none|
+|» slack_id|body|string|false|none|
+|» slack_last_attempt|body|string|false|none|
 |» social_links|body|[[controllers.SocialLink](#schemacontrollers.sociallink)]|false|none|
 |»» name|body|string|false|none|
 |»» value|body|string|false|none|
@@ -2099,7 +2128,7 @@ This endpoint creates a User instance
 
 ```shell
 # You can also use wget
-curl -X GET /data/users/{id} \
+curl -X GET https://usw2-oapi.continu.co/data/users/{id} \
   -H 'Accept: */*' \
   -H 'Authorization: string'
 
@@ -2108,7 +2137,7 @@ curl -X GET /data/users/{id} \
 This endpoint gets the user corresponding to the given id.
 
 ### HTTP Request
-`GET /data/users/{id}`
+`GET https://usw2-oapi.continu.co/data/users/{id}`
 
 <h3 id="get-user-by-id-parameters">Parameters</h3>
 
@@ -2134,7 +2163,7 @@ This endpoint gets the user corresponding to the given id.
 
 ```shell
 # You can also use wget
-curl -X PUT /data/users/{id} \
+curl -X PUT https://usw2-oapi.continu.co/data/users/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -2147,17 +2176,17 @@ This endpoint replaces/updates a whole User instance
 
 ```json
 {
+  "address": "21 Jump St",
   "buddy_email": "buddy@continu.co",
   "company": "56b1258a9f176c1100e7e993",
+  "country": "USA",
   "created_at": "2020-01-28T09:13:30.466-06:00",
-  "departments": [
-    "56b9938a9f176c1100e7e156"
-  ],
+  "distributor": "Distributor A",
   "email": "theresa@continu.co",
   "first_login": "2020-01-28T09:13:30.466-06:00",
   "first_name": "Theresa",
   "full_name": "Theresa Jenkins",
-  "grade": "56b9938a9f176c1100e7e156",
+  "group": "Group A",
   "hired_on": "2020-04-28T09:13:30.466-06:00",
   "id": "56b1258a9f176c1100e7e993",
   "image": "https://d2277n3gvptnup.cloudfront.net/images/afcaf0c3-b0db-4313-b42e-bcabdfae35cb.jpg",
@@ -2170,21 +2199,29 @@ This endpoint replaces/updates a whole User instance
   "last_name": "Jenkins",
   "last_onboarding_email": "2020-01-28T09:13:30.466-06:00",
   "last_reminded_email": "2020-01-28T09:13:30.466-06:00",
+  "linked_departments": [
+    "56b9938a9f176c1100e7e156"
+  ],
+  "linked_grade": "56b9938a9f176c1100e7e156",
+  "linked_locations": [
+    "56b9938a9f176c1100e7e125"
+  ],
+  "linked_org_level": "56b9938a9f176c1100e7e156",
   "linked_teams": [
     "56b9938a9f176c1100e7e156"
   ],
-  "locations": [
-    "56b9938a9f176c1100e7e125"
-  ],
   "manager_email": "manager@continu.co",
-  "org_level": "56b9938a9f176c1100e7e156",
   "password": "my password",
   "provisioning_key": "string",
   "provisioning_status": "inviting",
+  "region": "Central USA",
   "role": "user",
   "skills": [
     "56b9938a9f176c1100e7e156"
   ],
+  "slack_dc": "A3Q47DZPB",
+  "slack_id": "U0CSVAS3Z",
+  "slack_last_attempt": "2020-01-28T09:13:30.466-06:00",
   "social_links": [
     {
       "name": "linkedin",
@@ -2198,7 +2235,7 @@ This endpoint replaces/updates a whole User instance
 ```
 
 ### HTTP Request
-`PUT /data/users/{id}`
+`PUT https://usw2-oapi.continu.co/data/users/{id}`
 
 <h3 id="replace-a-user-parameters">Parameters</h3>
 
@@ -2207,15 +2244,17 @@ This endpoint replaces/updates a whole User instance
 |id|path|string|true|Id for the user requested to be replaced.|
 |Authorization|header|string|true|The Authorization Header and Token|
 |body|body|[controllers.User](#schemacontrollers.user)|true|The User to replace with|
+|» address|body|string|false|none|
 |» buddy_email|body|string|false|none|
 |» company|body|string|false|none|
+|» country|body|string|false|none|
 |» created_at|body|string|false|none|
-|» departments|body|[string]|false|none|
+|» distributor|body|string|false|none|
 |» email|body|string|false|none|
 |» first_login|body|string|false|none|
 |» first_name|body|string|false|none|
 |» full_name|body|string|false|none|
-|» grade|body|string|false|none|
+|» group|body|string|false|none|
 |» hired_on|body|string|false|none|
 |» id|body|string|false|none|
 |» image|body|string|false|none|
@@ -2228,15 +2267,21 @@ This endpoint replaces/updates a whole User instance
 |» last_name|body|string|false|none|
 |» last_onboarding_email|body|string|false|none|
 |» last_reminded_email|body|string|false|none|
+|» linked_departments|body|[string]|false|none|
+|» linked_grade|body|string|false|none|
+|» linked_locations|body|[string]|false|none|
+|» linked_org_level|body|string|false|none|
 |» linked_teams|body|[string]|false|none|
-|» locations|body|[string]|false|none|
 |» manager_email|body|string|false|none|
-|» org_level|body|string|false|none|
 |» password|body|string|false|none|
 |» provisioning_key|body|string|false|none|
 |» provisioning_status|body|string|false|none|
+|» region|body|string|false|none|
 |» role|body|string|false|none|
 |» skills|body|[string]|false|none|
+|» slack_dc|body|string|false|none|
+|» slack_id|body|string|false|none|
+|» slack_last_attempt|body|string|false|none|
 |» social_links|body|[[controllers.SocialLink](#schemacontrollers.sociallink)]|false|none|
 |»» name|body|string|false|none|
 |»» value|body|string|false|none|
@@ -2249,6 +2294,122 @@ This endpoint replaces/updates a whole User instance
 > 400 Response
 
 <h3 id="replace-a-user-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X PATCH https://usw2-oapi.continu.co/data/users/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint updates a partial User instance
+
+> Body parameter
+
+```json
+{
+  "address": "21 Jump St",
+  "buddy_email": "buddy@continu.co",
+  "country": "USA",
+  "distributor": "Distributor A",
+  "email": "theresa@continu.co",
+  "first_name": "Theresa",
+  "group": "Group A",
+  "hired_on": "2020-04-28T09:13:30.466-06:00",
+  "image": "https://d2277n3gvptnup.cloudfront.net/images/afcaf0c3-b0db-4313-b42e-bcabdfae35cb.jpg",
+  "is_collaborator": true,
+  "is_manager": false,
+  "is_suspended": false,
+  "job_title": "Marketing Manager",
+  "language": "en",
+  "last_name": "Jenkins",
+  "linked_departments": [
+    "56b9938a9f176c1100e7e156"
+  ],
+  "linked_grade": "56b9938a9f176c1100e7e156",
+  "linked_locations": [
+    "56b9938a9f176c1100e7e125"
+  ],
+  "linked_org_level": "56b9938a9f176c1100e7e156",
+  "linked_teams": [
+    "56b9938a9f176c1100e7e156"
+  ],
+  "manager_email": "manager@continu.co",
+  "password": "my password",
+  "region": "Central USA",
+  "role": "user",
+  "skills": [
+    "56b9938a9f176c1100e7e156"
+  ],
+  "slack_dc": "A3Q47DZPB",
+  "slack_id": "U0CSVAS3Z",
+  "social_links": [
+    {
+      "name": "linkedin",
+      "value": "https://link.to.linkedin.com"
+    }
+  ],
+  "userid": "123456789"
+}
+```
+
+### HTTP Request
+`PATCH https://usw2-oapi.continu.co/data/users/{id}`
+
+<h3 id="updates/patches-a-user-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|string|true|Id for the user requested to be replaced.|
+|Authorization|header|string|true|The Authorization Header and Token|
+|body|body|[controllers.UpdateUser](#schemacontrollers.updateuser)|true|The UpdateUser to patch User with|
+|» address|body|string|false|none|
+|» buddy_email|body|string|false|none|
+|» country|body|string|false|none|
+|» distributor|body|string|false|none|
+|» email|body|string|false|none|
+|» first_name|body|string|false|none|
+|» group|body|string|false|none|
+|» hired_on|body|string|false|none|
+|» image|body|string|false|none|
+|» is_collaborator|body|boolean|false|none|
+|» is_manager|body|boolean|false|none|
+|» is_suspended|body|boolean|false|none|
+|» job_title|body|string|false|none|
+|» language|body|string|false|none|
+|» last_name|body|string|false|none|
+|» linked_departments|body|[string]|false|none|
+|» linked_grade|body|string|false|none|
+|» linked_locations|body|[string]|false|none|
+|» linked_org_level|body|string|false|none|
+|» linked_teams|body|[string]|false|none|
+|» manager_email|body|string|false|none|
+|» password|body|string|false|none|
+|» region|body|string|false|none|
+|» role|body|string|false|none|
+|» skills|body|[string]|false|none|
+|» slack_dc|body|string|false|none|
+|» slack_id|body|string|false|none|
+|» social_links|body|[[controllers.SocialLink](#schemacontrollers.sociallink)]|false|none|
+|»» name|body|string|false|none|
+|»» value|body|string|false|none|
+|» userid|body|string|false|none|
+
+> Example Response
+
+> 400 Response
+
+<h3 id="updates/patches-a-user-responses">Responses</h3>
 
 |Status|Meaning|Description|
 |---|---|---|---|

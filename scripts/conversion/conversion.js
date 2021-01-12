@@ -38,6 +38,8 @@ const convertFile = ()=>{
     tocSummary: true,
     codeSamples: true,
     sample: true,
+    loadedFrom: "https://usw2-oapi.continu.co",
+    version: false,
     toc_footers: [
       {
         url: "mailto:api@continu.co",
