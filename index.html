@@ -743,7 +743,7 @@ https://usw2-api.continu.co/v3/oauth2/access-token
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/completion/assessments?for_users<span class="o">=</span>string <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/completion/assessments <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -765,11 +765,53 @@ You also have the option to specify a date range using the from or until Unix Ep
 </tr>
 </thead><tbody>
 <tr>
-<td>for_users</td>
+<td>email</td>
 <td>query</td>
 <td>string</td>
-<td>true</td>
-<td>Comma Separated List of users for which to return the AssessmentsList</td>
+<td>false</td>
+<td>Comma Separated List of users for which to return the Assessments List</td>
+</tr>
+<tr>
+<td>userid</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>UserId value expected (employee id, phone number, client defined id for users)</td>
+</tr>
+<tr>
+<td>locations</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Location value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)</td>
+</tr>
+<tr>
+<td>departments</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Department value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)</td>
+</tr>
+<tr>
+<td>teams</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Team value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)</td>
+</tr>
+<tr>
+<td>levels</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Level value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)</td>
+</tr>
+<tr>
+<td>grades</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Grade value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)</td>
 </tr>
 <tr>
 <td>from</td>
@@ -879,20 +921,6 @@ You also have the option to specify a date range using the from or until Unix Ep
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>id_from</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>Optional Id from the last record previously returned. This will be the Id from which data is returned</td>
-</tr>
-<tr>
-<td>list_size</td>
-<td>query</td>
-<td>string</td>
-<td>false</td>
-<td>Size of the returned list. This value can be 50, 100, 500, 1000, or 5000</td>
-</tr>
 <tr>
 <td>email</td>
 <td>query</td>
@@ -1041,7 +1069,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/completion/tracks?for_users<span class="o">=</span>string <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/completion/tracks <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -1063,11 +1091,60 @@ You also have the option to specify a date range using the from or until Unix Ep
 </tr>
 </thead><tbody>
 <tr>
-<td>for_users</td>
+<td>email</td>
 <td>query</td>
 <td>string</td>
-<td>true</td>
-<td>Comma Separated List of users for which to return the TracksList</td>
+<td>false</td>
+<td>Comma Separated List of users for which to return the Learning Tracks Completion List</td>
+</tr>
+<tr>
+<td>userid</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>UserId value expected (employee id, phone number, client defined id for users)</td>
+</tr>
+<tr>
+<td>locations</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Location value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)</td>
+</tr>
+<tr>
+<td>departments</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Department value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)</td>
+</tr>
+<tr>
+<td>teams</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Team value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)</td>
+</tr>
+<tr>
+<td>levels</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Level value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)</td>
+</tr>
+<tr>
+<td>grades</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Grade value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)</td>
+</tr>
+<tr>
+<td>track</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Comma Separated List of Track IDs for which to return the Learning Tracks Completion List</td>
 </tr>
 <tr>
 <td>from</td>
