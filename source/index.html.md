@@ -58,7 +58,7 @@ Every response from our API contains the following headers:
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/completion/assessments?for_users=string \
+curl -X GET https://usw2-oapi.continu.co/completion/assessments \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -74,7 +74,13 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|for_users|query|string|true|Comma Separated List of users for which to return the AssessmentsList|
+|email|query|string|false|Comma Separated List of users for which to return the Assessments List|
+|userid|query|string|false|UserId value expected (employee id, phone number, client defined id for users)|
+|locations|query|string|false|Location value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|departments|query|string|false|Department value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|teams|query|string|false|Team value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|levels|query|string|false|Level value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|grades|query|string|false|Grade value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
 |from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
@@ -138,8 +144,6 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|id_from|query|string|false|Optional Id from the last record previously returned. This will be the Id from which data is returned|
-|list_size|query|string|false|Size of the returned list. This value can be 50, 100, 500, 1000, or 5000|
 |email|query|string|false|Comma Separated List of users for which to return the AssignmentsList|
 |userid|query|string|false|UserId value expected (employee id, phone number, client defined id for users)|
 |locations|query|string|false|Location value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
@@ -200,7 +204,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/completion/tracks?for_users=string \
+curl -X GET https://usw2-oapi.continu.co/completion/tracks \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -216,7 +220,14 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|for_users|query|string|true|Comma Separated List of users for which to return the TracksList|
+|email|query|string|false|Comma Separated List of users for which to return the Learning Tracks Completion List|
+|userid|query|string|false|UserId value expected (employee id, phone number, client defined id for users)|
+|locations|query|string|false|Location value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|departments|query|string|false|Department value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|teams|query|string|false|Team value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|levels|query|string|false|Level value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|grades|query|string|false|Grade value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|track|query|string|false|Comma Separated List of Track IDs for which to return the Learning Tracks Completion List|
 |from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
