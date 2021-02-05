@@ -55,12 +55,15 @@ Every response from our API contains the following headers:
 {{ data.resource = data.resources[r]; }}
 
 {{= data.tags.section }}
+
 <h1 id="{{=data.title_prefix+'-'+data.utils.slugify(r)}}">{{= r}}</h1>
 
-{{? data.resource.description }}{{= data.resource.description}}{{?}}
+{{? data.resource.description }}
+  {{= data.resource.description}}
+{{?}}
 
 {{? data.resource.externalDocs}}
-<a href="{{=data.resource.externalDocs.url}}">{{=data.resource.externalDocs.description||'External documentation'}}</a>
+  <a href="{{=data.resource.externalDocs.url}}">{{=data.resource.externalDocs.description||'External documentation'}}</a>
 {{?}}
 
 {{ for (var m in data.resource.methods) { }}
