@@ -54,6 +54,8 @@ Every response from our API contains the following headers:
 
 <h1 id="continu-api-assessments">Assessments</h1>
 
+<h2 id="Get Assessments completion">Get Assessments completion</h2>
+
 > Code Sample
 
 ```shell
@@ -74,13 +76,14 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|email|query|string|false|Comma Separated List of users for which to return the Assessments List|
+|email|query|string|false|Comma Separated List of users for which to return the Assessment Completion List|
 |userid|query|string|false|UserId value expected (employee id, phone number, client defined id for users)|
 |locations|query|string|false|Location value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
 |departments|query|string|false|Department value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
 |teams|query|string|false|Team value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
 |levels|query|string|false|Level value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
 |grades|query|string|false|Grade value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|assessment|query|string|false|Comma Separated List of Assessment IDs for which to return the Assessment Completion List|
 |from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
@@ -123,6 +126,8 @@ You also have the option to specify a date range using the from or until Unix Ep
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
 <h1 id="continu-api-assignments">Assignments</h1>
+
+<h2 id="Get Assignments completion">Get Assignments completion</h2>
 
 > Code Sample
 
@@ -200,6 +205,8 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-api-learning-tracks">Learning Tracks</h1>
 
+<h2 id="Lists Learning Tracks Completion Information for all the user emails in the mandatory for_users argument">Lists Learning Tracks Completion Information for all the user emails in the mandatory for_users argument</h2>
+
 > Code Sample
 
 ```shell
@@ -269,11 +276,13 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 <h1 id="continu-api-workshops">Workshops</h1>
 
+<h2 id="Get Workshops completion">Get Workshops completion</h2>
+
 > Code Sample
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/completion/workshops?for_users=string \
+curl -X GET https://usw2-oapi.continu.co/completion/workshops \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -289,7 +298,14 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|for_users|query|string|true|Comma Separated List of users for which to return the WorkshopsList|
+|email|query|string|false|Comma Separated List of users for which to return the Workshops Completion List|
+|userid|query|string|false|UserId value expected (employee id, phone number, client defined id for users)|
+|locations|query|string|false|Location value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|departments|query|string|false|Department value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|teams|query|string|false|Team value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|levels|query|string|false|Level value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|grades|query|string|false|Grade value expected or comma separated list of values (56b9938a9f176c1100e7e156, 56b9938a9f176c1100e7e152, 56b9938a9f176c1100e7e154)|
+|workshop|query|string|false|Comma Separated List of Workshop IDs for which to return the Workshops Completion List|
 |from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |Authorization|header|string|true|The Authorization Header and Token|
@@ -344,6 +360,8 @@ You also have the option to specify a date range using the from or until Unix Ep
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
 <h1 id="continu-api-departments">Departments</h1>
+
+<h2 id="Get Department List">Get Department List</h2>
 
 > Code Sample
 
@@ -407,6 +425,8 @@ The list To get the next group of records send id_from argument with the last id
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Creates a Department">Creates a Department</h2>
 
 > Code Sample
 
@@ -491,6 +511,8 @@ This endpoint creates a Department instance
 |409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
+<h2 id="Get Department by id">Get Department by id</h2>
+
 > Code Sample
 
 ```shell
@@ -525,6 +547,8 @@ This endpoint gets the department corresponding to the given id.
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Replace a Department">Replace a Department</h2>
 
 > Code Sample
 
@@ -611,6 +635,8 @@ This endpoint replaces/updates a whole Department instance
 
 <h1 id="continu-api-grades">Grades</h1>
 
+<h2 id="Get Grade List">Get Grade List</h2>
+
 > Code Sample
 
 ```shell
@@ -673,6 +699,8 @@ The list To get the next group of records send id_from argument with the last id
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Creates a Grade">Creates a Grade</h2>
 
 > Code Sample
 
@@ -757,6 +785,8 @@ This endpoint creates a Grade instance
 |409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
+<h2 id="Get Grade by id">Get Grade by id</h2>
+
 > Code Sample
 
 ```shell
@@ -791,6 +821,8 @@ This endpoint gets the grade corresponding to the given id.
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Replace a Grade">Replace a Grade</h2>
 
 > Code Sample
 
@@ -877,6 +909,8 @@ This endpoint replaces/updates a whole Grade instance
 
 <h1 id="continu-api-levels">Levels</h1>
 
+<h2 id="Get Level List">Get Level List</h2>
+
 > Code Sample
 
 ```shell
@@ -939,6 +973,8 @@ The list To get the next group of records send id_from argument with the last id
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Creates a Level (An Organization Level)">Creates a Level (An Organization Level)</h2>
 
 > Code Sample
 
@@ -1023,6 +1059,8 @@ This endpoint creates a Level
 |409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
+<h2 id="Get Level by id">Get Level by id</h2>
+
 > Code Sample
 
 ```shell
@@ -1057,6 +1095,8 @@ This endpoint gets the level corresponding to the given id.
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Replace a Level">Replace a Level</h2>
 
 > Code Sample
 
@@ -1143,6 +1183,8 @@ This endpoint replaces/updates a whole Level instance
 
 <h1 id="continu-api-locations">Locations</h1>
 
+<h2 id="Get Location List">Get Location List</h2>
+
 > Code Sample
 
 ```shell
@@ -1205,6 +1247,8 @@ The list To get the next group of records send id_from argument with the last id
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Creates a Location">Creates a Location</h2>
 
 > Code Sample
 
@@ -1289,6 +1333,8 @@ This endpoint creates a Location instance
 |409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
+<h2 id="Get Location by id">Get Location by id</h2>
+
 > Code Sample
 
 ```shell
@@ -1323,6 +1369,8 @@ This endpoint gets the location corresponding to the given id.
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Replace a Location">Replace a Location</h2>
 
 > Code Sample
 
@@ -1409,6 +1457,8 @@ This endpoint replaces/updates a whole Location instance
 
 <h1 id="continu-api-skills">Skills</h1>
 
+<h2 id="Get Skill List">Get Skill List</h2>
+
 > Code Sample
 
 ```shell
@@ -1466,6 +1516,8 @@ The list To get the next group of records send id_from argument with the last id
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Creates a Skill">Creates a Skill</h2>
 
 > Code Sample
 
@@ -1528,6 +1580,8 @@ This endpoint creates a Skill instance
 |409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
+<h2 id="Get Skill by id">Get Skill by id</h2>
+
 > Code Sample
 
 ```shell
@@ -1562,6 +1616,8 @@ This endpoint gets the skill corresponding to the given id.
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Replace a Skill">Replace a Skill</h2>
 
 > Code Sample
 
@@ -1626,6 +1682,8 @@ This endpoint replaces/updates a whole Skill instance
 
 <h1 id="continu-api-teams">Teams</h1>
 
+<h2 id="Get Team List">Get Team List</h2>
+
 > Code Sample
 
 ```shell
@@ -1688,6 +1746,8 @@ The list To get the next group of records send id_from argument with the last id
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Creates a Team">Creates a Team</h2>
 
 > Code Sample
 
@@ -1772,6 +1832,8 @@ This endpoint creates a Team instance
 |409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
+<h2 id="Get Team by id">Get Team by id</h2>
+
 > Code Sample
 
 ```shell
@@ -1806,6 +1868,8 @@ This endpoint gets the team corresponding to the given id.
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Replace a Team">Replace a Team</h2>
 
 > Code Sample
 
@@ -1892,6 +1956,8 @@ This endpoint replaces/updates a whole Team instance
 
 <h1 id="continu-api-users">Users</h1>
 
+<h2 id="Get User List">Get User List</h2>
+
 > Code Sample
 
 ```shell
@@ -1969,9 +2035,11 @@ The list To get the next group of records send id_from argument with the last id
     "linked_departments": [
       "56b9938a9f176c1100e7e156"
     ],
+    "linked_grade": "56b9938a9f176c1100e7e156",
     "linked_locations": [
       "56b9938a9f176c1100e7e125"
     ],
+    "linked_org_level": "56b9938a9f176c1100e7e156",
     "linked_teams": [
       "56b9938a9f176c1100e7e156"
     ],
@@ -1991,6 +2059,8 @@ The list To get the next group of records send id_from argument with the last id
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Creates a User">Creates a User</h2>
 
 > Code Sample
 
@@ -2135,6 +2205,8 @@ This endpoint creates a User instance
 |409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
+<h2 id="Get User by id">Get User by id</h2>
+
 > Code Sample
 
 ```shell
@@ -2169,6 +2241,8 @@ This endpoint gets the user corresponding to the given id.
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Updates/Patches a User">Updates/Patches a User</h2>
 
 > Code Sample
 
