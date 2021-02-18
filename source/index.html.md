@@ -86,6 +86,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 |assessment|query|string|false|Comma Separated List of Assessment IDs for which to return the Assessment Completion List|
 |from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|range_target|query|string|false|Date-Range target field (from & until). This value can be started_date or passed_date indicating to which date field should the date-range be apply to. The default value is started_date|
 |Authorization|header|string|true|The Authorization Header and Token|
 
 > Example Response
@@ -103,7 +104,7 @@ You also have the option to specify a date range using the from or until Unix Ep
         "id": "5b72efb05e8e1534c818ec81",
         "passed_date": "2018-09-11T17:23:06.667-06:00",
         "score": 100,
-        "start_date": "2018-09-06T17:07:20.942-06:00",
+        "started_date": "2018-09-06T17:07:20.942-06:00",
         "title": "Designing for the Modern Workplace",
         "type": "Video Coaching"
       }
@@ -159,6 +160,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 |content|query|string|false|Comma Separated List of Content IDs for which to return the AssignmentsList|
 |from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|range_target|query|string|false|Date-Range target field (from & until). This value can be assigned_date,due_date, or completed_date indicating to which date field should the date-range be apply to. The default value is assigned_date|
 |Authorization|header|string|true|The Authorization Header and Token|
 
 > Example Response
@@ -237,6 +239,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 |track|query|string|false|Comma Separated List of Track IDs for which to return the Learning Tracks Completion List|
 |from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|range_target|query|string|false|Date-Range target field (from & until). This value can be started_date or completed_date indicating to which date field should the date-range be apply to. The default value is started_date|
 |Authorization|header|string|true|The Authorization Header and Token|
 
 > Example Response
@@ -257,7 +260,7 @@ You also have the option to specify a date range using the from or until Unix Ep
         "id": "5d6fea50ca2bc5000fdf7dd6",
         "name": "Sales Tools for Teams",
         "progress": 100,
-        "start_date": "2019-07-19T15:16:54.744-06:00"
+        "started_date": "2019-07-19T15:16:54.744-06:00"
       }
     ],
     "user_id": "5aa15c20f070380bcd59214c"
@@ -308,6 +311,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 |workshop|query|string|false|Comma Separated List of Workshop IDs for which to return the Workshops Completion List|
 |from|query|integer|false|From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
 |until|query|integer|false|Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|range_target|query|string|false|Date-Range target field (from & until). This value can be created_date,started_date, or end_date indicating to which date field should the date-range be apply to. The default value is started_date|
 |Authorization|header|string|true|The Authorization Header and Token|
 
 > Example Response
