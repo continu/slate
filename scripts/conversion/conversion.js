@@ -38,7 +38,7 @@ const convertFile = ()=>{
     tocSummary: true,
     codeSamples: true,
     sample: true,
-    loadedFrom: "https://usw2-oapi.continu.co",
+    loadedFrom: "https://usw2-oapi.continu.co/api/v1",
     version: false,
     toc_footers: [
       {

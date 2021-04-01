@@ -37,7 +37,7 @@ With these credentials, the client requests a bearer access token. This token is
 |_client_secret_|The secret of the client supplied by us|
 
 <p><code>
-https://usw2-api.continu.co/v3/oauth2/access-token
+https://usw2-api.continu.co/api/v1/oauth2/access-token
 </code></p>
 
 The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format `Bearer`. Access tokens are valid only for the set of operations and resources described in the scope of the token request.
@@ -60,7 +60,7 @@ Every response from our API contains the following headers:
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/completion/assessments \
+curl -X GET https://usw2-oapi.continu.co/api/v1/completion/assessments \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -70,7 +70,7 @@ This endpoint lists all Assessments for specific users. Users should be specifie
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/completion/assessments`
+`GET https://usw2-oapi.continu.co/api/v1/completion/assessments`
 
 <h3 id="get-assessments-completion-parameters">Parameters</h3>
 
@@ -134,7 +134,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/completion/assignments \
+curl -X GET https://usw2-oapi.continu.co/api/v1/completion/assignments \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -144,7 +144,7 @@ This endpoint lists all Assignments for specific users. Users should be specifie
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/completion/assignments`
+`GET https://usw2-oapi.continu.co/api/v1/completion/assignments`
 
 <h3 id="get-assignments-completion-parameters">Parameters</h3>
 
@@ -213,7 +213,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/completion/tracks \
+curl -X GET https://usw2-oapi.continu.co/api/v1/completion/tracks \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -223,7 +223,7 @@ This endpoint lists all Learning Tracks for specific users. Users should be spec
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/completion/tracks`
+`GET https://usw2-oapi.continu.co/api/v1/completion/tracks`
 
 <h3 id="lists-learning-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
 
@@ -285,7 +285,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/completion/workshops \
+curl -X GET https://usw2-oapi.continu.co/api/v1/completion/workshops \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -295,7 +295,7 @@ This endpoint lists all Workshops for specific users. Users should be specified 
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/completion/workshops`
+`GET https://usw2-oapi.continu.co/api/v1/completion/workshops`
 
 <h3 id="get-workshops-completion-parameters">Parameters</h3>
 
@@ -371,7 +371,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/departments \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/departments \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -383,7 +383,7 @@ If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/departments`
+`GET https://usw2-oapi.continu.co/api/v1/data/departments`
 
 <h3 id="get-department-list-parameters">Parameters</h3>
 
@@ -436,7 +436,7 @@ The list To get the next group of records send id_from argument with the last id
 
 ```shell
 # You can also use wget
-curl -X POST https://usw2-oapi.continu.co/data/departments \
+curl -X POST https://usw2-oapi.continu.co/api/v1/data/departments \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -475,7 +475,7 @@ This endpoint creates a Department instance
 ```
 
 ### HTTP Request
-`POST https://usw2-oapi.continu.co/data/departments`
+`POST https://usw2-oapi.continu.co/api/v1/data/departments`
 
 <h3 id="creates-a-department-parameters">Parameters</h3>
 
@@ -521,7 +521,7 @@ This endpoint creates a Department instance
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/departments/{id} \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/departments/{id} \
   -H 'Accept: */*' \
   -H 'Authorization: string'
 
@@ -530,7 +530,7 @@ curl -X GET https://usw2-oapi.continu.co/data/departments/{id} \
 This endpoint gets the department corresponding to the given id.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/departments/{id}`
+`GET https://usw2-oapi.continu.co/api/v1/data/departments/{id}`
 
 <h3 id="get-department-by-id-parameters">Parameters</h3>
 
@@ -558,7 +558,7 @@ This endpoint gets the department corresponding to the given id.
 
 ```shell
 # You can also use wget
-curl -X PUT https://usw2-oapi.continu.co/data/departments/{id} \
+curl -X PUT https://usw2-oapi.continu.co/api/v1/data/departments/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -597,7 +597,7 @@ This endpoint replaces/updates a whole Department instance
 ```
 
 ### HTTP Request
-`PUT https://usw2-oapi.continu.co/data/departments/{id}`
+`PUT https://usw2-oapi.continu.co/api/v1/data/departments/{id}`
 
 <h3 id="replace-a-department-parameters">Parameters</h3>
 
@@ -645,7 +645,7 @@ This endpoint replaces/updates a whole Department instance
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/grades \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/grades \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -657,7 +657,7 @@ If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/grades`
+`GET https://usw2-oapi.continu.co/api/v1/data/grades`
 
 <h3 id="get-grade-list-parameters">Parameters</h3>
 
@@ -710,7 +710,7 @@ The list To get the next group of records send id_from argument with the last id
 
 ```shell
 # You can also use wget
-curl -X POST https://usw2-oapi.continu.co/data/grades \
+curl -X POST https://usw2-oapi.continu.co/api/v1/data/grades \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -749,7 +749,7 @@ This endpoint creates a Grade instance
 ```
 
 ### HTTP Request
-`POST https://usw2-oapi.continu.co/data/grades`
+`POST https://usw2-oapi.continu.co/api/v1/data/grades`
 
 <h3 id="creates-a-grade-parameters">Parameters</h3>
 
@@ -795,7 +795,7 @@ This endpoint creates a Grade instance
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/grades/{id} \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/grades/{id} \
   -H 'Accept: */*' \
   -H 'Authorization: string'
 
@@ -804,7 +804,7 @@ curl -X GET https://usw2-oapi.continu.co/data/grades/{id} \
 This endpoint gets the grade corresponding to the given id.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/grades/{id}`
+`GET https://usw2-oapi.continu.co/api/v1/data/grades/{id}`
 
 <h3 id="get-grade-by-id-parameters">Parameters</h3>
 
@@ -832,7 +832,7 @@ This endpoint gets the grade corresponding to the given id.
 
 ```shell
 # You can also use wget
-curl -X PUT https://usw2-oapi.continu.co/data/grades/{id} \
+curl -X PUT https://usw2-oapi.continu.co/api/v1/data/grades/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -871,7 +871,7 @@ This endpoint replaces/updates a whole Grade instance
 ```
 
 ### HTTP Request
-`PUT https://usw2-oapi.continu.co/data/grades/{id}`
+`PUT https://usw2-oapi.continu.co/api/v1/data/grades/{id}`
 
 <h3 id="replace-a-grade-parameters">Parameters</h3>
 
@@ -919,7 +919,7 @@ This endpoint replaces/updates a whole Grade instance
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/levels \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/levels \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -931,7 +931,7 @@ If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/levels`
+`GET https://usw2-oapi.continu.co/api/v1/data/levels`
 
 <h3 id="get-level-list-parameters">Parameters</h3>
 
@@ -984,7 +984,7 @@ The list To get the next group of records send id_from argument with the last id
 
 ```shell
 # You can also use wget
-curl -X POST https://usw2-oapi.continu.co/data/levels \
+curl -X POST https://usw2-oapi.continu.co/api/v1/data/levels \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1023,7 +1023,7 @@ This endpoint creates a Level
 ```
 
 ### HTTP Request
-`POST https://usw2-oapi.continu.co/data/levels`
+`POST https://usw2-oapi.continu.co/api/v1/data/levels`
 
 <h3 id="creates-a-level-(an-organization-level)-parameters">Parameters</h3>
 
@@ -1069,7 +1069,7 @@ This endpoint creates a Level
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/levels/{id} \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/levels/{id} \
   -H 'Accept: */*' \
   -H 'Authorization: string'
 
@@ -1078,7 +1078,7 @@ curl -X GET https://usw2-oapi.continu.co/data/levels/{id} \
 This endpoint gets the level corresponding to the given id.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/levels/{id}`
+`GET https://usw2-oapi.continu.co/api/v1/data/levels/{id}`
 
 <h3 id="get-level-by-id-parameters">Parameters</h3>
 
@@ -1106,7 +1106,7 @@ This endpoint gets the level corresponding to the given id.
 
 ```shell
 # You can also use wget
-curl -X PUT https://usw2-oapi.continu.co/data/levels/{id} \
+curl -X PUT https://usw2-oapi.continu.co/api/v1/data/levels/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1145,7 +1145,7 @@ This endpoint replaces/updates a whole Level instance
 ```
 
 ### HTTP Request
-`PUT https://usw2-oapi.continu.co/data/levels/{id}`
+`PUT https://usw2-oapi.continu.co/api/v1/data/levels/{id}`
 
 <h3 id="replace-a-level-parameters">Parameters</h3>
 
@@ -1193,7 +1193,7 @@ This endpoint replaces/updates a whole Level instance
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/locations \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/locations \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -1205,7 +1205,7 @@ If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/locations`
+`GET https://usw2-oapi.continu.co/api/v1/data/locations`
 
 <h3 id="get-location-list-parameters">Parameters</h3>
 
@@ -1258,7 +1258,7 @@ The list To get the next group of records send id_from argument with the last id
 
 ```shell
 # You can also use wget
-curl -X POST https://usw2-oapi.continu.co/data/locations \
+curl -X POST https://usw2-oapi.continu.co/api/v1/data/locations \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1297,7 +1297,7 @@ This endpoint creates a Location instance
 ```
 
 ### HTTP Request
-`POST https://usw2-oapi.continu.co/data/locations`
+`POST https://usw2-oapi.continu.co/api/v1/data/locations`
 
 <h3 id="creates-a-location-parameters">Parameters</h3>
 
@@ -1343,7 +1343,7 @@ This endpoint creates a Location instance
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/locations/{id} \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/locations/{id} \
   -H 'Accept: */*' \
   -H 'Authorization: string'
 
@@ -1352,7 +1352,7 @@ curl -X GET https://usw2-oapi.continu.co/data/locations/{id} \
 This endpoint gets the location corresponding to the given id.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/locations/{id}`
+`GET https://usw2-oapi.continu.co/api/v1/data/locations/{id}`
 
 <h3 id="get-location-by-id-parameters">Parameters</h3>
 
@@ -1380,7 +1380,7 @@ This endpoint gets the location corresponding to the given id.
 
 ```shell
 # You can also use wget
-curl -X PUT https://usw2-oapi.continu.co/data/locations/{id} \
+curl -X PUT https://usw2-oapi.continu.co/api/v1/data/locations/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1419,7 +1419,7 @@ This endpoint replaces/updates a whole Location instance
 ```
 
 ### HTTP Request
-`PUT https://usw2-oapi.continu.co/data/locations/{id}`
+`PUT https://usw2-oapi.continu.co/api/v1/data/locations/{id}`
 
 <h3 id="replace-a-location-parameters">Parameters</h3>
 
@@ -1467,7 +1467,7 @@ This endpoint replaces/updates a whole Location instance
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/skills \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/skills \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -1479,7 +1479,7 @@ If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/skills`
+`GET https://usw2-oapi.continu.co/api/v1/data/skills`
 
 <h3 id="get-skill-list-parameters">Parameters</h3>
 
@@ -1527,7 +1527,7 @@ The list To get the next group of records send id_from argument with the last id
 
 ```shell
 # You can also use wget
-curl -X POST https://usw2-oapi.continu.co/data/skills \
+curl -X POST https://usw2-oapi.continu.co/api/v1/data/skills \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1553,7 +1553,7 @@ This endpoint creates a Skill instance
 ```
 
 ### HTTP Request
-`POST https://usw2-oapi.continu.co/data/skills`
+`POST https://usw2-oapi.continu.co/api/v1/data/skills`
 
 <h3 id="creates-a-skill-parameters">Parameters</h3>
 
@@ -1590,7 +1590,7 @@ This endpoint creates a Skill instance
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/skills/{id} \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/skills/{id} \
   -H 'Accept: */*' \
   -H 'Authorization: string'
 
@@ -1599,7 +1599,7 @@ curl -X GET https://usw2-oapi.continu.co/data/skills/{id} \
 This endpoint gets the skill corresponding to the given id.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/skills/{id}`
+`GET https://usw2-oapi.continu.co/api/v1/data/skills/{id}`
 
 <h3 id="get-skill-by-id-parameters">Parameters</h3>
 
@@ -1627,7 +1627,7 @@ This endpoint gets the skill corresponding to the given id.
 
 ```shell
 # You can also use wget
-curl -X PUT https://usw2-oapi.continu.co/data/skills/{id} \
+curl -X PUT https://usw2-oapi.continu.co/api/v1/data/skills/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1653,7 +1653,7 @@ This endpoint replaces/updates a whole Skill instance
 ```
 
 ### HTTP Request
-`PUT https://usw2-oapi.continu.co/data/skills/{id}`
+`PUT https://usw2-oapi.continu.co/api/v1/data/skills/{id}`
 
 <h3 id="replace-a-skill-parameters">Parameters</h3>
 
@@ -1692,7 +1692,7 @@ This endpoint replaces/updates a whole Skill instance
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/teams \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/teams \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -1704,7 +1704,7 @@ If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/teams`
+`GET https://usw2-oapi.continu.co/api/v1/data/teams`
 
 <h3 id="get-team-list-parameters">Parameters</h3>
 
@@ -1757,7 +1757,7 @@ The list To get the next group of records send id_from argument with the last id
 
 ```shell
 # You can also use wget
-curl -X POST https://usw2-oapi.continu.co/data/teams \
+curl -X POST https://usw2-oapi.continu.co/api/v1/data/teams \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1796,7 +1796,7 @@ This endpoint creates a Team instance
 ```
 
 ### HTTP Request
-`POST https://usw2-oapi.continu.co/data/teams`
+`POST https://usw2-oapi.continu.co/api/v1/data/teams`
 
 <h3 id="creates-a-team-parameters">Parameters</h3>
 
@@ -1842,7 +1842,7 @@ This endpoint creates a Team instance
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/teams/{id} \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/teams/{id} \
   -H 'Accept: */*' \
   -H 'Authorization: string'
 
@@ -1851,7 +1851,7 @@ curl -X GET https://usw2-oapi.continu.co/data/teams/{id} \
 This endpoint gets the team corresponding to the given id.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/teams/{id}`
+`GET https://usw2-oapi.continu.co/api/v1/data/teams/{id}`
 
 <h3 id="get-team-by-id-parameters">Parameters</h3>
 
@@ -1879,7 +1879,7 @@ This endpoint gets the team corresponding to the given id.
 
 ```shell
 # You can also use wget
-curl -X PUT https://usw2-oapi.continu.co/data/teams/{id} \
+curl -X PUT https://usw2-oapi.continu.co/api/v1/data/teams/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1918,7 +1918,7 @@ This endpoint replaces/updates a whole Team instance
 ```
 
 ### HTTP Request
-`PUT https://usw2-oapi.continu.co/data/teams/{id}`
+`PUT https://usw2-oapi.continu.co/api/v1/data/teams/{id}`
 
 <h3 id="replace-a-team-parameters">Parameters</h3>
 
@@ -1966,7 +1966,7 @@ This endpoint replaces/updates a whole Team instance
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/users \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/users \
   -H 'Accept: application/json' \
   -H 'Authorization: string'
 
@@ -1979,7 +1979,7 @@ If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/users`
+`GET https://usw2-oapi.continu.co/api/v1/data/users`
 
 <h3 id="get-user-list-parameters">Parameters</h3>
 
@@ -2070,7 +2070,7 @@ The list To get the next group of records send id_from argument with the last id
 
 ```shell
 # You can also use wget
-curl -X POST https://usw2-oapi.continu.co/data/users \
+curl -X POST https://usw2-oapi.continu.co/api/v1/data/users \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -2142,7 +2142,7 @@ This endpoint creates a User instance
 ```
 
 ### HTTP Request
-`POST https://usw2-oapi.continu.co/data/users`
+`POST https://usw2-oapi.continu.co/api/v1/data/users`
 
 <h3 id="creates-a-user-parameters">Parameters</h3>
 
@@ -2215,7 +2215,7 @@ This endpoint creates a User instance
 
 ```shell
 # You can also use wget
-curl -X GET https://usw2-oapi.continu.co/data/users/{id} \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/users/{id} \
   -H 'Accept: */*' \
   -H 'Authorization: string'
 
@@ -2224,7 +2224,7 @@ curl -X GET https://usw2-oapi.continu.co/data/users/{id} \
 This endpoint gets the user corresponding to the given id.
 
 ### HTTP Request
-`GET https://usw2-oapi.continu.co/data/users/{id}`
+`GET https://usw2-oapi.continu.co/api/v1/data/users/{id}`
 
 <h3 id="get-user-by-id-parameters">Parameters</h3>
 
@@ -2252,7 +2252,7 @@ This endpoint gets the user corresponding to the given id.
 
 ```shell
 # You can also use wget
-curl -X PATCH https://usw2-oapi.continu.co/data/users/{id} \
+curl -X PATCH https://usw2-oapi.continu.co/api/v1/data/users/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -2311,7 +2311,7 @@ This endpoint updates a partial User instance
 ```
 
 ### HTTP Request
-`PATCH https://usw2-oapi.continu.co/data/users/{id}`
+`PATCH https://usw2-oapi.continu.co/api/v1/data/users/{id}`
 
 <h3 id="updates/patches-a-user-parameters">Parameters</h3>
 
