@@ -518,7 +518,7 @@ With these credentials, the client requests a bearer access token. This token is
 </tbody></table>
 
 <p><code>
-https://usw2-api.continu.co/v3/oauth2/access-token
+https://usw2-api.continu.co/api/v1/oauth2/access-token
 </code></p>
 
 <p>The calling application extracts the access token from the response (see the example) and then sends the token using an HTTP authorization header with the value in the format <code>Bearer</code>. Access tokens are valid only for the set of operations and resources described in the scope of the token request.</p>
@@ -553,7 +553,7 @@ https://usw2-api.continu.co/v3/oauth2/access-token
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/completion/assessments <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/completion/assessments <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -561,7 +561,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/completion/asse
 <p>This endpoint lists all Assessments for specific users. Users should be specified as a comma separated list of email addresses for which the Assessment information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/completion/assessments</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/completion/assessments</code></p>
 
 <h3 id="get-assessments-completion-parameters">Parameters</h3>
 
@@ -726,7 +726,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/completion/assignments <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/completion/assignments <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -734,7 +734,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/completion/assi
 <p>This endpoint lists all Assignments for specific users. Users should be specified as a comma separated list of email addresses for which the Assignment information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/completion/assignments</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/completion/assignments</code></p>
 
 <h3 id="get-assignments-completion-parameters">Parameters</h3>
 
@@ -904,7 +904,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/completion/tracks <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/completion/tracks <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -912,7 +912,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/completion/trac
 <p>This endpoint lists all Learning Tracks for specific users. Users should be specified as a comma separated list of email addresses for which the Learning Track information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/completion/tracks</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/completion/tracks</code></p>
 
 <h3 id="lists-learning-tracks-completion-information-for-all-the-user-emails-in-the-mandatory-for_users-argument-parameters">Parameters</h3>
 
@@ -1075,7 +1075,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/completion/workshops <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/completion/workshops <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -1083,7 +1083,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/completion/work
 <p>This endpoint lists all Workshops for specific users. Users should be specified as a comma separated list of email addresses for which the Workshop information is required.
 You also have the option to specify a date range using the from or until Unix Epoch timestamp.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/completion/workshops</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/completion/workshops</code></p>
 
 <h3 id="get-workshops-completion-parameters">Parameters</h3>
 
@@ -1260,7 +1260,7 @@ You also have the option to specify a date range using the from or until Unix Ep
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/departments <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/departments <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -1270,7 +1270,7 @@ If omitted, the default values for the list are &quot;compact&quot; and 50 recor
 If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/departments</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/departments</code></p>
 
 <h3 id="get-department-list-parameters">Parameters</h3>
 
@@ -1394,7 +1394,7 @@ The list To get the next group of records send id_from argument with the last id
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/departments <span class="se">\</span>
+curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/departments <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -1430,7 +1430,7 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/departmen
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466-06:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
-<p><code>POST https://usw2-oapi.continu.co/data/departments</code></p>
+<p><code>POST https://usw2-oapi.continu.co/api/v1/data/departments</code></p>
 
 <h3 id="creates-a-department-parameters">Parameters</h3>
 
@@ -1628,14 +1628,14 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/departmen
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/departments/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/departments/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
 </code></pre></div>
 <p>This endpoint gets the department corresponding to the given id.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/departments/{id}</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/departments/{id}</code></p>
 
 <h3 id="get-department-by-id-parameters">Parameters</h3>
 
@@ -1707,7 +1707,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/department
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/departments/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/api/v1/data/departments/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -1743,7 +1743,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/department
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466-06:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
-<p><code>PUT https://usw2-oapi.continu.co/data/departments/{id}</code></p>
+<p><code>PUT https://usw2-oapi.continu.co/api/v1/data/departments/{id}</code></p>
 
 <h3 id="replace-a-department-parameters">Parameters</h3>
 
@@ -1945,7 +1945,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/department
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/grades <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/grades <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -1955,7 +1955,7 @@ If omitted, the default values for the list are &quot;compact&quot; and 50 recor
 If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.</p>
 <h3 id='http-request-9'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/grades</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/grades</code></p>
 
 <h3 id="get-grade-list-parameters">Parameters</h3>
 
@@ -2079,7 +2079,7 @@ The list To get the next group of records send id_from argument with the last id
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/grades <span class="se">\</span>
+curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/grades <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -2115,7 +2115,7 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/grades <s
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466-06:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-10'>HTTP Request</h3>
-<p><code>POST https://usw2-oapi.continu.co/data/grades</code></p>
+<p><code>POST https://usw2-oapi.continu.co/api/v1/data/grades</code></p>
 
 <h3 id="creates-a-grade-parameters">Parameters</h3>
 
@@ -2313,14 +2313,14 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/grades <s
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/grades/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/grades/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
 </code></pre></div>
 <p>This endpoint gets the grade corresponding to the given id.</p>
 <h3 id='http-request-11'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/grades/{id}</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/grades/{id}</code></p>
 
 <h3 id="get-grade-by-id-parameters">Parameters</h3>
 
@@ -2392,7 +2392,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/grades/<sp
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/grades/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/api/v1/data/grades/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -2428,7 +2428,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/grades/<sp
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466-06:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-12'>HTTP Request</h3>
-<p><code>PUT https://usw2-oapi.continu.co/data/grades/{id}</code></p>
+<p><code>PUT https://usw2-oapi.continu.co/api/v1/data/grades/{id}</code></p>
 
 <h3 id="replace-a-grade-parameters">Parameters</h3>
 
@@ -2630,7 +2630,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/grades/<sp
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/levels <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/levels <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -2640,7 +2640,7 @@ If omitted, the default values for the list are &quot;compact&quot; and 50 recor
 If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.</p>
 <h3 id='http-request-13'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/levels</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/levels</code></p>
 
 <h3 id="get-level-list-parameters">Parameters</h3>
 
@@ -2764,7 +2764,7 @@ The list To get the next group of records send id_from argument with the last id
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/levels <span class="se">\</span>
+curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/levels <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -2800,7 +2800,7 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/levels <s
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466-06:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-14'>HTTP Request</h3>
-<p><code>POST https://usw2-oapi.continu.co/data/levels</code></p>
+<p><code>POST https://usw2-oapi.continu.co/api/v1/data/levels</code></p>
 
 <h3 id="creates-a-level-(an-organization-level)-parameters">Parameters</h3>
 
@@ -2998,14 +2998,14 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/levels <s
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/levels/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/levels/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
 </code></pre></div>
 <p>This endpoint gets the level corresponding to the given id.</p>
 <h3 id='http-request-15'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/levels/{id}</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/levels/{id}</code></p>
 
 <h3 id="get-level-by-id-parameters">Parameters</h3>
 
@@ -3077,7 +3077,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/levels/<sp
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/levels/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/api/v1/data/levels/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -3113,7 +3113,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/levels/<sp
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466-06:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-16'>HTTP Request</h3>
-<p><code>PUT https://usw2-oapi.continu.co/data/levels/{id}</code></p>
+<p><code>PUT https://usw2-oapi.continu.co/api/v1/data/levels/{id}</code></p>
 
 <h3 id="replace-a-level-parameters">Parameters</h3>
 
@@ -3315,7 +3315,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/levels/<sp
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/locations <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/locations <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -3325,7 +3325,7 @@ If omitted, the default values for the list are &quot;compact&quot; and 50 recor
 If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.</p>
 <h3 id='http-request-17'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/locations</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/locations</code></p>
 
 <h3 id="get-location-list-parameters">Parameters</h3>
 
@@ -3449,7 +3449,7 @@ The list To get the next group of records send id_from argument with the last id
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/locations <span class="se">\</span>
+curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/locations <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -3485,7 +3485,7 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/locations
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466-06:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-18'>HTTP Request</h3>
-<p><code>POST https://usw2-oapi.continu.co/data/locations</code></p>
+<p><code>POST https://usw2-oapi.continu.co/api/v1/data/locations</code></p>
 
 <h3 id="creates-a-location-parameters">Parameters</h3>
 
@@ -3683,14 +3683,14 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/locations
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/locations/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/locations/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
 </code></pre></div>
 <p>This endpoint gets the location corresponding to the given id.</p>
 <h3 id='http-request-19'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/locations/{id}</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/locations/{id}</code></p>
 
 <h3 id="get-location-by-id-parameters">Parameters</h3>
 
@@ -3762,7 +3762,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/locations/
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/locations/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/api/v1/data/locations/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -3798,7 +3798,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/locations/
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466-06:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-20'>HTTP Request</h3>
-<p><code>PUT https://usw2-oapi.continu.co/data/locations/{id}</code></p>
+<p><code>PUT https://usw2-oapi.continu.co/api/v1/data/locations/{id}</code></p>
 
 <h3 id="replace-a-location-parameters">Parameters</h3>
 
@@ -4000,7 +4000,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/locations/
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/skills <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/skills <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -4010,7 +4010,7 @@ If omitted, the default values for the list are &quot;compact&quot; and 50 recor
 If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.</p>
 <h3 id='http-request-21'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/skills</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/skills</code></p>
 
 <h3 id="get-skill-list-parameters">Parameters</h3>
 
@@ -4129,7 +4129,7 @@ The list To get the next group of records send id_from argument with the last id
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/skills <span class="se">\</span>
+curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/skills <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -4152,7 +4152,7 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/skills <s
   </span><span class="nl">"user_blocked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-22'>HTTP Request</h3>
-<p><code>POST https://usw2-oapi.continu.co/data/skills</code></p>
+<p><code>POST https://usw2-oapi.continu.co/api/v1/data/skills</code></p>
 
 <h3 id="creates-a-skill-parameters">Parameters</h3>
 
@@ -4287,14 +4287,14 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/skills <s
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/skills/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/skills/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
 </code></pre></div>
 <p>This endpoint gets the skill corresponding to the given id.</p>
 <h3 id='http-request-23'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/skills/{id}</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/skills/{id}</code></p>
 
 <h3 id="get-skill-by-id-parameters">Parameters</h3>
 
@@ -4366,7 +4366,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/skills/<sp
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/skills/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/api/v1/data/skills/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -4389,7 +4389,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/skills/<sp
   </span><span class="nl">"user_blocked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-24'>HTTP Request</h3>
-<p><code>PUT https://usw2-oapi.continu.co/data/skills/{id}</code></p>
+<p><code>PUT https://usw2-oapi.continu.co/api/v1/data/skills/{id}</code></p>
 
 <h3 id="replace-a-skill-parameters">Parameters</h3>
 
@@ -4528,7 +4528,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/skills/<sp
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/teams <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/teams <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -4538,7 +4538,7 @@ If omitted, the default values for the list are &quot;compact&quot; and 50 recor
 If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.</p>
 <h3 id='http-request-25'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/teams</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/teams</code></p>
 
 <h3 id="get-team-list-parameters">Parameters</h3>
 
@@ -4662,7 +4662,7 @@ The list To get the next group of records send id_from argument with the last id
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/teams <span class="se">\</span>
+curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/teams <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -4698,7 +4698,7 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/teams <sp
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466-06:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-26'>HTTP Request</h3>
-<p><code>POST https://usw2-oapi.continu.co/data/teams</code></p>
+<p><code>POST https://usw2-oapi.continu.co/api/v1/data/teams</code></p>
 
 <h3 id="creates-a-team-parameters">Parameters</h3>
 
@@ -4896,14 +4896,14 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/teams <sp
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/teams/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/teams/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
 </code></pre></div>
 <p>This endpoint gets the team corresponding to the given id.</p>
 <h3 id='http-request-27'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/teams/{id}</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/teams/{id}</code></p>
 
 <h3 id="get-team-by-id-parameters">Parameters</h3>
 
@@ -4975,7 +4975,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/teams/<spa
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/teams/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/api/v1/data/teams/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -5011,7 +5011,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/teams/<spa
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466-06:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-28'>HTTP Request</h3>
-<p><code>PUT https://usw2-oapi.continu.co/data/teams/{id}</code></p>
+<p><code>PUT https://usw2-oapi.continu.co/api/v1/data/teams/{id}</code></p>
 
 <h3 id="replace-a-team-parameters">Parameters</h3>
 
@@ -5213,7 +5213,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/data/teams/<spa
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/users <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/users <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
@@ -5224,7 +5224,7 @@ This can be a single value, or lists for string fields like emails, roles, and e
 If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.</p>
 <h3 id='http-request-29'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/users</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/users</code></p>
 
 <h3 id="get-user-list-parameters">Parameters</h3>
 
@@ -5506,7 +5506,7 @@ The list To get the next group of records send id_from argument with the last id
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/users <span class="se">\</span>
+curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/users <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -5575,7 +5575,7 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/users <sp
   </span><span class="nl">"userid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-30'>HTTP Request</h3>
-<p><code>POST https://usw2-oapi.continu.co/data/users</code></p>
+<p><code>POST https://usw2-oapi.continu.co/api/v1/data/users</code></p>
 
 <h3 id="creates-a-user-parameters">Parameters</h3>
 
@@ -5962,14 +5962,14 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/data/users <sp
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/users/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/users/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
 
 </code></pre></div>
 <p>This endpoint gets the user corresponding to the given id.</p>
 <h3 id='http-request-31'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/data/users/{id}</code></p>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/users/{id}</code></p>
 
 <h3 id="get-user-by-id-parameters">Parameters</h3>
 
@@ -6041,7 +6041,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/data/users/<spa
 <p>Code Sample</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> PATCH https://usw2-oapi.continu.co/data/users/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+curl <span class="nt">-X</span> PATCH https://usw2-oapi.continu.co/api/v1/data/users/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
@@ -6097,7 +6097,7 @@ curl <span class="nt">-X</span> PATCH https://usw2-oapi.continu.co/data/users/<s
   </span><span class="nl">"userid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-32'>HTTP Request</h3>
-<p><code>PATCH https://usw2-oapi.continu.co/data/users/{id}</code></p>
+<p><code>PATCH https://usw2-oapi.continu.co/api/v1/data/users/{id}</code></p>
 
 <h3 id="updates/patches-a-user-parameters">Parameters</h3>
 
