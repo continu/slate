@@ -333,23 +333,7 @@ You also have the option to specify a date range using the from or until Unix Ep
         "status": "attended",
         "title": "Full Zoom Workshop"
       }
-    ],
-    "workshopsMap": {
-      "property1": {
-        "date": "2020-04-28T09:13:30.466-06:00",
-        "facilitator": "Ferdinand Danton",
-        "id": "5aa15c20f070380bcd59214c",
-        "status": "attended",
-        "title": "Full Zoom Workshop"
-      },
-      "property2": {
-        "date": "2020-04-28T09:13:30.466-06:00",
-        "facilitator": "Ferdinand Danton",
-        "id": "5aa15c20f070380bcd59214c",
-        "status": "attended",
-        "title": "Full Zoom Workshop"
-      }
-    }
+    ]
   }
 ]
 ```
