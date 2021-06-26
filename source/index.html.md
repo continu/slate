@@ -102,9 +102,9 @@ You also have the option to specify a date range using the from or until Unix Ep
         "completion_status": "Passed",
         "grading_status": "Completed",
         "id": "5b72efb05e8e1534c818ec81",
-        "passed_date": "2018-09-11T17:23:06.667-06:00",
+        "passed_date": "2018-09-11T17:23:06.667Z",
         "score": 100,
-        "started_date": "2018-09-06T17:07:20.942-06:00",
+        "started_date": "2018-09-06T17:07:20.942Z",
         "title": "Designing for the Modern Workplace",
         "type": "Video Coaching"
       }
@@ -174,18 +174,18 @@ You also have the option to specify a date range using the from or until Unix Ep
       {
         "assigned_content": [
           {
-            "completed_date": "2019-09-04T14:24:16.393-06:00",
+            "completed_date": "2019-09-04T14:24:16.393Z",
             "content_id": "54e6411129b6698c270000d6",
             "content_title": "Sales Enablement Track",
             "content_type": "Track"
           }
         ],
-        "assigned_date": "2019-09-01T14:24:16.393-06:00",
+        "assigned_date": "2019-09-01T14:24:16.393Z",
         "assignment_id": "57bdd6624487471000e2bf3a",
         "completed": true,
-        "completed_date": "2019-09-04T14:24:16.393-06:00",
+        "completed_date": "2019-09-04T14:24:16.393Z",
         "completion_status": "Completed - On Time",
-        "due_date": "2019-09-05T14:24:16.393-06:00"
+        "due_date": "2019-09-05T14:24:16.393Z"
       }
     ],
     "email": "stanleybond@continu.co",
@@ -255,12 +255,12 @@ You also have the option to specify a date range using the from or until Unix Ep
     "tracks": [
       {
         "completed": true,
-        "completed_date": "2019-07-19T15:32:53.744-06:00",
+        "completed_date": "2019-07-19T15:32:53.744Z",
         "duration": 5,
         "id": "5d6fea50ca2bc5000fdf7dd6",
         "name": "Sales Tools for Teams",
         "progress": 100,
-        "started_date": "2019-07-19T15:16:54.744-06:00"
+        "started_date": "2019-07-19T15:16:54.744Z"
       }
     ],
     "user_id": "5aa15c20f070380bcd59214c"
@@ -327,7 +327,7 @@ You also have the option to specify a date range using the from or until Unix Ep
     "user_id": "5aa15c20f070380bcd59214c",
     "workshops": [
       {
-        "date": "2020-04-28T09:13:30.466-06:00",
+        "date": "2020-04-28T09:13:30.466Z",
         "facilitator": "Ferdinand Danton",
         "id": "5aa15c20f070380bcd59214c",
         "status": "attended",
@@ -437,24 +437,17 @@ This endpoint creates a Department instance
     "[56b9938a9f176c1100e7e125]"
   ],
   "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "created_at": "2020-01-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
-  "isCategory": true,
-  "isDepartment": true,
-  "isGrade": true,
-  "isLabel": true,
-  "isLocation": true,
-  "isOrgLevel": true,
-  "isTeam": true,
   "level": 1,
-  "localized_names": "fr:featured-fr,de:gerfeatured,pt_br:Novidades,es_la:Spanish Featured,deu:Neuigkeiten",
+  "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
   "order": [
     "[56b9938a9f176c1100e7e125]"
   ],
   "parent": "56b1258a9f176c1100e7e993",
   "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466-06:00"
+  "updated_at": "2020-04-28T09:13:30.466Z"
 }
 ```
 
@@ -471,13 +464,6 @@ This endpoint creates a Department instance
 |» company|body|string|false|none|
 |» created_at|body|string|false|none|
 |» id|body|string|false|none|
-|» isCategory|body|boolean|false|none|
-|» isDepartment|body|boolean|false|none|
-|» isGrade|body|boolean|false|none|
-|» isLabel|body|boolean|false|none|
-|» isLocation|body|boolean|false|none|
-|» isOrgLevel|body|boolean|false|none|
-|» isTeam|body|boolean|false|none|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
@@ -559,24 +545,17 @@ This endpoint replaces/updates a whole Department instance
     "[56b9938a9f176c1100e7e125]"
   ],
   "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "created_at": "2020-01-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
-  "isCategory": true,
-  "isDepartment": true,
-  "isGrade": true,
-  "isLabel": true,
-  "isLocation": true,
-  "isOrgLevel": true,
-  "isTeam": true,
   "level": 1,
-  "localized_names": "fr:featured-fr,de:gerfeatured,pt_br:Novidades,es_la:Spanish Featured,deu:Neuigkeiten",
+  "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
   "order": [
     "[56b9938a9f176c1100e7e125]"
   ],
   "parent": "56b1258a9f176c1100e7e993",
   "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466-06:00"
+  "updated_at": "2020-04-28T09:13:30.466Z"
 }
 ```
 
@@ -594,13 +573,6 @@ This endpoint replaces/updates a whole Department instance
 |» company|body|string|false|none|
 |» created_at|body|string|false|none|
 |» id|body|string|false|none|
-|» isCategory|body|boolean|false|none|
-|» isDepartment|body|boolean|false|none|
-|» isGrade|body|boolean|false|none|
-|» isLabel|body|boolean|false|none|
-|» isLocation|body|boolean|false|none|
-|» isOrgLevel|body|boolean|false|none|
-|» isTeam|body|boolean|false|none|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
@@ -711,24 +683,17 @@ This endpoint creates a Grade instance
     "[56b9938a9f176c1100e7e125]"
   ],
   "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "created_at": "2020-01-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
-  "isCategory": true,
-  "isDepartment": true,
-  "isGrade": true,
-  "isLabel": true,
-  "isLocation": true,
-  "isOrgLevel": true,
-  "isTeam": true,
   "level": 1,
-  "localized_names": "fr:featured-fr,de:gerfeatured,pt_br:Novidades,es_la:Spanish Featured,deu:Neuigkeiten",
+  "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
   "order": [
     "[56b9938a9f176c1100e7e125]"
   ],
   "parent": "56b1258a9f176c1100e7e993",
   "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466-06:00"
+  "updated_at": "2020-04-28T09:13:30.466Z"
 }
 ```
 
@@ -745,13 +710,6 @@ This endpoint creates a Grade instance
 |» company|body|string|false|none|
 |» created_at|body|string|false|none|
 |» id|body|string|false|none|
-|» isCategory|body|boolean|false|none|
-|» isDepartment|body|boolean|false|none|
-|» isGrade|body|boolean|false|none|
-|» isLabel|body|boolean|false|none|
-|» isLocation|body|boolean|false|none|
-|» isOrgLevel|body|boolean|false|none|
-|» isTeam|body|boolean|false|none|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
@@ -833,24 +791,17 @@ This endpoint replaces/updates a whole Grade instance
     "[56b9938a9f176c1100e7e125]"
   ],
   "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "created_at": "2020-01-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
-  "isCategory": true,
-  "isDepartment": true,
-  "isGrade": true,
-  "isLabel": true,
-  "isLocation": true,
-  "isOrgLevel": true,
-  "isTeam": true,
   "level": 1,
-  "localized_names": "fr:featured-fr,de:gerfeatured,pt_br:Novidades,es_la:Spanish Featured,deu:Neuigkeiten",
+  "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
   "order": [
     "[56b9938a9f176c1100e7e125]"
   ],
   "parent": "56b1258a9f176c1100e7e993",
   "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466-06:00"
+  "updated_at": "2020-04-28T09:13:30.466Z"
 }
 ```
 
@@ -868,13 +819,6 @@ This endpoint replaces/updates a whole Grade instance
 |» company|body|string|false|none|
 |» created_at|body|string|false|none|
 |» id|body|string|false|none|
-|» isCategory|body|boolean|false|none|
-|» isDepartment|body|boolean|false|none|
-|» isGrade|body|boolean|false|none|
-|» isLabel|body|boolean|false|none|
-|» isLocation|body|boolean|false|none|
-|» isOrgLevel|body|boolean|false|none|
-|» isTeam|body|boolean|false|none|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
@@ -985,24 +929,17 @@ This endpoint creates a Level
     "[56b9938a9f176c1100e7e125]"
   ],
   "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "created_at": "2020-01-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
-  "isCategory": true,
-  "isDepartment": true,
-  "isGrade": true,
-  "isLabel": true,
-  "isLocation": true,
-  "isOrgLevel": true,
-  "isTeam": true,
   "level": 1,
-  "localized_names": "fr:featured-fr,de:gerfeatured,pt_br:Novidades,es_la:Spanish Featured,deu:Neuigkeiten",
+  "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
   "order": [
     "[56b9938a9f176c1100e7e125]"
   ],
   "parent": "56b1258a9f176c1100e7e993",
   "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466-06:00"
+  "updated_at": "2020-04-28T09:13:30.466Z"
 }
 ```
 
@@ -1019,13 +956,6 @@ This endpoint creates a Level
 |» company|body|string|false|none|
 |» created_at|body|string|false|none|
 |» id|body|string|false|none|
-|» isCategory|body|boolean|false|none|
-|» isDepartment|body|boolean|false|none|
-|» isGrade|body|boolean|false|none|
-|» isLabel|body|boolean|false|none|
-|» isLocation|body|boolean|false|none|
-|» isOrgLevel|body|boolean|false|none|
-|» isTeam|body|boolean|false|none|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
@@ -1107,24 +1037,17 @@ This endpoint replaces/updates a whole Level instance
     "[56b9938a9f176c1100e7e125]"
   ],
   "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "created_at": "2020-01-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
-  "isCategory": true,
-  "isDepartment": true,
-  "isGrade": true,
-  "isLabel": true,
-  "isLocation": true,
-  "isOrgLevel": true,
-  "isTeam": true,
   "level": 1,
-  "localized_names": "fr:featured-fr,de:gerfeatured,pt_br:Novidades,es_la:Spanish Featured,deu:Neuigkeiten",
+  "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
   "order": [
     "[56b9938a9f176c1100e7e125]"
   ],
   "parent": "56b1258a9f176c1100e7e993",
   "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466-06:00"
+  "updated_at": "2020-04-28T09:13:30.466Z"
 }
 ```
 
@@ -1142,13 +1065,6 @@ This endpoint replaces/updates a whole Level instance
 |» company|body|string|false|none|
 |» created_at|body|string|false|none|
 |» id|body|string|false|none|
-|» isCategory|body|boolean|false|none|
-|» isDepartment|body|boolean|false|none|
-|» isGrade|body|boolean|false|none|
-|» isLabel|body|boolean|false|none|
-|» isLocation|body|boolean|false|none|
-|» isOrgLevel|body|boolean|false|none|
-|» isTeam|body|boolean|false|none|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
@@ -1259,24 +1175,17 @@ This endpoint creates a Location instance
     "[56b9938a9f176c1100e7e125]"
   ],
   "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "created_at": "2020-01-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
-  "isCategory": true,
-  "isDepartment": true,
-  "isGrade": true,
-  "isLabel": true,
-  "isLocation": true,
-  "isOrgLevel": true,
-  "isTeam": true,
   "level": 1,
-  "localized_names": "fr:featured-fr,de:gerfeatured,pt_br:Novidades,es_la:Spanish Featured,deu:Neuigkeiten",
+  "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
   "order": [
     "[56b9938a9f176c1100e7e125]"
   ],
   "parent": "56b1258a9f176c1100e7e993",
   "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466-06:00"
+  "updated_at": "2020-04-28T09:13:30.466Z"
 }
 ```
 
@@ -1293,13 +1202,6 @@ This endpoint creates a Location instance
 |» company|body|string|false|none|
 |» created_at|body|string|false|none|
 |» id|body|string|false|none|
-|» isCategory|body|boolean|false|none|
-|» isDepartment|body|boolean|false|none|
-|» isGrade|body|boolean|false|none|
-|» isLabel|body|boolean|false|none|
-|» isLocation|body|boolean|false|none|
-|» isOrgLevel|body|boolean|false|none|
-|» isTeam|body|boolean|false|none|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
@@ -1381,24 +1283,17 @@ This endpoint replaces/updates a whole Location instance
     "[56b9938a9f176c1100e7e125]"
   ],
   "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "created_at": "2020-01-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
-  "isCategory": true,
-  "isDepartment": true,
-  "isGrade": true,
-  "isLabel": true,
-  "isLocation": true,
-  "isOrgLevel": true,
-  "isTeam": true,
   "level": 1,
-  "localized_names": "fr:featured-fr,de:gerfeatured,pt_br:Novidades,es_la:Spanish Featured,deu:Neuigkeiten",
+  "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
   "order": [
     "[56b9938a9f176c1100e7e125]"
   ],
   "parent": "56b1258a9f176c1100e7e993",
   "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466-06:00"
+  "updated_at": "2020-04-28T09:13:30.466Z"
 }
 ```
 
@@ -1416,13 +1311,6 @@ This endpoint replaces/updates a whole Location instance
 |» company|body|string|false|none|
 |» created_at|body|string|false|none|
 |» id|body|string|false|none|
-|» isCategory|body|boolean|false|none|
-|» isDepartment|body|boolean|false|none|
-|» isGrade|body|boolean|false|none|
-|» isLabel|body|boolean|false|none|
-|» isLocation|body|boolean|false|none|
-|» isOrgLevel|body|boolean|false|none|
-|» isTeam|body|boolean|false|none|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
@@ -1485,9 +1373,9 @@ The list To get the next group of records send id_from argument with the last id
 [
   {
     "blocked": false,
-    "blocked_date": "2020-04-28T09:13:30.466-06:00",
+    "blocked_date": "2020-04-28T09:13:30.466Z",
     "company": "56b1258a9f176c1100e7e993",
-    "created_at": "2020-01-28T09:13:30.466-06:00",
+    "created_at": "2020-01-28T09:13:30.466Z",
     "id": "56b1258a9f176c1100e7e993",
     "name": "JavaScript",
     "user": "56b1258a9f176c1100e7e993",
@@ -1525,12 +1413,12 @@ This endpoint creates a Skill instance
 ```json
 {
   "blocked": false,
-  "blocked_date": "2020-04-28T09:13:30.466-06:00",
+  "blocked_date": "2020-04-28T09:13:30.466Z",
   "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "created_at": "2020-01-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
   "name": "JavaScript",
-  "updated_at": "2020-04-28T09:13:30.466-06:00",
+  "updated_at": "2020-04-28T09:13:30.466Z",
   "user": "56b1258a9f176c1100e7e993",
   "user_blocked": "56b1258a9f176c1100e7e993"
 }
@@ -1625,12 +1513,12 @@ This endpoint replaces/updates a whole Skill instance
 ```json
 {
   "blocked": false,
-  "blocked_date": "2020-04-28T09:13:30.466-06:00",
+  "blocked_date": "2020-04-28T09:13:30.466Z",
   "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "created_at": "2020-01-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
   "name": "JavaScript",
-  "updated_at": "2020-04-28T09:13:30.466-06:00",
+  "updated_at": "2020-04-28T09:13:30.466Z",
   "user": "56b1258a9f176c1100e7e993",
   "user_blocked": "56b1258a9f176c1100e7e993"
 }
@@ -1758,24 +1646,17 @@ This endpoint creates a Team instance
     "[56b9938a9f176c1100e7e125]"
   ],
   "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "created_at": "2020-01-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
-  "isCategory": true,
-  "isDepartment": true,
-  "isGrade": true,
-  "isLabel": true,
-  "isLocation": true,
-  "isOrgLevel": true,
-  "isTeam": true,
   "level": 1,
-  "localized_names": "fr:featured-fr,de:gerfeatured,pt_br:Novidades,es_la:Spanish Featured,deu:Neuigkeiten",
+  "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
   "order": [
     "[56b9938a9f176c1100e7e125]"
   ],
   "parent": "56b1258a9f176c1100e7e993",
   "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466-06:00"
+  "updated_at": "2020-04-28T09:13:30.466Z"
 }
 ```
 
@@ -1792,13 +1673,6 @@ This endpoint creates a Team instance
 |» company|body|string|false|none|
 |» created_at|body|string|false|none|
 |» id|body|string|false|none|
-|» isCategory|body|boolean|false|none|
-|» isDepartment|body|boolean|false|none|
-|» isGrade|body|boolean|false|none|
-|» isLabel|body|boolean|false|none|
-|» isLocation|body|boolean|false|none|
-|» isOrgLevel|body|boolean|false|none|
-|» isTeam|body|boolean|false|none|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
@@ -1880,24 +1754,17 @@ This endpoint replaces/updates a whole Team instance
     "[56b9938a9f176c1100e7e125]"
   ],
   "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "created_at": "2020-01-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
-  "isCategory": true,
-  "isDepartment": true,
-  "isGrade": true,
-  "isLabel": true,
-  "isLocation": true,
-  "isOrgLevel": true,
-  "isTeam": true,
   "level": 1,
-  "localized_names": "fr:featured-fr,de:gerfeatured,pt_br:Novidades,es_la:Spanish Featured,deu:Neuigkeiten",
+  "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
   "order": [
     "[56b9938a9f176c1100e7e125]"
   ],
   "parent": "56b1258a9f176c1100e7e993",
   "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466-06:00"
+  "updated_at": "2020-04-28T09:13:30.466Z"
 }
 ```
 
@@ -1915,13 +1782,6 @@ This endpoint replaces/updates a whole Team instance
 |» company|body|string|false|none|
 |» created_at|body|string|false|none|
 |» id|body|string|false|none|
-|» isCategory|body|boolean|false|none|
-|» isDepartment|body|boolean|false|none|
-|» isGrade|body|boolean|false|none|
-|» isLabel|body|boolean|false|none|
-|» isLocation|body|boolean|false|none|
-|» isOrgLevel|body|boolean|false|none|
-|» isTeam|body|boolean|false|none|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
@@ -2005,12 +1865,12 @@ The list To get the next group of records send id_from argument with the last id
 [
   {
     "company": "56b1258a9f176c1100e7e993",
-    "created_at": "2020-01-28T09:13:30.466-06:00",
+    "created_at": "2020-01-28T09:13:30.466Z",
     "email": "theresa@continu.co",
-    "first_login": "2020-01-28T09:13:30.466-06:00",
+    "first_login": "2020-01-28T09:13:30.466Z",
     "first_name": "Theresa",
     "full_name": "Theresa Jenkins",
-    "hired_on": "2020-04-28T09:13:30.466-06:00",
+    "hired_on": "2020-04-28T09:13:30.466Z",
     "id": "56b1258a9f176c1100e7e993",
     "image": "https://d2277n3gvptnup.cloudfront.net/images/afcaf0c3-b0db-4313-b42e-bcabdfae35cb.jpg",
     "is_collaborator": true,
@@ -2018,7 +1878,7 @@ The list To get the next group of records send id_from argument with the last id
     "is_suspended": false,
     "job_title": "Marketing Manager",
     "language": "en",
-    "last_login": "2020-04-28T09:13:30.466-06:00",
+    "last_login": "2020-04-28T09:13:30.466Z",
     "last_name": "Jenkins",
     "linked_departments": [
       "56b9938a9f176c1100e7e156"
@@ -2032,8 +1892,8 @@ The list To get the next group of records send id_from argument with the last id
       "56b9938a9f176c1100e7e156"
     ],
     "role": "user",
-    "suspended_on": "2020-04-28T09:13:30.466-06:00",
-    "updated_at": "2020-04-28T09:13:30.466-06:00",
+    "suspended_on": "2020-04-28T09:13:30.466Z",
+    "updated_at": "2020-04-28T09:13:30.466Z",
     "userid": "123456789"
   }
 ]
@@ -2071,14 +1931,14 @@ This endpoint creates a User instance
   "buddy_email": "buddy@continu.co",
   "company": "56b1258a9f176c1100e7e993",
   "country": "USA",
-  "created_at": "2020-01-28T09:13:30.466-06:00",
+  "created_at": "2020-01-28T09:13:30.466Z",
   "distributor": "Distributor A",
   "email": "theresa@continu.co",
-  "first_login": "2020-01-28T09:13:30.466-06:00",
+  "first_login": "2020-01-28T09:13:30.466Z",
   "first_name": "Theresa",
   "full_name": "Theresa Jenkins",
   "group": "Group A",
-  "hired_on": "2020-04-28T09:13:30.466-06:00",
+  "hired_on": "2020-04-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
   "image": "https://d2277n3gvptnup.cloudfront.net/images/afcaf0c3-b0db-4313-b42e-bcabdfae35cb.jpg",
   "is_collaborator": true,
@@ -2086,10 +1946,10 @@ This endpoint creates a User instance
   "is_suspended": false,
   "job_title": "Marketing Manager",
   "language": "en",
-  "last_login": "2020-04-28T09:13:30.466-06:00",
+  "last_login": "2020-04-28T09:13:30.466Z",
   "last_name": "Jenkins",
-  "last_onboarding_email": "2020-01-28T09:13:30.466-06:00",
-  "last_reminded_email": "2020-01-28T09:13:30.466-06:00",
+  "last_onboarding_email": "2020-01-28T09:13:30.466Z",
+  "last_reminded_email": "2020-01-28T09:13:30.466Z",
   "linked_departments": [
     "56b9938a9f176c1100e7e156"
   ],
@@ -2112,15 +1972,15 @@ This endpoint creates a User instance
   ],
   "slack_dc": "A3Q47DZPB",
   "slack_id": "U0CSVAS3Z",
-  "slack_last_attempt": "2020-01-28T09:13:30.466-06:00",
+  "slack_last_attempt": "2020-01-28T09:13:30.466Z",
   "social_links": [
     {
       "name": "linkedin",
       "value": "https://link.to.linkedin.com"
     }
   ],
-  "suspended_on": "2020-04-28T09:13:30.466-06:00",
-  "updated_at": "2020-04-28T09:13:30.466-06:00",
+  "suspended_on": "2020-04-28T09:13:30.466Z",
+  "updated_at": "2020-04-28T09:13:30.466Z",
   "userid": "123456789"
 }
 ```
@@ -2256,7 +2116,7 @@ This endpoint updates a partial User instance
   "email": "theresa@continu.co",
   "first_name": "Theresa",
   "group": "Group A",
-  "hired_on": "2020-04-28T09:13:30.466-06:00",
+  "hired_on": "2020-04-28T09:13:30.466Z",
   "image": "https://d2277n3gvptnup.cloudfront.net/images/afcaf0c3-b0db-4313-b42e-bcabdfae35cb.jpg",
   "is_collaborator": true,
   "is_manager": false,
