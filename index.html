@@ -383,10 +383,24 @@
                     <a href="#Creates a Grade" class="toc-h2 toc-link" data-title="Creates a Grade">Creates a Grade</a>
                   </li>
                   <li>
-                    <a href="#Get Grade by id" class="toc-h2 toc-link" data-title="Get Grade by id">Get Grade by id</a>
+                    <a href="#Replace a Grade" class="toc-h2 toc-link" data-title="Replace a Grade">Replace a Grade</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#continu-api-groups" class="toc-h1 toc-link" data-title="Groups">Groups</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#Get Group by id or external_id" class="toc-h2 toc-link" data-title="Get Group by id or external_id">Get Group by id or external_id</a>
                   </li>
                   <li>
-                    <a href="#Replace a Grade" class="toc-h2 toc-link" data-title="Replace a Grade">Replace a Grade</a>
+                    <a href="#Groups a Location" class="toc-h2 toc-link" data-title="Groups a Location">Groups a Location</a>
+                  </li>
+                  <li>
+                    <a href="#Replace a Group" class="toc-h2 toc-link" data-title="Replace a Group">Replace a Group</a>
+                  </li>
+                  <li>
+                    <a href="#Get Group List" class="toc-h2 toc-link" data-title="Get Group List">Get Group List</a>
                   </li>
               </ul>
           </li>
@@ -2123,85 +2137,6 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/gr
 </tr>
 </tbody></table>
 
-<h2 id="Get Grade by id">Get Grade by id</h2>
-
-<blockquote>
-<p>Code Sample</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/grades/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
-
-</code></pre></div>
-<p>This endpoint gets the grade corresponding to the given id.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
-<p><code>GET https://usw2-oapi.continu.co/api/v1/data/grades/{id}</code></p>
-
-<h3 id="get-grade-by-id-parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>In</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>string</td>
-<td>true</td>
-<td>Id for the grade requested.</td>
-</tr>
-<tr>
-<td>Authorization</td>
-<td>header</td>
-<td>string</td>
-<td>true</td>
-<td>The Authorization Header and Token</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Example Response</p>
-
-<p>200 Response</p>
-</blockquote>
-
-<h3 id="get-grade-by-id-responses">Responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>OK</td>
-</tr>
-<tr>
-<td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
-<td>Bad Request</td>
-</tr>
-<tr>
-<td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
-<td>Not Found</td>
-</tr>
-<tr>
-<td>500</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.6.1">Internal Server Error</a></td>
-<td>Internal Server Error</td>
-</tr>
-</tbody></table>
-
 <h2 id="Replace a Grade">Replace a Grade</h2>
 
 <blockquote>
@@ -2236,7 +2171,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/api/v1/data/gra
   </span><span class="nl">"show_external"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-12'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-11'>HTTP Request</h3>
 <p><code>PUT https://usw2-oapi.continu.co/api/v1/data/grades/{id}</code></p>
 
 <h3 id="replace-a-grade-parameters">Parameters</h3>
@@ -2382,6 +2317,640 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/api/v1/data/gra
 </tr>
 </tbody></table>
 
+<h1 id="continu-api-groups">Groups</h1>
+
+<h2 id="Get Group by id or external_id">Get Group by id or external_id</h2>
+
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/grades/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
+
+</code></pre></div>
+<p>This endpoint gets the group corresponding to the given id or external_id.</p>
+<h3 id='http-request-12'>HTTP Request</h3>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/grades/{id}</code></p>
+
+<h3 id="get-group-by-id-or-external_id-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>string</td>
+<td>true</td>
+<td>Id for the group requested.</td>
+</tr>
+<tr>
+<td>external_id</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Optional true/false indicating to use external_id field to match the {id} param</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>header</td>
+<td>string</td>
+<td>true</td>
+<td>The Authorization Header and Token</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example Response</p>
+
+<p>200 Response</p>
+</blockquote>
+
+<h3 id="get-group-by-id-or-external_id-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>500</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.6.1">Internal Server Error</a></td>
+<td>Internal Server Error</td>
+</tr>
+</tbody></table>
+
+<h2 id="Groups a Location">Groups a Location</h2>
+
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/group <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
+
+</code></pre></div>
+<p>This endpoint creates a Group instance</p>
+
+<blockquote>
+<p>Body parameter</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-28T09:13:30.466Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a description about the group segmentation"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234,AB435BD,X56b1258a"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"grades"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"levels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Featured"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"teams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-13'>HTTP Request</h3>
+<p><code>POST https://usw2-oapi.continu.co/api/v1/data/group</code></p>
+
+<h3 id="groups-a-location-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization</td>
+<td>header</td>
+<td>string</td>
+<td>true</td>
+<td>The Authorization Header and Token</td>
+</tr>
+<tr>
+<td>body</td>
+<td>body</td>
+<td><a href="#schemacontrollers.group">controllers.Group</a></td>
+<td>true</td>
+<td>The Group to create</td>
+</tr>
+<tr>
+<td>» company</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» created_at</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» departments</td>
+<td>body</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» description</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» external_id</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» grades</td>
+<td>body</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» levels</td>
+<td>body</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» locations</td>
+<td>body</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» name</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» teams</td>
+<td>body</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» updated_at</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» user</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example Response</p>
+
+<p>201 Response</p>
+</blockquote>
+
+<h3 id="groups-a-location-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
+<td>Created</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
+</tr>
+<tr>
+<td>409</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.8">Conflict</a></td>
+<td>Conflict</td>
+</tr>
+<tr>
+<td>500</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.6.1">Internal Server Error</a></td>
+<td>Internal Server Error</td>
+</tr>
+</tbody></table>
+
+<h2 id="Replace a Group">Replace a Group</h2>
+
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/api/v1/data/group/<span class="o">{</span><span class="nb">id</span><span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Accept: */*'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
+
+</code></pre></div>
+<p>This endpoint replaces/updates a whole Location instance</p>
+
+<blockquote>
+<p>Body parameter</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-28T09:13:30.466Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a description about the group segmentation"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234,AB435BD,X56b1258a"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"grades"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"levels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Featured"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"teams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-14'>HTTP Request</h3>
+<p><code>PUT https://usw2-oapi.continu.co/api/v1/data/group/{id}</code></p>
+
+<h3 id="replace-a-group-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>string</td>
+<td>true</td>
+<td>Id for the Group requested to be replaced.</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>header</td>
+<td>string</td>
+<td>true</td>
+<td>The Authorization Header and Token</td>
+</tr>
+<tr>
+<td>body</td>
+<td>body</td>
+<td><a href="#schemacontrollers.group">controllers.Group</a></td>
+<td>true</td>
+<td>The Group to replace</td>
+</tr>
+<tr>
+<td>» company</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» created_at</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» departments</td>
+<td>body</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» description</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» external_id</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» grades</td>
+<td>body</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» levels</td>
+<td>body</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» locations</td>
+<td>body</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» name</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» teams</td>
+<td>body</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» updated_at</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» user</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example Response</p>
+
+<p>400 Response</p>
+</blockquote>
+
+<h3 id="replace-a-group-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">No Content</a></td>
+<td>none</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
+</tr>
+<tr>
+<td>500</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.6.1">Internal Server Error</a></td>
+<td>Internal Server Error</td>
+</tr>
+</tbody></table>
+
+<h2 id="Get Group List">Get Group List</h2>
+
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
+curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/groups <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: string'</span>
+
+</code></pre></div>
+<p>This endpoint lists all Group&#39;s briefs, you may return them as a list size of 50 records, 100, or 500, and in a &quot;compact&quot;, &quot;summary&quot;, or &quot;full&quot; list type.
+If omitted, the default values for the list are &quot;compact&quot; and 50 records.
+If you want to return the next batch of 50, 100, or 500 records
+The list To get the next group of records send id_from argument with the last id you received.</p>
+<h3 id='http-request-15'>HTTP Request</h3>
+<p><code>GET https://usw2-oapi.continu.co/api/v1/data/groups</code></p>
+
+<h3 id="get-group-list-parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id_from</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Optional Id from the last record previously returned. This will be the Id from which data is returned</td>
+</tr>
+<tr>
+<td>list_size</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Size of the returned list. This value can be 50, 100, or 500</td>
+</tr>
+<tr>
+<td>list_type</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Type of List to return. This value can be compact, summary, or full indicating the number of fields included in each element returned</td>
+</tr>
+<tr>
+<td>name</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>Name value expected or comma separated list of values (Detroit, Madrid, New York)</td>
+</tr>
+<tr>
+<td>created_at_from</td>
+<td>query</td>
+<td>integer</td>
+<td>false</td>
+<td>CreatedAt From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)</td>
+</tr>
+<tr>
+<td>created_at_until</td>
+<td>query</td>
+<td>integer</td>
+<td>false</td>
+<td>CreatedAt Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>header</td>
+<td>string</td>
+<td>true</td>
+<td>The Authorization Header and Token</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example Response</p>
+
+<p>200 Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-28T09:13:30.466Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a description about the group segmentation"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234,AB435BD,X56b1258a"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"grades"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"levels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Featured"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"teams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"[56b1258a9f176c1100e7e993]"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<h3 id="get-group-list-responses">Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>OK</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Bad Request</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>500</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.6.1">Internal Server Error</a></td>
+<td>Internal Server Error</td>
+</tr>
+</tbody></table>
+
 <h1 id="continu-api-levels">Levels</h1>
 
 <h2 id="Get Level List">Get Level List</h2>
@@ -2399,7 +2968,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/lev
 If omitted, the default values for the list are &quot;compact&quot; and 50 records.
 If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-16'>HTTP Request</h3>
 <p><code>GET https://usw2-oapi.continu.co/api/v1/data/levels</code></p>
 
 <h3 id="get-level-list-parameters">Parameters</h3>
@@ -2552,7 +3121,7 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/le
   </span><span class="nl">"show_external"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-14'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-17'>HTTP Request</h3>
 <p><code>POST https://usw2-oapi.continu.co/api/v1/data/levels</code></p>
 
 <h3 id="creates-a-level-(an-organization-level)-parameters">Parameters</h3>
@@ -2708,7 +3277,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/lev
 
 </code></pre></div>
 <p>This endpoint gets the level corresponding to the given id.</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-18'>HTTP Request</h3>
 <p><code>GET https://usw2-oapi.continu.co/api/v1/data/levels/{id}</code></p>
 
 <h3 id="get-level-by-id-parameters">Parameters</h3>
@@ -2809,7 +3378,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/api/v1/data/lev
   </span><span class="nl">"show_external"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-16'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-19'>HTTP Request</h3>
 <p><code>PUT https://usw2-oapi.continu.co/api/v1/data/levels/{id}</code></p>
 
 <h3 id="replace-a-level-parameters">Parameters</h3>
@@ -2972,7 +3541,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/loc
 If omitted, the default values for the list are &quot;compact&quot; and 50 records.
 If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request-20'>HTTP Request</h3>
 <p><code>GET https://usw2-oapi.continu.co/api/v1/data/locations</code></p>
 
 <h3 id="get-location-list-parameters">Parameters</h3>
@@ -3125,7 +3694,7 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/lo
   </span><span class="nl">"show_external"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-18'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-21'>HTTP Request</h3>
 <p><code>POST https://usw2-oapi.continu.co/api/v1/data/locations</code></p>
 
 <h3 id="creates-a-location-parameters">Parameters</h3>
@@ -3281,7 +3850,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/loc
 
 </code></pre></div>
 <p>This endpoint gets the location corresponding to the given id.</p>
-<h3 id='http-request-19'>HTTP Request</h3>
+<h3 id='http-request-22'>HTTP Request</h3>
 <p><code>GET https://usw2-oapi.continu.co/api/v1/data/locations/{id}</code></p>
 
 <h3 id="get-location-by-id-parameters">Parameters</h3>
@@ -3382,7 +3951,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/api/v1/data/loc
   </span><span class="nl">"show_external"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-20'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-23'>HTTP Request</h3>
 <p><code>PUT https://usw2-oapi.continu.co/api/v1/data/locations/{id}</code></p>
 
 <h3 id="replace-a-location-parameters">Parameters</h3>
@@ -3545,7 +4114,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/ski
 If omitted, the default values for the list are &quot;compact&quot; and 50 records.
 If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.</p>
-<h3 id='http-request-21'>HTTP Request</h3>
+<h3 id='http-request-24'>HTTP Request</h3>
 <p><code>GET https://usw2-oapi.continu.co/api/v1/data/skills</code></p>
 
 <h3 id="get-skill-list-parameters">Parameters</h3>
@@ -3687,7 +4256,7 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/sk
   </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"user_blocked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-22'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-25'>HTTP Request</h3>
 <p><code>POST https://usw2-oapi.continu.co/api/v1/data/skills</code></p>
 
 <h3 id="creates-a-skill-parameters">Parameters</h3>
@@ -3829,7 +4398,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/ski
 
 </code></pre></div>
 <p>This endpoint gets the skill corresponding to the given id.</p>
-<h3 id='http-request-23'>HTTP Request</h3>
+<h3 id='http-request-26'>HTTP Request</h3>
 <p><code>GET https://usw2-oapi.continu.co/api/v1/data/skills/{id}</code></p>
 
 <h3 id="get-skill-by-id-parameters">Parameters</h3>
@@ -3924,7 +4493,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/api/v1/data/ski
   </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"user_blocked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-24'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-27'>HTTP Request</h3>
 <p><code>PUT https://usw2-oapi.continu.co/api/v1/data/skills/{id}</code></p>
 
 <h3 id="replace-a-skill-parameters">Parameters</h3>
@@ -4073,7 +4642,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/tea
 If omitted, the default values for the list are &quot;compact&quot; and 50 records.
 If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.</p>
-<h3 id='http-request-25'>HTTP Request</h3>
+<h3 id='http-request-28'>HTTP Request</h3>
 <p><code>GET https://usw2-oapi.continu.co/api/v1/data/teams</code></p>
 
 <h3 id="get-team-list-parameters">Parameters</h3>
@@ -4226,7 +4795,7 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/te
   </span><span class="nl">"show_external"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-26'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-29'>HTTP Request</h3>
 <p><code>POST https://usw2-oapi.continu.co/api/v1/data/teams</code></p>
 
 <h3 id="creates-a-team-parameters">Parameters</h3>
@@ -4382,7 +4951,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/tea
 
 </code></pre></div>
 <p>This endpoint gets the team corresponding to the given id.</p>
-<h3 id='http-request-27'>HTTP Request</h3>
+<h3 id='http-request-30'>HTTP Request</h3>
 <p><code>GET https://usw2-oapi.continu.co/api/v1/data/teams/{id}</code></p>
 
 <h3 id="get-team-by-id-parameters">Parameters</h3>
@@ -4483,7 +5052,7 @@ curl <span class="nt">-X</span> PUT https://usw2-oapi.continu.co/api/v1/data/tea
   </span><span class="nl">"show_external"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-28'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-31'>HTTP Request</h3>
 <p><code>PUT https://usw2-oapi.continu.co/api/v1/data/teams/{id}</code></p>
 
 <h3 id="replace-a-team-parameters">Parameters</h3>
@@ -4647,7 +5216,7 @@ If omitted, the default values for the list are &quot;compact&quot; and 50 recor
 This can be a single value, or lists for string fields like emails, roles, and even from/until ranges for date fields like create_at, or first_login.
 If you want to return the next batch of 50, 100, or 500 records
 The list To get the next group of records send id_from argument with the last id you received.</p>
-<h3 id='http-request-29'>HTTP Request</h3>
+<h3 id='http-request-32'>HTTP Request</h3>
 <p><code>GET https://usw2-oapi.continu.co/api/v1/data/users</code></p>
 
 <h3 id="get-user-list-parameters">Parameters</h3>
@@ -4865,6 +5434,9 @@ The list To get the next group of records send id_from argument with the last id
     </span><span class="nl">"first_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-28T09:13:30.466Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theresa"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theresa Jenkins"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"[56b9938a9f176c1100e7e156]"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="nl">"hired_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d2277n3gvptnup.cloudfront.net/images/afcaf0c3-b0db-4313-b42e-bcabdfae35cb.jpg"</span><span class="p">,</span><span class="w">
@@ -4876,15 +5448,18 @@ The list To get the next group of records send id_from argument with the last id
     </span><span class="nl">"last_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jenkins"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"linked_departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"56b9938a9f176c1100e7e156"</span><span class="w">
+      </span><span class="s2">"[56b9938a9f176c1100e7e156]"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"linked_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b9938a9f176c1100e7e156"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"linked_locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"56b9938a9f176c1100e7e125"</span><span class="w">
+      </span><span class="s2">"[56b9938a9f176c1100e7e125]"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"linked_org_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b9938a9f176c1100e7e156"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"linked_teams"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="s2">"56b9938a9f176c1100e7e156"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"managing_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"[56b9938a9f176c1100e7e156]"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"suspended_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="p">,</span><span class="w">
@@ -4953,6 +5528,9 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/us
   </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theresa"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theresa Jenkins"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group A"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b9938a9f176c1100e7e156]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nl">"hired_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56b1258a9f176c1100e7e993"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d2277n3gvptnup.cloudfront.net/images/afcaf0c3-b0db-4313-b42e-bcabdfae35cb.jpg"</span><span class="p">,</span><span class="w">
@@ -4977,6 +5555,9 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/us
     </span><span class="s2">"56b9938a9f176c1100e7e156"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"manager_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manager@continu.co"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"managing_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b9938a9f176c1100e7e156]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my password"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"provisioning_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"provisioning_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inviting"</span><span class="p">,</span><span class="w">
@@ -4998,7 +5579,7 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/us
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"userid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-30'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-33'>HTTP Request</h3>
 <p><code>POST https://usw2-oapi.continu.co/api/v1/data/users</code></p>
 
 <h3 id="creates-a-user-parameters">Parameters</h3>
@@ -5107,6 +5688,13 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/us
 <td>» group</td>
 <td>body</td>
 <td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» groups</td>
+<td>body</td>
+<td>[string]</td>
 <td>false</td>
 <td>none</td>
 </tr>
@@ -5233,6 +5821,13 @@ curl <span class="nt">-X</span> POST https://usw2-oapi.continu.co/api/v1/data/us
 <td>» manager_email</td>
 <td>body</td>
 <td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» managing_groups</td>
+<td>body</td>
+<td>[string]</td>
 <td>false</td>
 <td>none</td>
 </tr>
@@ -5392,7 +5987,7 @@ curl <span class="nt">-X</span> GET https://usw2-oapi.continu.co/api/v1/data/use
 
 </code></pre></div>
 <p>This endpoint gets the user corresponding to the given id.</p>
-<h3 id='http-request-31'>HTTP Request</h3>
+<h3 id='http-request-34'>HTTP Request</h3>
 <p><code>GET https://usw2-oapi.continu.co/api/v1/data/users/{id}</code></p>
 
 <h3 id="get-user-by-id-parameters">Parameters</h3>
@@ -5484,6 +6079,9 @@ curl <span class="nt">-X</span> PATCH https://usw2-oapi.continu.co/api/v1/data/u
   </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"theresa@continu.co"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Theresa"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group A"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b9938a9f176c1100e7e156]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nl">"hired_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-28T09:13:30.466Z"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://d2277n3gvptnup.cloudfront.net/images/afcaf0c3-b0db-4313-b42e-bcabdfae35cb.jpg"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"is_collaborator"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -5504,6 +6102,9 @@ curl <span class="nt">-X</span> PATCH https://usw2-oapi.continu.co/api/v1/data/u
     </span><span class="s2">"56b9938a9f176c1100e7e156"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"manager_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manager@continu.co"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"managing_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"[56b9938a9f176c1100e7e156]"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my password"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Central USA"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
@@ -5520,7 +6121,7 @@ curl <span class="nt">-X</span> PATCH https://usw2-oapi.continu.co/api/v1/data/u
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"userid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-32'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-35'>HTTP Request</h3>
 <p><code>PATCH https://usw2-oapi.continu.co/api/v1/data/users/{id}</code></p>
 
 <h3 id="updates/patches-a-user-parameters">Parameters</h3>
@@ -5601,6 +6202,13 @@ curl <span class="nt">-X</span> PATCH https://usw2-oapi.continu.co/api/v1/data/u
 <td>» group</td>
 <td>body</td>
 <td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» groups</td>
+<td>body</td>
+<td>[string]</td>
 <td>false</td>
 <td>none</td>
 </tr>
@@ -5699,6 +6307,13 @@ curl <span class="nt">-X</span> PATCH https://usw2-oapi.continu.co/api/v1/data/u
 <td>» manager_email</td>
 <td>body</td>
 <td>string</td>
+<td>false</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» managing_groups</td>
+<td>body</td>
+<td>[string]</td>
 <td>false</td>
 <td>none</td>
 </tr>
