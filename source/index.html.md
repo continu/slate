@@ -731,43 +731,6 @@ This endpoint creates a Grade instance
 |409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
-<h2 id="Get Grade by id">Get Grade by id</h2>
-
-> Code Sample
-
-```shell
-# You can also use wget
-curl -X GET https://usw2-oapi.continu.co/api/v1/data/grades/{id} \
-  -H 'Accept: */*' \
-  -H 'Authorization: string'
-
-```
-
-This endpoint gets the grade corresponding to the given id.
-
-### HTTP Request
-`GET https://usw2-oapi.continu.co/api/v1/data/grades/{id}`
-
-<h3 id="get-grade-by-id-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|string|true|Id for the grade requested.|
-|Authorization|header|string|true|The Authorization Header and Token|
-
-> Example Response
-
-> 200 Response
-
-<h3 id="get-grade-by-id-responses">Responses</h3>
-
-|Status|Meaning|Description|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
-
 <h2 id="Replace a Grade">Replace a Grade</h2>
 
 > Code Sample
@@ -837,6 +800,283 @@ This endpoint replaces/updates a whole Grade instance
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h1 id="continu-api-groups">Groups</h1>
+
+<h2 id="Get Group by id or external_id">Get Group by id or external_id</h2>
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/grades/{id} \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint gets the group corresponding to the given id or external_id.
+
+### HTTP Request
+`GET https://usw2-oapi.continu.co/api/v1/data/grades/{id}`
+
+<h3 id="get-group-by-id-or-external_id-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|string|true|Id for the group requested.|
+|external_id|query|string|false|Optional true/false indicating to use external_id field to match the {id} param|
+|Authorization|header|string|true|The Authorization Header and Token|
+
+> Example Response
+
+> 200 Response
+
+<h3 id="get-group-by-id-or-external_id-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Groups a Location">Groups a Location</h2>
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X POST https://usw2-oapi.continu.co/api/v1/data/group \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint creates a Group instance
+
+> Body parameter
+
+```json
+{
+  "company": "56b1258a9f176c1100e7e993",
+  "created_at": "2020-01-28T09:13:30.466Z",
+  "departments": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "description": "This is a description about the group segmentation",
+  "external_id": "1234,AB435BD,X56b1258a",
+  "grades": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "id": "56b1258a9f176c1100e7e993",
+  "levels": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "locations": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "name": "Featured",
+  "teams": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "updated_at": "2020-04-28T09:13:30.466Z",
+  "user": "56b1258a9f176c1100e7e993"
+}
+```
+
+### HTTP Request
+`POST https://usw2-oapi.continu.co/api/v1/data/group`
+
+<h3 id="groups-a-location-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|The Authorization Header and Token|
+|body|body|[controllers.Group](#schemacontrollers.group)|true|The Group to create|
+|» company|body|string|false|none|
+|» created_at|body|string|false|none|
+|» departments|body|[string]|false|none|
+|» description|body|string|false|none|
+|» external_id|body|string|false|none|
+|» grades|body|[string]|false|none|
+|» id|body|string|false|none|
+|» levels|body|[string]|false|none|
+|» locations|body|[string]|false|none|
+|» name|body|string|false|none|
+|» teams|body|[string]|false|none|
+|» updated_at|body|string|false|none|
+|» user|body|string|false|none|
+
+> Example Response
+
+> 201 Response
+
+<h3 id="groups-a-location-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Replace a Group">Replace a Group</h2>
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X PUT https://usw2-oapi.continu.co/api/v1/data/group/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint replaces/updates a whole Location instance
+
+> Body parameter
+
+```json
+{
+  "company": "56b1258a9f176c1100e7e993",
+  "created_at": "2020-01-28T09:13:30.466Z",
+  "departments": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "description": "This is a description about the group segmentation",
+  "external_id": "1234,AB435BD,X56b1258a",
+  "grades": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "id": "56b1258a9f176c1100e7e993",
+  "levels": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "locations": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "name": "Featured",
+  "teams": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "updated_at": "2020-04-28T09:13:30.466Z",
+  "user": "56b1258a9f176c1100e7e993"
+}
+```
+
+### HTTP Request
+`PUT https://usw2-oapi.continu.co/api/v1/data/group/{id}`
+
+<h3 id="replace-a-group-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|string|true|Id for the Group requested to be replaced.|
+|Authorization|header|string|true|The Authorization Header and Token|
+|body|body|[controllers.Group](#schemacontrollers.group)|true|The Group to replace|
+|» company|body|string|false|none|
+|» created_at|body|string|false|none|
+|» departments|body|[string]|false|none|
+|» description|body|string|false|none|
+|» external_id|body|string|false|none|
+|» grades|body|[string]|false|none|
+|» id|body|string|false|none|
+|» levels|body|[string]|false|none|
+|» locations|body|[string]|false|none|
+|» name|body|string|false|none|
+|» teams|body|[string]|false|none|
+|» updated_at|body|string|false|none|
+|» user|body|string|false|none|
+
+> Example Response
+
+> 400 Response
+
+<h3 id="replace-a-group-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Get Group List">Get Group List</h2>
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/groups \
+  -H 'Accept: application/json' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint lists all Group's briefs, you may return them as a list size of 50 records, 100, or 500, and in a "compact", "summary", or "full" list type.
+If omitted, the default values for the list are "compact" and 50 records.
+If you want to return the next batch of 50, 100, or 500 records
+The list To get the next group of records send id_from argument with the last id you received.
+
+### HTTP Request
+`GET https://usw2-oapi.continu.co/api/v1/data/groups`
+
+<h3 id="get-group-list-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id_from|query|string|false|Optional Id from the last record previously returned. This will be the Id from which data is returned|
+|list_size|query|string|false|Size of the returned list. This value can be 50, 100, or 500|
+|list_type|query|string|false|Type of List to return. This value can be compact, summary, or full indicating the number of fields included in each element returned|
+|name|query|string|false|Name value expected or comma separated list of values (Detroit, Madrid, New York)|
+|created_at_from|query|integer|false|CreatedAt From date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|created_at_until|query|integer|false|CreatedAt Until date in Unix time (AKA Epoch time, seconds since 00:00:00 UTC on 1 January 1970)|
+|Authorization|header|string|true|The Authorization Header and Token|
+
+> Example Response
+
+> 200 Response
+
+```json
+[
+  {
+    "company": "56b1258a9f176c1100e7e993",
+    "created_at": "2020-01-28T09:13:30.466Z",
+    "departments": [
+      "[56b1258a9f176c1100e7e993]"
+    ],
+    "description": "This is a description about the group segmentation",
+    "external_id": "1234,AB435BD,X56b1258a",
+    "grades": [
+      "[56b1258a9f176c1100e7e993]"
+    ],
+    "id": "56b1258a9f176c1100e7e993",
+    "levels": [
+      "[56b1258a9f176c1100e7e993]"
+    ],
+    "locations": [
+      "[56b1258a9f176c1100e7e993]"
+    ],
+    "name": "Featured",
+    "teams": [
+      "[56b1258a9f176c1100e7e993]"
+    ],
+    "updated_at": "2020-04-28T09:13:30.466Z",
+    "user": "56b1258a9f176c1100e7e993"
+  }
+]
+```
+
+<h3 id="get-group-list-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
 <h1 id="continu-api-levels">Levels</h1>
@@ -1870,6 +2110,9 @@ The list To get the next group of records send id_from argument with the last id
     "first_login": "2020-01-28T09:13:30.466Z",
     "first_name": "Theresa",
     "full_name": "Theresa Jenkins",
+    "groups": [
+      "[56b9938a9f176c1100e7e156]"
+    ],
     "hired_on": "2020-04-28T09:13:30.466Z",
     "id": "56b1258a9f176c1100e7e993",
     "image": "https://d2277n3gvptnup.cloudfront.net/images/afcaf0c3-b0db-4313-b42e-bcabdfae35cb.jpg",
@@ -1881,15 +2124,18 @@ The list To get the next group of records send id_from argument with the last id
     "last_login": "2020-04-28T09:13:30.466Z",
     "last_name": "Jenkins",
     "linked_departments": [
-      "56b9938a9f176c1100e7e156"
+      "[56b9938a9f176c1100e7e156]"
     ],
     "linked_grade": "56b9938a9f176c1100e7e156",
     "linked_locations": [
-      "56b9938a9f176c1100e7e125"
+      "[56b9938a9f176c1100e7e125]"
     ],
     "linked_org_level": "56b9938a9f176c1100e7e156",
     "linked_teams": [
       "56b9938a9f176c1100e7e156"
+    ],
+    "managing_groups": [
+      "[56b9938a9f176c1100e7e156]"
     ],
     "role": "user",
     "suspended_on": "2020-04-28T09:13:30.466Z",
@@ -1938,6 +2184,9 @@ This endpoint creates a User instance
   "first_name": "Theresa",
   "full_name": "Theresa Jenkins",
   "group": "Group A",
+  "groups": [
+    "[56b9938a9f176c1100e7e156]"
+  ],
   "hired_on": "2020-04-28T09:13:30.466Z",
   "id": "56b1258a9f176c1100e7e993",
   "image": "https://d2277n3gvptnup.cloudfront.net/images/afcaf0c3-b0db-4313-b42e-bcabdfae35cb.jpg",
@@ -1962,6 +2211,9 @@ This endpoint creates a User instance
     "56b9938a9f176c1100e7e156"
   ],
   "manager_email": "manager@continu.co",
+  "managing_groups": [
+    "[56b9938a9f176c1100e7e156]"
+  ],
   "password": "my password",
   "provisioning_key": "string",
   "provisioning_status": "inviting",
@@ -2006,6 +2258,7 @@ This endpoint creates a User instance
 |» first_name|body|string|false|none|
 |» full_name|body|string|false|none|
 |» group|body|string|false|none|
+|» groups|body|[string]|false|none|
 |» hired_on|body|string|false|none|
 |» id|body|string|false|none|
 |» image|body|string|false|none|
@@ -2024,6 +2277,7 @@ This endpoint creates a User instance
 |» linked_org_level|body|string|false|none|
 |» linked_teams|body|[string]|false|none|
 |» manager_email|body|string|false|none|
+|» managing_groups|body|[string]|false|none|
 |» password|body|string|false|none|
 |» provisioning_key|body|string|false|none|
 |» provisioning_status|body|string|false|none|
@@ -2116,6 +2370,9 @@ This endpoint updates a partial User instance
   "email": "theresa@continu.co",
   "first_name": "Theresa",
   "group": "Group A",
+  "groups": [
+    "[56b9938a9f176c1100e7e156]"
+  ],
   "hired_on": "2020-04-28T09:13:30.466Z",
   "image": "https://d2277n3gvptnup.cloudfront.net/images/afcaf0c3-b0db-4313-b42e-bcabdfae35cb.jpg",
   "is_collaborator": true,
@@ -2136,6 +2393,9 @@ This endpoint updates a partial User instance
     "56b9938a9f176c1100e7e156"
   ],
   "manager_email": "manager@continu.co",
+  "managing_groups": [
+    "[56b9938a9f176c1100e7e156]"
+  ],
   "password": "my password",
   "region": "Central USA",
   "role": "user",
@@ -2171,6 +2431,7 @@ This endpoint updates a partial User instance
 |» email|body|string|false|none|
 |» first_name|body|string|false|none|
 |» group|body|string|false|none|
+|» groups|body|[string]|false|none|
 |» hired_on|body|string|false|none|
 |» image|body|string|false|none|
 |» is_collaborator|body|boolean|false|none|
@@ -2185,6 +2446,7 @@ This endpoint updates a partial User instance
 |» linked_org_level|body|string|false|none|
 |» linked_teams|body|[string]|false|none|
 |» manager_email|body|string|false|none|
+|» managing_groups|body|[string]|false|none|
 |» password|body|string|false|none|
 |» region|body|string|false|none|
 |» role|body|string|false|none|
