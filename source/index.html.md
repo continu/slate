@@ -433,21 +433,11 @@ This endpoint creates a Department instance
 
 ```json
 {
-  "children": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466Z",
-  "id": "56b1258a9f176c1100e7e993",
   "level": 1,
   "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
-  "order": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
   "parent": "56b1258a9f176c1100e7e993",
-  "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466Z"
+  "show_external": true
 }
 ```
 
@@ -459,18 +449,12 @@ This endpoint creates a Department instance
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Segmentation](#schemacontrollers.segmentation)|true|The Department to create|
-|» children|body|[string]|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
+|body|body|[controllers.SegmentationInsert](#schemacontrollers.segmentationinsert)|true|The Department to create|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
-|» order|body|[string]|false|none|
 |» parent|body|string|false|none|
 |» show_external|body|boolean|false|none|
-|» updated_at|body|string|false|none|
 
 > Example Response
 
@@ -522,13 +506,13 @@ This endpoint gets the department corresponding to the given id.
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
-<h2 id="Replace a Department">Replace a Department</h2>
+<h2 id="Update a Department">Update a Department</h2>
 
 > Code Sample
 
 ```shell
 # You can also use wget
-curl -X PUT https://usw2-oapi.continu.co/api/v1/data/departments/{id} \
+curl -X PATCH https://usw2-oapi.continu.co/api/v1/data/departments/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -541,51 +525,33 @@ This endpoint replaces/updates a whole Department instance
 
 ```json
 {
-  "children": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466Z",
-  "id": "56b1258a9f176c1100e7e993",
-  "level": 1,
   "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
-  "order": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
   "parent": "56b1258a9f176c1100e7e993",
-  "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466Z"
+  "show_external": true
 }
 ```
 
 ### HTTP Request
-`PUT https://usw2-oapi.continu.co/api/v1/data/departments/{id}`
+`PATCH https://usw2-oapi.continu.co/api/v1/data/departments/{id}`
 
-<h3 id="replace-a-department-parameters">Parameters</h3>
+<h3 id="update-a-department-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |id|path|string|true|Id for the Department requested to be replaced.|
 |Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Segmentation](#schemacontrollers.segmentation)|true|The Department to replace|
-|» children|body|[string]|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
-|» level|body|integer|false|none|
+|body|body|[controllers.SegmentationUpdate](#schemacontrollers.segmentationupdate)|true|The Department to replace|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
-|» order|body|[string]|false|none|
 |» parent|body|string|false|none|
 |» show_external|body|boolean|false|none|
-|» updated_at|body|string|false|none|
 
 > Example Response
 
 > 400 Response
 
-<h3 id="replace-a-department-responses">Responses</h3>
+<h3 id="update-a-department-responses">Responses</h3>
 
 |Status|Meaning|Description|
 |---|---|---|---|
@@ -679,21 +645,11 @@ This endpoint creates a Grade instance
 
 ```json
 {
-  "children": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466Z",
-  "id": "56b1258a9f176c1100e7e993",
   "level": 1,
   "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
-  "order": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
   "parent": "56b1258a9f176c1100e7e993",
-  "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466Z"
+  "show_external": true
 }
 ```
 
@@ -705,18 +661,12 @@ This endpoint creates a Grade instance
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Segmentation](#schemacontrollers.segmentation)|true|The Grade to create|
-|» children|body|[string]|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
+|body|body|[controllers.SegmentationInsert](#schemacontrollers.segmentationinsert)|true|The Grade to create|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
-|» order|body|[string]|false|none|
 |» parent|body|string|false|none|
 |» show_external|body|boolean|false|none|
-|» updated_at|body|string|false|none|
 
 > Example Response
 
@@ -731,13 +681,50 @@ This endpoint creates a Grade instance
 |409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
-<h2 id="Replace a Grade">Replace a Grade</h2>
+<h2 id="Get Grade by id">Get Grade by id</h2>
 
 > Code Sample
 
 ```shell
 # You can also use wget
-curl -X PUT https://usw2-oapi.continu.co/api/v1/data/grades/{id} \
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/grades/{id} \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint gets the grade corresponding to the given id.
+
+### HTTP Request
+`GET https://usw2-oapi.continu.co/api/v1/data/grades/{id}`
+
+<h3 id="get-grade-by-id-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|string|true|Id for the grade requested.|
+|Authorization|header|string|true|The Authorization Header and Token|
+
+> Example Response
+
+> 200 Response
+
+<h3 id="get-grade-by-id-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Update a Grade">Update a Grade</h2>
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X PATCH https://usw2-oapi.continu.co/api/v1/data/grades/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -750,51 +737,33 @@ This endpoint replaces/updates a whole Grade instance
 
 ```json
 {
-  "children": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466Z",
-  "id": "56b1258a9f176c1100e7e993",
-  "level": 1,
   "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
-  "order": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
   "parent": "56b1258a9f176c1100e7e993",
-  "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466Z"
+  "show_external": true
 }
 ```
 
 ### HTTP Request
-`PUT https://usw2-oapi.continu.co/api/v1/data/grades/{id}`
+`PATCH https://usw2-oapi.continu.co/api/v1/data/grades/{id}`
 
-<h3 id="replace-a-grade-parameters">Parameters</h3>
+<h3 id="update-a-grade-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |id|path|string|true|Id for the Grade requested to be replaced.|
 |Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Segmentation](#schemacontrollers.segmentation)|true|The Grade to replace|
-|» children|body|[string]|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
-|» level|body|integer|false|none|
+|body|body|[controllers.SegmentationUpdate](#schemacontrollers.segmentationupdate)|true|The Grade to replace|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
-|» order|body|[string]|false|none|
 |» parent|body|string|false|none|
 |» show_external|body|boolean|false|none|
-|» updated_at|body|string|false|none|
 
 > Example Response
 
 > 400 Response
 
-<h3 id="replace-a-grade-responses">Responses</h3>
+<h3 id="update-a-grade-responses">Responses</h3>
 
 |Status|Meaning|Description|
 |---|---|---|---|
@@ -803,206 +772,6 @@ This endpoint replaces/updates a whole Grade instance
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
 <h1 id="continu-api-groups">Groups</h1>
-
-<h2 id="Get Group by id or external_id">Get Group by id or external_id</h2>
-
-> Code Sample
-
-```shell
-# You can also use wget
-curl -X GET https://usw2-oapi.continu.co/api/v1/data/grades/{id} \
-  -H 'Accept: */*' \
-  -H 'Authorization: string'
-
-```
-
-This endpoint gets the group corresponding to the given id or external_id.
-
-### HTTP Request
-`GET https://usw2-oapi.continu.co/api/v1/data/grades/{id}`
-
-<h3 id="get-group-by-id-or-external_id-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|string|true|Id for the group requested.|
-|external_id|query|string|false|Optional true/false indicating to use external_id field to match the {id} param|
-|Authorization|header|string|true|The Authorization Header and Token|
-
-> Example Response
-
-> 200 Response
-
-<h3 id="get-group-by-id-or-external_id-responses">Responses</h3>
-
-|Status|Meaning|Description|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
-
-<h2 id="Groups a Location">Groups a Location</h2>
-
-> Code Sample
-
-```shell
-# You can also use wget
-curl -X POST https://usw2-oapi.continu.co/api/v1/data/group \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'Authorization: string'
-
-```
-
-This endpoint creates a Group instance
-
-> Body parameter
-
-```json
-{
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466Z",
-  "departments": [
-    "[56b1258a9f176c1100e7e993]"
-  ],
-  "description": "This is a description about the group segmentation",
-  "external_id": "1234,AB435BD,X56b1258a",
-  "grades": [
-    "[56b1258a9f176c1100e7e993]"
-  ],
-  "id": "56b1258a9f176c1100e7e993",
-  "levels": [
-    "[56b1258a9f176c1100e7e993]"
-  ],
-  "locations": [
-    "[56b1258a9f176c1100e7e993]"
-  ],
-  "name": "Featured",
-  "teams": [
-    "[56b1258a9f176c1100e7e993]"
-  ],
-  "updated_at": "2020-04-28T09:13:30.466Z",
-  "user": "56b1258a9f176c1100e7e993"
-}
-```
-
-### HTTP Request
-`POST https://usw2-oapi.continu.co/api/v1/data/group`
-
-<h3 id="groups-a-location-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Group](#schemacontrollers.group)|true|The Group to create|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» departments|body|[string]|false|none|
-|» description|body|string|false|none|
-|» external_id|body|string|false|none|
-|» grades|body|[string]|false|none|
-|» id|body|string|false|none|
-|» levels|body|[string]|false|none|
-|» locations|body|[string]|false|none|
-|» name|body|string|false|none|
-|» teams|body|[string]|false|none|
-|» updated_at|body|string|false|none|
-|» user|body|string|false|none|
-
-> Example Response
-
-> 201 Response
-
-<h3 id="groups-a-location-responses">Responses</h3>
-
-|Status|Meaning|Description|
-|---|---|---|---|
-|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
-|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
-
-<h2 id="Replace a Group">Replace a Group</h2>
-
-> Code Sample
-
-```shell
-# You can also use wget
-curl -X PUT https://usw2-oapi.continu.co/api/v1/data/group/{id} \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  -H 'Authorization: string'
-
-```
-
-This endpoint replaces/updates a whole Location instance
-
-> Body parameter
-
-```json
-{
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466Z",
-  "departments": [
-    "[56b1258a9f176c1100e7e993]"
-  ],
-  "description": "This is a description about the group segmentation",
-  "external_id": "1234,AB435BD,X56b1258a",
-  "grades": [
-    "[56b1258a9f176c1100e7e993]"
-  ],
-  "id": "56b1258a9f176c1100e7e993",
-  "levels": [
-    "[56b1258a9f176c1100e7e993]"
-  ],
-  "locations": [
-    "[56b1258a9f176c1100e7e993]"
-  ],
-  "name": "Featured",
-  "teams": [
-    "[56b1258a9f176c1100e7e993]"
-  ],
-  "updated_at": "2020-04-28T09:13:30.466Z",
-  "user": "56b1258a9f176c1100e7e993"
-}
-```
-
-### HTTP Request
-`PUT https://usw2-oapi.continu.co/api/v1/data/group/{id}`
-
-<h3 id="replace-a-group-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|string|true|Id for the Group requested to be replaced.|
-|Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Group](#schemacontrollers.group)|true|The Group to replace|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» departments|body|[string]|false|none|
-|» description|body|string|false|none|
-|» external_id|body|string|false|none|
-|» grades|body|[string]|false|none|
-|» id|body|string|false|none|
-|» levels|body|[string]|false|none|
-|» locations|body|[string]|false|none|
-|» name|body|string|false|none|
-|» teams|body|[string]|false|none|
-|» updated_at|body|string|false|none|
-|» user|body|string|false|none|
-
-> Example Response
-
-> 400 Response
-
-<h3 id="replace-a-group-responses">Responses</h3>
-
-|Status|Meaning|Description|
-|---|---|---|---|
-|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
 <h2 id="Get Group List">Get Group List</h2>
 
@@ -1077,6 +846,206 @@ The list To get the next group of records send id_from argument with the last id
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Groups a Location">Groups a Location</h2>
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X POST https://usw2-oapi.continu.co/api/v1/data/groups \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint creates a Group instance
+
+> Body parameter
+
+```json
+{
+  "company": "56b1258a9f176c1100e7e993",
+  "created_at": "2020-01-28T09:13:30.466Z",
+  "departments": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "description": "This is a description about the group segmentation",
+  "external_id": "1234,AB435BD,X56b1258a",
+  "grades": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "id": "56b1258a9f176c1100e7e993",
+  "levels": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "locations": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "name": "Featured",
+  "teams": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "updated_at": "2020-04-28T09:13:30.466Z",
+  "user": "56b1258a9f176c1100e7e993"
+}
+```
+
+### HTTP Request
+`POST https://usw2-oapi.continu.co/api/v1/data/groups`
+
+<h3 id="groups-a-location-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|Authorization|header|string|true|The Authorization Header and Token|
+|body|body|[controllers.Group](#schemacontrollers.group)|true|The Group to create|
+|» company|body|string|false|none|
+|» created_at|body|string|false|none|
+|» departments|body|[string]|false|none|
+|» description|body|string|false|none|
+|» external_id|body|string|false|none|
+|» grades|body|[string]|false|none|
+|» id|body|string|false|none|
+|» levels|body|[string]|false|none|
+|» locations|body|[string]|false|none|
+|» name|body|string|false|none|
+|» teams|body|[string]|false|none|
+|» updated_at|body|string|false|none|
+|» user|body|string|false|none|
+
+> Example Response
+
+> 201 Response
+
+<h3 id="groups-a-location-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Created|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Conflict|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Get Group by id or external_id">Get Group by id or external_id</h2>
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X GET https://usw2-oapi.continu.co/api/v1/data/groups/{id} \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint gets the group corresponding to the given id or external_id.
+
+### HTTP Request
+`GET https://usw2-oapi.continu.co/api/v1/data/groups/{id}`
+
+<h3 id="get-group-by-id-or-external_id-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|string|true|Id for the group requested.|
+|external_id|query|string|false|Optional true/false indicating to use external_id field to match the {id} param|
+|Authorization|header|string|true|The Authorization Header and Token|
+
+> Example Response
+
+> 200 Response
+
+<h3 id="get-group-by-id-or-external_id-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
+
+<h2 id="Update a Group">Update a Group</h2>
+
+> Code Sample
+
+```shell
+# You can also use wget
+curl -X PATCH https://usw2-oapi.continu.co/api/v1/data/groups/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: */*' \
+  -H 'Authorization: string'
+
+```
+
+This endpoint replaces/updates a whole Location instance
+
+> Body parameter
+
+```json
+{
+  "company": "56b1258a9f176c1100e7e993",
+  "created_at": "2020-01-28T09:13:30.466Z",
+  "departments": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "description": "This is a description about the group segmentation",
+  "external_id": "1234,AB435BD,X56b1258a",
+  "grades": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "id": "56b1258a9f176c1100e7e993",
+  "levels": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "locations": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "name": "Featured",
+  "teams": [
+    "[56b1258a9f176c1100e7e993]"
+  ],
+  "updated_at": "2020-04-28T09:13:30.466Z",
+  "user": "56b1258a9f176c1100e7e993"
+}
+```
+
+### HTTP Request
+`PATCH https://usw2-oapi.continu.co/api/v1/data/groups/{id}`
+
+<h3 id="update-a-group-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|string|true|Id for the Group requested to be replaced.|
+|Authorization|header|string|true|The Authorization Header and Token|
+|body|body|[controllers.Group](#schemacontrollers.group)|true|The Group to replace|
+|» company|body|string|false|none|
+|» created_at|body|string|false|none|
+|» departments|body|[string]|false|none|
+|» description|body|string|false|none|
+|» external_id|body|string|false|none|
+|» grades|body|[string]|false|none|
+|» id|body|string|false|none|
+|» levels|body|[string]|false|none|
+|» locations|body|[string]|false|none|
+|» name|body|string|false|none|
+|» teams|body|[string]|false|none|
+|» updated_at|body|string|false|none|
+|» user|body|string|false|none|
+
+> Example Response
+
+> 400 Response
+
+<h3 id="update-a-group-responses">Responses</h3>
+
+|Status|Meaning|Description|
+|---|---|---|---|
+|204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|none|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
 <h1 id="continu-api-levels">Levels</h1>
@@ -1165,21 +1134,11 @@ This endpoint creates a Level
 
 ```json
 {
-  "children": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466Z",
-  "id": "56b1258a9f176c1100e7e993",
   "level": 1,
   "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
-  "order": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
   "parent": "56b1258a9f176c1100e7e993",
-  "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466Z"
+  "show_external": true
 }
 ```
 
@@ -1191,18 +1150,12 @@ This endpoint creates a Level
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Segmentation](#schemacontrollers.segmentation)|true|The Level to create|
-|» children|body|[string]|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
+|body|body|[controllers.SegmentationInsert](#schemacontrollers.segmentationinsert)|true|The Level to create|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
-|» order|body|[string]|false|none|
 |» parent|body|string|false|none|
 |» show_external|body|boolean|false|none|
-|» updated_at|body|string|false|none|
 
 > Example Response
 
@@ -1254,13 +1207,13 @@ This endpoint gets the level corresponding to the given id.
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
-<h2 id="Replace a Level">Replace a Level</h2>
+<h2 id="Update a Level">Update a Level</h2>
 
 > Code Sample
 
 ```shell
 # You can also use wget
-curl -X PUT https://usw2-oapi.continu.co/api/v1/data/levels/{id} \
+curl -X PATCH https://usw2-oapi.continu.co/api/v1/data/levels/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1273,51 +1226,33 @@ This endpoint replaces/updates a whole Level instance
 
 ```json
 {
-  "children": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466Z",
-  "id": "56b1258a9f176c1100e7e993",
-  "level": 1,
   "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
-  "order": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
   "parent": "56b1258a9f176c1100e7e993",
-  "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466Z"
+  "show_external": true
 }
 ```
 
 ### HTTP Request
-`PUT https://usw2-oapi.continu.co/api/v1/data/levels/{id}`
+`PATCH https://usw2-oapi.continu.co/api/v1/data/levels/{id}`
 
-<h3 id="replace-a-level-parameters">Parameters</h3>
+<h3 id="update-a-level-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |id|path|string|true|Id for the Level requested to be replaced.|
 |Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Segmentation](#schemacontrollers.segmentation)|true|The Level to replace|
-|» children|body|[string]|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
-|» level|body|integer|false|none|
+|body|body|[controllers.SegmentationUpdate](#schemacontrollers.segmentationupdate)|true|The Level to replace|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
-|» order|body|[string]|false|none|
 |» parent|body|string|false|none|
 |» show_external|body|boolean|false|none|
-|» updated_at|body|string|false|none|
 
 > Example Response
 
 > 400 Response
 
-<h3 id="replace-a-level-responses">Responses</h3>
+<h3 id="update-a-level-responses">Responses</h3>
 
 |Status|Meaning|Description|
 |---|---|---|---|
@@ -1411,21 +1346,11 @@ This endpoint creates a Location instance
 
 ```json
 {
-  "children": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466Z",
-  "id": "56b1258a9f176c1100e7e993",
   "level": 1,
   "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
-  "order": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
   "parent": "56b1258a9f176c1100e7e993",
-  "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466Z"
+  "show_external": true
 }
 ```
 
@@ -1437,18 +1362,12 @@ This endpoint creates a Location instance
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Segmentation](#schemacontrollers.segmentation)|true|The Location to create|
-|» children|body|[string]|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
+|body|body|[controllers.SegmentationInsert](#schemacontrollers.segmentationinsert)|true|The Location to create|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
-|» order|body|[string]|false|none|
 |» parent|body|string|false|none|
 |» show_external|body|boolean|false|none|
-|» updated_at|body|string|false|none|
 
 > Example Response
 
@@ -1500,7 +1419,7 @@ This endpoint gets the location corresponding to the given id.
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
-<h2 id="Replace a Location">Replace a Location</h2>
+<h2 id="Update a Location">Update a Location</h2>
 
 > Code Sample
 
@@ -1519,51 +1438,33 @@ This endpoint replaces/updates a whole Location instance
 
 ```json
 {
-  "children": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466Z",
-  "id": "56b1258a9f176c1100e7e993",
-  "level": 1,
   "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
-  "order": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
   "parent": "56b1258a9f176c1100e7e993",
-  "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466Z"
+  "show_external": true
 }
 ```
 
 ### HTTP Request
 `PUT https://usw2-oapi.continu.co/api/v1/data/locations/{id}`
 
-<h3 id="replace-a-location-parameters">Parameters</h3>
+<h3 id="update-a-location-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |id|path|string|true|Id for the Location requested to be replaced.|
 |Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Segmentation](#schemacontrollers.segmentation)|true|The Location to replace|
-|» children|body|[string]|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
-|» level|body|integer|false|none|
+|body|body|[controllers.SegmentationUpdate](#schemacontrollers.segmentationupdate)|true|The Location to replace|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
-|» order|body|[string]|false|none|
 |» parent|body|string|false|none|
 |» show_external|body|boolean|false|none|
-|» updated_at|body|string|false|none|
 
 > Example Response
 
 > 400 Response
 
-<h3 id="replace-a-location-responses">Responses</h3>
+<h3 id="update-a-location-responses">Responses</h3>
 
 |Status|Meaning|Description|
 |---|---|---|---|
@@ -1882,21 +1783,11 @@ This endpoint creates a Team instance
 
 ```json
 {
-  "children": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466Z",
-  "id": "56b1258a9f176c1100e7e993",
   "level": 1,
   "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
-  "order": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
   "parent": "56b1258a9f176c1100e7e993",
-  "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466Z"
+  "show_external": true
 }
 ```
 
@@ -1908,18 +1799,12 @@ This endpoint creates a Team instance
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Segmentation](#schemacontrollers.segmentation)|true|The Team to create|
-|» children|body|[string]|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
+|body|body|[controllers.SegmentationInsert](#schemacontrollers.segmentationinsert)|true|The Team to create|
 |» level|body|integer|false|none|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
-|» order|body|[string]|false|none|
 |» parent|body|string|false|none|
 |» show_external|body|boolean|false|none|
-|» updated_at|body|string|false|none|
 
 > Example Response
 
@@ -1971,13 +1856,13 @@ This endpoint gets the team corresponding to the given id.
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
-<h2 id="Replace a Team">Replace a Team</h2>
+<h2 id="Update a Team">Update a Team</h2>
 
 > Code Sample
 
 ```shell
 # You can also use wget
-curl -X PUT https://usw2-oapi.continu.co/api/v1/data/teams/{id} \
+curl -X PATCH https://usw2-oapi.continu.co/api/v1/data/teams/{id} \
   -H 'Content-Type: application/json' \
   -H 'Accept: */*' \
   -H 'Authorization: string'
@@ -1990,51 +1875,33 @@ This endpoint replaces/updates a whole Team instance
 
 ```json
 {
-  "children": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
-  "company": "56b1258a9f176c1100e7e993",
-  "created_at": "2020-01-28T09:13:30.466Z",
-  "id": "56b1258a9f176c1100e7e993",
-  "level": 1,
   "localized_names": "fr:Mis en exergue,de:Empfohlen,pt_br:Novidades,es_la:Novedades",
   "name": "Featured",
-  "order": [
-    "[56b9938a9f176c1100e7e125]"
-  ],
   "parent": "56b1258a9f176c1100e7e993",
-  "show_external": true,
-  "updated_at": "2020-04-28T09:13:30.466Z"
+  "show_external": true
 }
 ```
 
 ### HTTP Request
-`PUT https://usw2-oapi.continu.co/api/v1/data/teams/{id}`
+`PATCH https://usw2-oapi.continu.co/api/v1/data/teams/{id}`
 
-<h3 id="replace-a-team-parameters">Parameters</h3>
+<h3 id="update-a-team-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |id|path|string|true|Id for the Team requested to be replaced.|
 |Authorization|header|string|true|The Authorization Header and Token|
-|body|body|[controllers.Segmentation](#schemacontrollers.segmentation)|true|The Team to replace|
-|» children|body|[string]|false|none|
-|» company|body|string|false|none|
-|» created_at|body|string|false|none|
-|» id|body|string|false|none|
-|» level|body|integer|false|none|
+|body|body|[controllers.SegmentationUpdate](#schemacontrollers.segmentationupdate)|true|The Team to replace|
 |» localized_names|body|string|false|none|
 |» name|body|string|false|none|
-|» order|body|[string]|false|none|
 |» parent|body|string|false|none|
 |» show_external|body|boolean|false|none|
-|» updated_at|body|string|false|none|
 
 > Example Response
 
 > 400 Response
 
-<h3 id="replace-a-team-responses">Responses</h3>
+<h3 id="update-a-team-responses">Responses</h3>
 
 |Status|Meaning|Description|
 |---|---|---|---|
