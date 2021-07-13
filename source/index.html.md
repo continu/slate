@@ -848,7 +848,7 @@ The list To get the next group of records send id_from argument with the last id
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal Server Error|
 
-<h2 id="Groups a Location">Groups a Location</h2>
+<h2 id="Creates a Group">Creates a Group</h2>
 
 > Code Sample
 
@@ -896,7 +896,7 @@ This endpoint creates a Group instance
 ### HTTP Request
 `POST https://usw2-oapi.continu.co/api/v1/data/groups`
 
-<h3 id="groups-a-location-parameters">Parameters</h3>
+<h3 id="creates-a-group-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -920,7 +920,7 @@ This endpoint creates a Group instance
 
 > 201 Response
 
-<h3 id="groups-a-location-responses">Responses</h3>
+<h3 id="creates-a-group-responses">Responses</h3>
 
 |Status|Meaning|Description|
 |---|---|---|---|
