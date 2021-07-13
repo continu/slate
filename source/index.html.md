@@ -896,7 +896,6 @@ This endpoint creates a Group instance
 ### HTTP Request
 `POST https://usw2-oapi.continu.co/api/v1/data/groups`
 
-<h3 id="groups-a-location-parameters">Parameters</h3>
 <h3 id="creates-a-group-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
